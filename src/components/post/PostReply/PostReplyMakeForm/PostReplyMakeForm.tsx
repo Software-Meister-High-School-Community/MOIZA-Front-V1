@@ -1,69 +1,64 @@
-import useNestedComment from "../../../../hooks/post/comment/useComment";
-import SubmitButton from "../../../Common/Button/SubmitButton";
-import * as PRMF from "./PostReplyMakeForm.style";
-import x from "../../../../assets/img/common/X.svg";
-import plus from "../../../../assets/img/common/plus.svg";
+import useNestedComment from '../../../../hooks/post/comment/useComment';
+import SubmitButton from '../../../common/Button/SubmitButton/SubmitButton';
+import * as S from './style';
+import x from '../../../../assets/img/common/X.svg';
+import plus from '../../../../assets/img/common/plus.svg';
 
 const PostReplyMakeForm = () => {
-  const { makeCommentData, onChangeValue, onChangeFile, onRemoveFile } =
-    useNestedComment();
+  const { makeCommentData, onChangeValue, onChangeFile, onRemoveFile } = useNestedComment();
 
   return (
-    <PRMF.PostReplyMakeFormBox>
-      <PRMF.PostReplyMakeFormHeaderWrap>
+    <S.PostReplyMakeFormBox>
+      <S.PostReplyMakeFormHeaderWrap>
         <h1>답글</h1>
         <SubmitButton
           text="답글 등록"
           blue
           big
-          disable={
-            makeCommentData.text === "" && makeCommentData.picture.length === 0
-          }
+          disable={makeCommentData.text === '' && makeCommentData.picture.length === 0}
         />
-      </PRMF.PostReplyMakeFormHeaderWrap>
-      <PRMF.PostReplyMakeFormTextarea
+      </S.PostReplyMakeFormHeaderWrap>
+      <S.PostReplyMakeFormTextarea
         name="text"
-        onChange={(e) => onChangeValue(e)}
+        onChange={e => onChangeValue(e)}
         value={makeCommentData.text}
       />
-      <PRMF.PostReplyMakeFormCountText>
-        {makeCommentData.text.length}/500
-      </PRMF.PostReplyMakeFormCountText>
-      <PRMF.PostReplyMakeFormFileForm>
-        <PRMF.PostReplyMakeFormFileHeaderWrap>
+      <S.PostReplyMakeFormCountText>{makeCommentData.text.length}/500</S.PostReplyMakeFormCountText>
+      <S.PostReplyMakeFormFileForm>
+        <S.PostReplyMakeFormFileHeaderWrap>
           <h1>첨부파일</h1>
           <p>{makeCommentData.picture.length}/4</p>
-        </PRMF.PostReplyMakeFormFileHeaderWrap>
+        </S.PostReplyMakeFormFileHeaderWrap>
         <hr />
-        <PRMF.PostReplyMakeFormFileMiddleWrap>
+        <S.PostReplyMakeFormFileMiddleWrap>
           <input
             type="file"
             accept="image/*"
             multiple
-            onChange={(e) => onChangeFile(e, makeCommentData.picture.length)}
+            onChange={e => onChangeFile(e, makeCommentData.picture.length)}
             id="commentFile"
           />
-          {makeCommentData.picture.map((img) => {
+          {makeCommentData.picture.map(img => {
             return (
-              <PRMF.PostReplyMakeFormFileItemWrap>
-                <PRMF.PostReplyMakeFormFileImg alt={img.id} />
-                <PRMF.PostReplyMakeFormFileItemBottomWrap>
+              <S.PostReplyMakeFormFileItemWrap>
+                <S.PostReplyMakeFormFileImg alt={img.id} />
+                <S.PostReplyMakeFormFileItemBottomWrap>
                   <pre>{img.name}</pre>
                   <button onClick={() => onRemoveFile(img.id)}>
                     <img src={x} alt="cancle" />
                   </button>
-                </PRMF.PostReplyMakeFormFileItemBottomWrap>
-              </PRMF.PostReplyMakeFormFileItemWrap>
+                </S.PostReplyMakeFormFileItemBottomWrap>
+              </S.PostReplyMakeFormFileItemWrap>
             );
           })}
           {makeCommentData.picture.length !== 4 && (
-            <PRMF.PostReplyMakeFormFileAddLabel htmlFor="commentFile">
+            <S.PostReplyMakeFormFileAddLabel htmlFor="commentFile">
               <img src={plus} alt="addFile" />
-            </PRMF.PostReplyMakeFormFileAddLabel>
+            </S.PostReplyMakeFormFileAddLabel>
           )}
-        </PRMF.PostReplyMakeFormFileMiddleWrap>
-      </PRMF.PostReplyMakeFormFileForm>
-    </PRMF.PostReplyMakeFormBox>
+        </S.PostReplyMakeFormFileMiddleWrap>
+      </S.PostReplyMakeFormFileForm>
+    </S.PostReplyMakeFormBox>
   );
 };
 

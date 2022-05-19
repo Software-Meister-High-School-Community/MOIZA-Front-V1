@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import * as LF from "./LoginForm.style";
-import { Link } from "react-router-dom";
-import TextInput from "../../Common/Input/TextInput";
-import { ILoginProps } from "../../../interface/Login/Login.type";
+import React, { useState } from 'react';
+import * as S from './style';
+import { Link } from 'react-router-dom';
+import TextInput from '../../common/Input/TextInput/TextInput';
+import { ILoginProps } from '../../../interface/Login/Login.type';
 
 type Props = {
   loginData: ILoginProps;
@@ -14,19 +14,19 @@ const LoginForm: React.FC<Props> = ({ loginData, handleLoginData }) => {
   const [isShow, setIsShow] = useState<boolean>(false);
 
   return (
-    <LF.LoginFormBox>
-      <LF.LoginFormInputWrap>
-        <LF.LoginFormTextInputWrap>
-          <LF.LoginFormInputTitle>아이디</LF.LoginFormInputTitle>
+    <S.LoginFormBox>
+      <S.LoginFormInputWrap>
+        <S.LoginFormTextInputWrap>
+          <S.LoginFormInputTitle>아이디</S.LoginFormInputTitle>
           <TextInput
             type="text"
             value={loginData.account_id}
-            name={"account_id"}
+            name={'account_id'}
             setValue={handleLoginData}
-            placeholder={"아이디"}
-            margin={"13px 0 58px 0"}
+            placeholder={'아이디'}
+            margin={'13px 0 58px 0'}
           />
-          <LF.LoginFormInputTitle>비밀번호</LF.LoginFormInputTitle>
+          <S.LoginFormInputTitle>비밀번호</S.LoginFormInputTitle>
           <TextInput
             type="password"
             value={loginData.password}
@@ -34,34 +34,31 @@ const LoginForm: React.FC<Props> = ({ loginData, handleLoginData }) => {
             setValue={handleLoginData}
             isShow={isShow}
             onClick={setIsShow}
-            margin={"13px 0 0 0"}
+            margin={'13px 0 0 0'}
             placeholder="비밀번호"
           />
-        </LF.LoginFormTextInputWrap>
-        <LF.LoginFormSaveInputWrap>
-          <LF.LoginFormSaveCheckButton
-            checked={isCheck}
-            onClick={() => setIsCheck((prev) => !prev)}
-          >
-            <LF.LoginFormSaveCheckButtonRect />
-          </LF.LoginFormSaveCheckButton>
+        </S.LoginFormTextInputWrap>
+        <S.LoginFormSaveInputWrap>
+          <S.LoginFormSaveCheckButton checked={isCheck} onClick={() => setIsCheck(prev => !prev)}>
+            <S.LoginFormSaveCheckButtonRect />
+          </S.LoginFormSaveCheckButton>
           로그인 저장
-        </LF.LoginFormSaveInputWrap>
-        <LF.LoginFormCategoryInputWrap>
-          <LF.LoginFormCategoryInput>
+        </S.LoginFormSaveInputWrap>
+        <S.LoginFormCategoryInputWrap>
+          <S.LoginFormCategoryInput>
             <Link to="/signup">회원가입</Link>
-          </LF.LoginFormCategoryInput>
-          <LF.LoginFormCategoryInputLine />
-          <LF.LoginFormCategoryInput>
+          </S.LoginFormCategoryInput>
+          <S.LoginFormCategoryInputLine />
+          <S.LoginFormCategoryInput>
             <Link to="/findauthdata">아이디 찾기</Link>
-          </LF.LoginFormCategoryInput>
-          <LF.LoginFormCategoryInputLine />
-          <LF.LoginFormCategoryInput>
+          </S.LoginFormCategoryInput>
+          <S.LoginFormCategoryInputLine />
+          <S.LoginFormCategoryInput>
             <Link to="/findauthdata">비밀번호 찾기</Link>
-          </LF.LoginFormCategoryInput>
-        </LF.LoginFormCategoryInputWrap>
-      </LF.LoginFormInputWrap>
-    </LF.LoginFormBox>
+          </S.LoginFormCategoryInput>
+        </S.LoginFormCategoryInputWrap>
+      </S.LoginFormInputWrap>
+    </S.LoginFormBox>
   );
 };
 

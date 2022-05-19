@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PostReplyBox = styled.div`
   width: 1200px;
@@ -37,7 +37,7 @@ export const PostReplyInfoWrap = styled.div`
 `;
 
 export const PostReplyTitle = styled.h1`
-  font-size: ${(props) => props.theme.fontSize.head_small};
+  font-size: ${props => props.theme.fontSize.head_small};
   font-weight: 400;
   margin-bottom: auto;
   text-align: start;
@@ -65,7 +65,7 @@ export const PostReplyWriterInfoTextWrap = styled.p`
 `;
 
 export const PostReplyWriterInfoText = styled.span`
-  color: ${(props) => props.theme.color.gray_color5};
+  color: ${props => props.theme.color.gray_color5};
   font-style: normal;
   font-weight: normal;
 
@@ -78,7 +78,7 @@ export const PostReplyWriterBreakPoint = styled.div`
   width: 4px;
   height: 4px;
   border-radius: 100px;
-  background-color: ${(props) => props.theme.color.gray_color5};
+  background-color: ${props => props.theme.color.gray_color5};
   margin-left: 16px;
   margin-right: 23px;
 `;
@@ -92,7 +92,7 @@ export const PostReplyDateInfoWrap = styled.div`
   row-gap: 5px;
 
   pre {
-    color: ${(props) => props.theme.color.gray_color4};
+    color: ${props => props.theme.color.gray_color4};
     font-weight: 400;
     font-size: 12px;
     text-align: end;
@@ -124,21 +124,21 @@ export const PostReplyMiddleWrap = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.theme.color.gray_color1};
+  background-color: ${props => props.theme.color.gray_color1};
   border-radius: 5px 5px 0px 0px;
-  border: 1px solid ${(props) => props.theme.color.gray_color3};
+  border: 1px solid ${props => props.theme.color.gray_color3};
 `;
 
 export const PostReplyContentText = styled.p<{ withPicture: boolean }>`
   width: 100%;
   color: black;
-  font-size: ${(props) => props.theme.fontSize.body_large};
+  font-size: ${props => props.theme.fontSize.body_large};
   word-break: break-all;
   font-style: normal;
   font-weight: normal;
   line-height: 30px;
 
-  ${(props) => props.withPicture && "margin-bottom : 46px"}
+  ${props => props.withPicture && 'margin-bottom : 46px'}
 `;
 
 export const PostReplyBottomWrap = styled.div`
@@ -147,9 +147,9 @@ export const PostReplyBottomWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => props.theme.color.gray_color1};
+  background-color: ${props => props.theme.color.gray_color1};
   border-radius: 0px 0px 5px 5px;
-  border: 1px solid ${(props) => props.theme.color.gray_color3};
+  border: 1px solid ${props => props.theme.color.gray_color3};
   border-top: 0px;
   box-sizing: border-box;
   padding: 0px 30px;
@@ -166,8 +166,8 @@ export const PostReplyBottomLikeWrap = styled.div`
   }
 
   p {
-    font-size: ${(props) => props.theme.fontSize.body_medium};
-    color: ${(props) => props.theme.color.gray_color5};
+    font-size: ${props => props.theme.fontSize.body_medium};
+    color: ${props => props.theme.color.gray_color5};
     font-weight: 400;
   }
 `;
@@ -183,8 +183,8 @@ export const PostReplyBottomViewWrap = styled.div`
   }
 
   p {
-    font-size: ${(props) => props.theme.fontSize.body_medium};
-    color: ${(props) => props.theme.color.gray_color5};
+    font-size: ${props => props.theme.fontSize.body_medium};
+    color: ${props => props.theme.color.gray_color5};
     font-weight: 400;
   }
 `;
@@ -192,7 +192,7 @@ export const PostReplyBottomViewWrap = styled.div`
 export const PostReplyLine = styled.hr`
   width: 100%;
   border: 0px;
-  border-top: 1px solid ${(props) => props.theme.color.gray_color3};
+  border-top: 1px solid ${props => props.theme.color.gray_color3};
   margin-top: 80px;
   margin-bottom: 50px;
 `;
@@ -205,13 +205,13 @@ export const PostReplyCommentTitleWrap = styled.div`
   justify-content: space-between;
 
   p {
-    font-size: ${(props) => props.theme.fontSize.head_small};
+    font-size: ${props => props.theme.fontSize.head_small};
     color: black;
     font-style: normal;
     font-weight: normal;
 
     strong {
-      color: ${(props) => props.theme.color.main_blue_color};
+      color: ${props => props.theme.color.main_blue_color};
       font-style: normal;
       font-weight: normal;
     }
@@ -227,7 +227,7 @@ export const PostReplyNoCommentWrap = styled.div`
   align-items: center;
 
   p {
-    color: ${(props) => props.theme.color.gray_color4};
+    color: ${props => props.theme.color.gray_color4};
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
