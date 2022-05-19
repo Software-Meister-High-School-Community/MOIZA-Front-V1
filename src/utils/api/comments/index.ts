@@ -5,16 +5,9 @@ import {
   IWriteCommentRequest,
 } from '../../../models/comments/request';
 
-export const replyComment = async ({
-  attachment_file_urls,
-  content,
-  comment_id,
-}: IPostCommentReplyRequest) => {
+export const replyComment = async (comment_id: number, body: IPostCommentReplyRequest) => {
   try {
-    await instance.post(`/comments/${comment_id}`, {
-      attachment_file_urls,
-      content,
-    });
+    await instance.post(`/comments/${comment_id}`, body);
   } catch (err) {
     throw err;
   }
@@ -44,9 +37,10 @@ export const reportComment = async (comment_id: number) => {
   }
 };
 
-export const writeComment = async ({ attachment_file_urls, content }: IWriteCommentRequest) => {
+export const writeComment = async (body: IWriteCommentRequest) => {
   try {
-    await instance.post('/comments', { attachment_file_urls, content });
+    await instance.post('/comments', body);
+    ``;
   } catch (err) {
     throw err;
   }
@@ -60,16 +54,9 @@ export const removeComment = async (commentId: number) => {
   }
 };
 
-export const patchComment = async ({
-  comment_id,
-  content,
-  attachment_file_urls,
-}: IPatchCommentRequest) => {
+export const patchComment = async (comment_id: number, body: IPatchCommentRequest) => {
   try {
-    await instance.patch(`/comments/${comment_id}`, {
-      content,
-      attachment_file_urls,
-    });
+    await instance.patch(`/comments/${comment_id}`, body);
   } catch (err) {
     throw err;
   }

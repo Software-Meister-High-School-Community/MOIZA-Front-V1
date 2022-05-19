@@ -35,31 +35,17 @@ export const checkEmailAuthCode = async (
   }
 };
 
-export const login = async ({
-  account_id,
-  password,
-  app_device_token = null,
-  web_device_token,
-}: ILoginRequest): Promise<ILoginResponse> => {
+export const login = async (body: ILoginRequest): Promise<ILoginResponse> => {
   try {
-    return await instance.post('/auth/tokens', {
-      account_id,
-      password,
-      app_device_token,
-      web_device_token,
-    });
+    return await instance.post('/auth/tokens', body);
   } catch (error) {
     throw error;
   }
 };
 
-export const changePassword = async ({
-  email,
-  new_password,
-  account_id,
-}: IChangePasswordRequest) => {
+export const changePassword = async (body: IChangePasswordRequest) => {
   try {
-    await instance.patch('/auth/passwords', { email, new_password, account_id });
+    await instance.patch('/auth/passwords', body);
   } catch (err) {
     throw err;
   }

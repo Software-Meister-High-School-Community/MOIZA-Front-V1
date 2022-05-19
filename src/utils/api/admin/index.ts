@@ -6,18 +6,13 @@ import {
   IUserReportResponse,
   IUserSuspenseResponse,
 } from '../../../models/admin/response';
-import {
-  IGetCommentReportsRequest,
-  IGetFeedReportsRequest,
-  IGetGraduateListRequest,
-  IGetUserReportsRequest,
-} from '../../../models/admin/request';
+import { TGraduateStatus } from '../../interface/common';
 
-export const getGraduateLists = async ({
-  status,
-  page,
-  keyword,
-}: IGetGraduateListRequest): Promise<IUserReportResponse> => {
+export const getGraduateLists = async (
+  status: TGraduateStatus,
+  keyword: string | null,
+  page: number,
+): Promise<IUserReportResponse> => {
   try {
     return await instance.get(
       `/admins/graduate/lists?status=${status}&keyword=${keyword}&page=${page}`,
@@ -59,10 +54,10 @@ export const userSuspension = async (userId: number): Promise<IUserSuspenseRespo
   }
 };
 
-export const getCommentReports = async ({
-  page,
-  keyword,
-}: IGetCommentReportsRequest): Promise<ICommentReportResponse> => {
+export const getCommentReports = async (
+  page: number,
+  keyword: string | null,
+): Promise<ICommentReportResponse> => {
   try {
     return await instance.get(`/reports/comments?keyword=${keyword}&page=${page}`);
   } catch (err) {
@@ -70,10 +65,10 @@ export const getCommentReports = async ({
   }
 };
 
-export const getFeedReports = async ({
-  keyword,
-  page,
-}: IGetFeedReportsRequest): Promise<IFeedReportResponse> => {
+export const getFeedReports = async (
+  page: number,
+  keyword: string | null,
+): Promise<IFeedReportResponse> => {
   try {
     return await instance.get(`/reports/feeds?keyword=${keyword}&page=${page}`);
   } catch (err) {
@@ -81,10 +76,10 @@ export const getFeedReports = async ({
   }
 };
 
-export const getUserReports = async ({
-  page,
-  keyword,
-}: IGetUserReportsRequest): Promise<IGraduateListResponse> => {
+export const getUserReports = async (
+  page: number,
+  keyword: string | null,
+): Promise<IGraduateListResponse> => {
   try {
     return await instance.get(`/reports/users?keyword=${keyword}&page=${page}`);
   } catch (err) {
