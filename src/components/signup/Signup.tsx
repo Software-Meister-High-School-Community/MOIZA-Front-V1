@@ -1,19 +1,19 @@
-import React, { ReactElement } from "react";
-import * as S from "./Signup.style";
-import SignupForm from "./SignupForm";
-import SignupProcedure from "./SignupProcedure";
-import SignupTermsForm from "./SignupTermsForm";
-import SignupIdPwForm from "./SignupIdPwForm";
-import Procedure1 from "../../assets/img/signup/signupProcedure1.svg";
-import Procedure2 from "../../assets/img/signup/signupProcedure2.svg";
-import Procedure3 from "../../assets/img/signup/signupProcedure3.svg";
+import React, { ReactElement } from 'react';
+import * as S from './style';
+import SignupForm from './signupForm';
+import SignupProcedure from './signupProcedure';
+import SignupTermsForm from './signupTermsForm';
+import SignupIdPwForm from './signupIdPwForm';
+import Procedure1 from '../../assets/img/signup/signupProcedure1.svg';
+import Procedure2 from '../../assets/img/signup/signupProcedure2.svg';
+import Procedure3 from '../../assets/img/signup/signupProcedure3.svg';
 
-import StepProgressBar from "react-step-progress";
-import * as CONST from "./Constant/index";
-import useSignup from "../../hooks/signup/useSignup";
-import { useRecoilValue } from "recoil";
-import { signupPart } from "../../store/Signup/signupPartAtom";
-import "react-step-progress/dist/index.css";
+import StepProgressBar from 'react-step-progress';
+import * as CONST from './constant/index';
+import useSignup from '../../hooks/signup/useSignup';
+import { useRecoilValue } from 'recoil';
+import { signupPart } from '../../store/Signup/signupPartAtom';
+import 'react-step-progress/dist/index.css';
 
 const Signup: React.FC = () => {
   const part = useRecoilValue(signupPart);
@@ -35,9 +35,7 @@ const Signup: React.FC = () => {
         {compList.map((comp, idx) => {
           return (
             <React.Fragment key={idx}>
-              {part === CONST.SignupPartList[idx] && (
-                <SignupProcedure img={procedureImgs[idx]} />
-              )}
+              {part === CONST.SignupPartList[idx] && <SignupProcedure img={procedureImgs[idx]} />}
               {part === CONST.SignupPartList[idx] && comp}
             </React.Fragment>
           );

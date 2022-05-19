@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import * as CONST from './constant/index';
-import FindIdForm from './FindIdForm';
+import FindIdForm from './FindIdForm/FindIdForm';
 import FindPwForm from './FindPwForm/FindPwForm';
 import { useRecoilState } from 'recoil';
 import { sendCertificationNumberStatus } from '../../store/FindAuthData/certificationStatus';
-import CertificationAlert from './CertificationAlert';
+import CertificationAlert from './certificationAlert/CertificationAlert';
 
 const FindAuthData: React.FC = () => {
   const [isSendNumber, setIsSendNumber] = useRecoilState(sendCertificationNumberStatus);

@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as S from "./Search.style";
-import OutsideClickHandler from "react-outside-click-handler";
-import SearchRecord from "./searchRecord/SearchRecord";
-import useSearch from "../../hooks/search/useSearch";
-import searchIcon from "../../assets/img/common/searchIcon.svg";
+import React, { useEffect, useRef, useState } from 'react';
+import * as S from './style';
+import OutsideClickHandler from 'react-outside-click-handler';
+import SearchRecord from './searchRecord/SearchRecord';
+import useSearch from '../../hooks/search/useSearch';
+import searchIcon from '../../assets/img/common/searchIcon.svg';
 const Search: React.FC = () => {
   const {
     handleDelteSearchRecord,
@@ -25,9 +25,9 @@ const Search: React.FC = () => {
         <OutsideClickHandler onOutsideClick={() => setVisble(false)}>
           <S.Container>
             <S.Input
-              onKeyPress={(e) => {
+              onKeyPress={e => {
                 const searchRecord = searchEl.current?.value;
-                if (e.key === "Enter" && searchRecord) onSearch(searchRecord);
+                if (e.key === 'Enter' && searchRecord) onSearch(searchRecord);
               }}
               ref={searchEl}
               autoFocus
@@ -38,13 +38,13 @@ const Search: React.FC = () => {
               onBlur={() => setDisabled(false)}
               placeholder="검색어를 입력하세요"
               value={currentSearch}
-              onChange={(e) => {
+              onChange={e => {
                 setCurrentSearch(e.target.value);
               }}
             />
             <S.SubmitButton
               disabled={disabled}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 const searchRecord = searchEl.current?.value;
                 searchRecord && onSearch(searchRecord);

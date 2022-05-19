@@ -1,14 +1,14 @@
-import React from "react";
-import PostForm from "../../Common/postform/PostForm";
-import * as PR from "./PostResult.style";
+import React from 'react';
+import PostForm from '../../common/postform/PostForm';
+import * as S from './style';
 const PostResult: React.FC = () => {
   return (
-    <PR.Wapper>
-      <PR.Title>게시물</PR.Title>
-      <PR.Container>
+    <S.Wapper>
+      <S.Title>게시물</S.Title>
+      <S.Container>
         <PostForm />
-      </PR.Container>
-    </PR.Wapper>
+      </S.Container>
+    </S.Wapper>
   );
 };
 

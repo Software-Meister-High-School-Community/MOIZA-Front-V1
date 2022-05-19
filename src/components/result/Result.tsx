@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import * as R from "./Result.style";
-import Dropdown from "../Common/Select/dropdown";
-import PostResult from "./postResult";
-import UserResult from "./userResult";
-import useResult from "../../hooks/result/useResult";
-import RadioButton from "../Common/Select/RadioButton";
-import { departmentOptions, sortOptions } from "../Common/Select/dropdown/options";
+import React, { useState } from 'react';
+import * as S from './style';
+import Dropdown from '../Common/Select/dropdown';
+import PostResult from './postResult/PostResult';
+import UserResult from './userResult/UserResult';
+import useResult from '../../hooks/result/useResult';
+import RadioButton from '../common/Select/RadioButton/RadioButton';
+import { departmentOptions, sortOptions } from '../Common/Select/dropdown/options';
 const Result: React.FC = () => {
   const {
     selectedRadio,
@@ -18,29 +18,25 @@ const Result: React.FC = () => {
   } = useResult();
   return (
     <>
-      <R.Container>
-        <R.RadioBtnBox>
+      <S.Container>
+        <S.RadioBtnBox>
           <RadioButton
             radioArray={radios}
             name="result"
             selected={selectedRadio}
             setSelected={setSelectedRadio}
           />
-        </R.RadioBtnBox>
+        </S.RadioBtnBox>
 
-        <R.DropdownBox>
+        <S.DropdownBox>
           <Dropdown
             options={departmentOptions}
             value={departmentOption}
             onChangeValue={setdepartmentOption}
           />
-          <Dropdown
-            options={sortOptions}
-            value={sortOption}
-            onChangeValue={setSortOption}
-          />
-        </R.DropdownBox>
-      </R.Container>
+          <Dropdown options={sortOptions} value={sortOption} onChangeValue={setSortOption} />
+        </S.DropdownBox>
+      </S.Container>
       <UserResult />
       <PostResult />
     </>

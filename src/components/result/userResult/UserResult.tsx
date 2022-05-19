@@ -1,25 +1,16 @@
-import * as UR from "./UserResult.style";
+import * as UR from './style';
 // import Slider from "react-slick";
-import onPrevImg from "../../../assets/img/common/prevBtnIcon.svg";
-import onNextImg from "../../../assets/img/common/nextBtnIcon.svg";
-import useUserResult from "../../../hooks/result/userResult/useUserResult";
+import onPrevImg from '../../../assets/img/common/prevBtnIcon.svg';
+import onNextImg from '../../../assets/img/common/nextBtnIcon.svg';
+import useUserResult from '../../../hooks/result/userResult/useUserResult';
 const UserResult = () => {
-  const { slider, users, sliderSettings, handleNext, handlePrevious } =
-    useUserResult();
+  const { slider, users, sliderSettings, handleNext, handlePrevious } = useUserResult();
   return (
     <UR.Wrapper>
       {users.length > 6 && (
         <UR.ButtonBox>
-          <UR.prevButton
-            src={onPrevImg}
-            onClick={handlePrevious}
-            alt="prevBtn 이미지"
-          />
-          <UR.NextButton
-            src={onNextImg}
-            onClick={handleNext}
-            alt="nextBtn 이미지"
-          />
+          <UR.prevButton src={onPrevImg} onClick={handlePrevious} alt="prevBtn 이미지" />
+          <UR.NextButton src={onNextImg} onClick={handleNext} alt="nextBtn 이미지" />
         </UR.ButtonBox>
       )}
       <UR.Title>유저</UR.Title>

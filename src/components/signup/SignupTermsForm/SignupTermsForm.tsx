@@ -1,7 +1,7 @@
-import React from "react";
-import SubmitButton from "../../Common/Button/SubmitButton";
-import { SignupFooterWrap, SignupFormsWrap } from "../Signup.style";
-import * as STF from "./SignupTermsForm.style";
+import React from 'react';
+import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import { SignupFooterWrap, SignupFormsWrap } from '../style';
+import * as S from './style';
 
 interface ISignupTermsFormProps {
   goToInfo: () => void;
@@ -10,18 +10,12 @@ interface ISignupTermsFormProps {
 const SignupTermsForm: React.FC<ISignupTermsFormProps> = ({ goToInfo }) => {
   return (
     <SignupFormsWrap>
-      <STF.SignupTermsFormBox>
-        <STF.SignupTermsFormTitle>무슨 동의</STF.SignupTermsFormTitle>
-        <STF.SignupTermsFormTextWrap></STF.SignupTermsFormTextWrap>
-      </STF.SignupTermsFormBox>
+      <S.SignupTermsFormBox>
+        <S.SignupTermsFormTitle>무슨 동의</S.SignupTermsFormTitle>
+        <S.SignupTermsFormTextWrap></S.SignupTermsFormTextWrap>
+      </S.SignupTermsFormBox>
       <SignupFooterWrap>
-        <SubmitButton
-          text={"다음 단계"}
-          blue
-          big
-          name="정보입력"
-          handleClick={goToInfo}
-        />
+        <SubmitButton text={'다음 단계'} blue big name="정보입력" handleClick={goToInfo} />
       </SignupFooterWrap>
     </SignupFormsWrap>
   );

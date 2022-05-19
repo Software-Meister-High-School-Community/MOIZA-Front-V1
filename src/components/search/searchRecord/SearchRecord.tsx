@@ -1,7 +1,7 @@
-import React from "react";
-import * as SR from "./SearchRecord.style";
-import { ISearchProps } from "../../../interface/search/Search.type";
-import X from "../../../assets/img/common/X.svg";
+import React from 'react';
+import * as S from './style';
+import { ISearchProps } from '../../../interface/search/Search.type';
+import X from '../../../assets/img/common/X.svg';
 const SearchRecord: React.FC<ISearchProps> = ({
   visible,
   currentSearch,
@@ -10,31 +10,31 @@ const SearchRecord: React.FC<ISearchProps> = ({
   onReset,
 }) => {
   return (
-    <SR.ItemContainer disabled={visible}>
-      <SR.Text>최근검색어</SR.Text>
-      <SR.TotalDeleteBtn
+    <S.ItemContainer disabled={visible}>
+      <S.Text>최근검색어</S.Text>
+      <S.TotalDeleteBtn
         onClick={() => {
           onReset();
         }}
       >
         전체 삭제
-      </SR.TotalDeleteBtn>
+      </S.TotalDeleteBtn>
       {searchRecords.map(({ id, title }) => (
-        <SR.ItemBox
+        <S.ItemBox
           onClick={() => {
             currentSearch(title);
           }}
         >
-          <SR.Item>{title}</SR.Item>
-          <SR.DeleteBtn
+          <S.Item>{title}</S.Item>
+          <S.DeleteBtn
             src={X}
             onClick={() => {
               onDelete(id);
             }}
           />
-        </SR.ItemBox>
+        </S.ItemBox>
       ))}
-    </SR.ItemContainer>
+    </S.ItemContainer>
   );
 };
 
