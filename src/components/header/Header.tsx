@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import * as H from './style';
-import Notice from './notice';
+import * as S from './style';
+import Notice from './notice/Notice';
 import CategoryDropdown from './category/CategoryDropdown';
 import headerLogo from '../../assets/img/MOIZALogo/englishHorizontalType.svg';
 import searchIcon from '../../assets/img/common/searchIcon.svg';
@@ -19,40 +19,40 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <H.Container>
-        <H.StyleLink to="/">
-          <H.LogoImg src={headerLogo} />
-        </H.StyleLink>
+      <S.Container>
+        <S.StyleLink to="/">
+          <S.LogoImg src={headerLogo} />
+        </S.StyleLink>
 
-        <H.StyleLink to="/category">
+        <S.StyleLink to="/category">
           <CategoryDropdown />
-        </H.StyleLink>
+        </S.StyleLink>
 
-        <H.ItemContainer>
-          <H.StyleLink to="/search">
-            <H.ItemImg src={searchIcon} color="#000" />
-          </H.StyleLink>
-          <H.ItemImg src={profileIcon} />
+        <S.ItemContainer>
+          <S.StyleLink to="/search">
+            <S.ItemImg src={searchIcon} color="#000" />
+          </S.StyleLink>
+          <S.ItemImg src={profileIcon} />
 
-          <H.ItemImg src={noticeIcon} onClick={() => setNoticeState(!noticeState)} />
-        </H.ItemContainer>
+          <S.ItemImg src={noticeIcon} onClick={() => setNoticeState(!noticeState)} />
+        </S.ItemContainer>
 
-        <H.AuthContainer>
+        <S.AuthContainer>
           {loginCheck ? (
-            <H.AuthText>로그아웃</H.AuthText>
+            <S.AuthText>로그아웃</S.AuthText>
           ) : (
             <>
-              <H.StyleLink to="/signup">
-                <H.AuthText>회원가입</H.AuthText>
-              </H.StyleLink>
+              <S.StyleLink to="/signup">
+                <S.AuthText>회원가입</S.AuthText>
+              </S.StyleLink>
               |
-              <H.StyleLink to="/login">
-                <H.AuthText>로그인</H.AuthText>
-              </H.StyleLink>
+              <S.StyleLink to="/login">
+                <S.AuthText>로그인</S.AuthText>
+              </S.StyleLink>
             </>
           )}
-        </H.AuthContainer>
-      </H.Container>
+        </S.AuthContainer>
+      </S.Container>
       <Notice noticeState={noticeState} noticeClose={() => setNoticeState(false)} />
     </>
   );
