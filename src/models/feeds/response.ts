@@ -40,7 +40,7 @@ interface CommentInterface {
   }>;
 }
 
-export interface ISuggestionFeedListResponse {
+export interface IGetSuggestionFeedListResponse {
   feed_list: Array<{
     id: number;
     title: string;
@@ -50,11 +50,11 @@ export interface ISuggestionFeedListResponse {
   }>;
 }
 
-export interface IPopularFeedListResponse {
+export interface IGetIPopularFeedListResponse {
   feed_list: IFeedResponse[];
 }
 
-export interface ITemporariesFeedListResponse {
+export interface IGetTemporariesFeedListResponse {
   feed_list: Array<{
     id: number;
     title: string;
@@ -62,22 +62,22 @@ export interface ITemporariesFeedListResponse {
   }>;
 }
 
-export interface IMyFeedListResponse {
+export interface IGetMyFeedListResponse {
   total_page: number;
   feed_list: IFeedResponse[];
 }
 
-export interface ISearchFeedResponse {
+export interface IGetSearchFeedResponse {
   total_page: number;
   feed_list: IFeedResponse[];
 }
 
-export interface IFeedListResponse {
+export interface IGetFeedListResponse {
   total_page: number;
   feed_list: IFeedResponse[];
 }
 
-export interface IFeedDetailResponse {
+export interface IGetFeedDetailResponse {
   author: AuthorInterface;
   title: string;
   content: string;

@@ -1,50 +1,33 @@
 import { TCategory, TFeed, TSort } from '../../utils/interface/common';
 
-export interface IModifyTemporariesFeedRequest {
+export interface IPatchTemporariesFeedRequest {
   title: string;
   content?: string;
 }
 
-export interface ISaveTemporariesFeedRequest {
-  title: string;
-  content?: string;
-}
-
-export interface ISuggestionFeedListRequest {
-  category: TCategory;
-}
+export interface ISaveTemporariesFeedRequest extends IPatchTemporariesFeedRequest {}
 
 export interface ITemporariesFeedRequest {
   category: TCategory;
   type: TFeed;
 }
 
-export interface IMyFeedListRequest {
-  category: TCategory;
-  type: TFeed;
+export interface IMyFeedListRequest extends ITemporariesFeedRequest {
   order: TSort;
   page: number;
 }
 
-export interface ISearchFeedRequest {
+export interface ISearchFeedRequest extends IMyFeedListRequest {
   name: string;
-  category: TCategory;
-  type: TFeed;
-  order: TSort;
-  page: number;
 }
 
-export interface IFeedListRequest {
+export interface IFeedListRequest extends IMyFeedListRequest {}
+
+export interface IPostFeedRequest extends IPatchFeedRequest {
   category: TCategory;
-  type: TFeed;
-  order: TSort;
-  page: number;
 }
 
-export interface IPostFeedRequest {
-  title: string;
-  content?: string;
+export interface IPatchFeedRequest extends IPatchTemporariesFeedRequest {
   feed_type: TFeed;
-  category: TCategory;
-  image_urls: string[];
+  images_urls: string[] | null;
 }
