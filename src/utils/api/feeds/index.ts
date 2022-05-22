@@ -14,7 +14,7 @@ import {
   IGetTemporariesFeedListResponse,
 } from '../../../models/feeds/response';
 import instance from '../../axios';
-import { TCategory, TFeed, TSort } from '../../interface/common';
+import { TCategory, TFeed, TSort } from '../../common';
 
 export const patchTemporaries = async (feed_id: number, body: IPatchTemporariesFeedRequest) => {
   try {

@@ -1,4 +1,4 @@
-import { TAuthorization } from '../../utils/interface/common';
+import { TAuthorization } from '../common';
 
 export interface IChangePasswordRequest {
   new_password: string;
