@@ -1,4 +1,4 @@
-import { TCategory, TFeed, TSchool, TUser } from '../../utils/interface/common';
+import { TCategory, TFeed, TSchool, TUser } from '../common';
 
 interface AuthorInterface {
   author: {

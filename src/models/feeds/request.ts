@@ -1,4 +1,4 @@
-import { TCategory, TFeed, TSort } from '../../utils/interface/common';
+import { TCategory, TFeed, TSort } from '../common';
 
 export interface IPatchTemporariesFeedRequest {
   title: string;

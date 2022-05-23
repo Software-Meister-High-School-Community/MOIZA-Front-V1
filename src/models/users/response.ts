@@ -1,4 +1,4 @@
-import { TBackGroundColor, TSchool, TUser } from '../../utils/interface/common';
+import { TBackGroundColor, TSchool, TUser } from '../common';
 
 export interface IGetUserSearchHistory {
   keywords: Array<{

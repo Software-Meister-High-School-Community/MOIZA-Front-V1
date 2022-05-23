@@ -1,4 +1,4 @@
-import { TFeed, TSchool, TUser } from '../../utils/interface/common';
+import { TFeed, TSchool, TUser } from '../common';
 
 export interface IGraduateListResponse {
   total_count: number;

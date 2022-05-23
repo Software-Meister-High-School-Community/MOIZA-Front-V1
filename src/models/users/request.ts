@@ -1,4 +1,4 @@
-import { TBackGroundColor, TSchool, TSex, TUser } from '../../utils/interface/common';
+import { TBackGroundColor, TSchool, TSex, TUser } from '../common';
 
 export interface ISignUpRequest {
   account_id: string;

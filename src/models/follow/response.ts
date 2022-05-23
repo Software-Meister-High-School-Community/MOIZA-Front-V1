@@ -1,4 +1,4 @@
-import { TSchool, TUser } from '../../utils/interface/common';
+import { TSchool, TUser } from '../common';
 
 export interface IGetFollowingListResponse {
   follower_user_list: Array<{
