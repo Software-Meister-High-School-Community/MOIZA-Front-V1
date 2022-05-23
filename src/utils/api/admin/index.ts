@@ -6,7 +6,7 @@ import {
   IUserReportResponse,
   IUserSuspenseResponse,
 } from '../../../models/admin/response';
-import { TGraduateStatus } from '../../common';
+import { TGraduateStatus } from '../../../models/common';
 
 export const getGraduateLists = async (
   status: TGraduateStatus,

@@ -1,4 +1,4 @@
-import { TAuthorization } from '../common';
+import { TAuthorization } from '../../models/common';
 
 export interface IChangePasswordRequest {
   new_password: string;
