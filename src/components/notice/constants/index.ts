@@ -1,27 +1,27 @@
-import { PathType } from "../../../interface/Common/Common.type";
+import { PathType } from '../../../interface/Common/Common.type';
 
-export const NoticeListPathArr: PathType[] = [
+export const noticeListPathArr: PathType[] = [
   {
-    path: "메인페이지",
-    link: "/",
+    path: '메인페이지',
+    link: '/',
   },
   {
-    path: "공지사항 목록",
-    link: "/notice",
+    path: '공지사항 목록',
+    link: '/notice',
   },
 ];
 
-export const NoticePostPathArr: PathType[] = [
+export const noticePostPathArr: PathType[] = [
   {
-    path: "메인페이지",
-    link: "/",
+    path: '메인페이지',
+    link: '/',
   },
   {
-    path: "공지사항 목록",
-    link: "/notice",
+    path: '공지사항 목록',
+    link: '/notice',
   },
   {
-    path: "공지사항",
-    link: "/shownotice",
+    path: '공지사항',
+    link: '/shownotice',
   },
 ];
