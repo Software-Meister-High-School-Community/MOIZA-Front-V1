@@ -1,6 +1,6 @@
 import React from 'react';
 import { ITextInputProps } from '../../../../interface/Common/Input/Input.type';
-import EyeButton from '../../Button/EyeButton/EyeButton';
+import EyeButton from '../../button/EyeButton/EyeButton';
 import * as S from './style';
 
 const TextInput: React.FC<ITextInputProps> = ({

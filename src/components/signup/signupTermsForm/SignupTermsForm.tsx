@@ -1,5 +1,5 @@
 import React from 'react';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { SignupFooterWrap, SignupFormsWrap } from '../style';
 import * as S from './style';
 

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import * as GCS from './style';
 import Success from '../../../assets/img/graduateCheck/graduateSuccessIcon.svg';
 

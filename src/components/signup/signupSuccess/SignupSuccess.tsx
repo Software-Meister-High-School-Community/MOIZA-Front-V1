@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import * as S from './style';
 
 const SignupSuccess: React.FC = () => {

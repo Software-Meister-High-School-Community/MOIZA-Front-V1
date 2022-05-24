@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import SubmitButton from '../Common/Button/SubmitButton'
-import ChangeUserProfile from './changeUserProfile'
-import BackgroundColor from './backgroundColor'
-import Introduction from './introduction'
-import LinkList from './link'
+import SubmitButton from '../common/button/SubmitButton/SubmitButton';
+import ChangeUserProfile from './changeUserProfile';
+import BackgroundColor from './backgroundColor';
+import Introduction from './introduction';
+import LinkList from './link';
 import ChangeUserType from './changeUserType';
 import { useRecoilValue } from 'recoil';
 import { profileElementState } from '../../store/editProfile/profileElement';
@@ -18,8 +18,9 @@ const EditProfile: React.FC = () => {
         <p className="name">장정원</p>
         <p className="school">미림마이스터고 재학생</p>
       </PersonInfo>
-    ), []
-  )
+    ),
+    [],
+  );
   return (
     <Wrapper color={profileContent.profile_background_color}>
       <div className="colorBox" />
@@ -32,29 +33,36 @@ const EditProfile: React.FC = () => {
           <LinkList />
           <ChangeUserType />
           <section className="saveButtonSection">
-            <SubmitButton big={false} text="저장" handleClick={() => console.log("sd")} blue={true} yellow={false} disable={true} />
+            <SubmitButton
+              big={false}
+              text="저장"
+              handleClick={() => console.log('sd')}
+              blue={true}
+              yellow={false}
+              disable={true}
+            />
           </section>
         </EditSection>
       </ProfileSection>
     </Wrapper>
   );
-}
-export default EditProfile
+};
+export default EditProfile;
 
 const Wrapper = styled.section<{
-  color: BackGroundColorType
+  color: BackGroundColorType;
 }>`
   width: 1200px;
   margin: 0 auto;
-  >.colorBox {
+  > .colorBox {
     width: 100%;
     height: 348px;
-    background-color: ${(props) => props.color};
+    background-color: ${props => props.color};
   }
-`
+`;
 const ProfileSection = styled.section`
   display: flex;
-`
+`;
 const EditSection = styled.section`
   padding: 30px 0 0 42px;
   width: 717px;
@@ -80,7 +88,7 @@ const EditSection = styled.section`
     line-height: 21px;
     color: #000000;
   }
-`
+`;
 const PersonInfo = styled.strong`
   display: flex;
   align-items: center;
@@ -96,5 +104,4 @@ const PersonInfo = styled.strong`
     line-height: 21px;
     margin-left: 16px;
   }
-`
-
+`;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BigImage from '../BigImage/BigImage';
+import BigImage from '../bigImage/BigImage';
 import * as S from './style';
 
 interface IImgSplit {

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import * as S from "./styles";
-import defaultProfile from "../../../assets/img/common/userDefaultIcon.svg";
-import { WindowOpenUtil } from "../../../util/openWindow";
-import FollowButton from "../../Common/Button/SubmitButton";
-import seeMore from "../../../assets/img/common/seeMoreBtnIcon.svg";
-import SeeMoreModal from "../../Common/seeMoreModal/index";
-import { seeMoreOptionList } from "../constant";
-import { UserProfileResponseType } from "../../../models/users/response";
+import React, { useState } from 'react';
+import * as S from './styles';
+import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
+import { WindowOpenUtil } from '../../../util/openWindow';
+import FollowButton from '../../common/button/SubmitButton/SubmitButton';
+import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
+import SeeMoreModal from '../../Common/seeMoreModal/index';
+import { seeMoreOptionList } from '../constant';
+import { UserProfileResponseType } from '../../../models/users/response';
 
 interface PropsType {
   isMine: boolean;
 }
 
 const Profile: React.FC<PropsType> = ({ isMine }) => {
-  const img = "";
+  const img = '';
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
   const [pageContent, setPageContent] = useState<UserProfileResponseType>();
   return (
@@ -32,19 +32,11 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
           팔로잉
           <p className="followingCount">{pageContent?.following_count}</p>
         </S.ActiveInfo>
-        <S.Introduce>
-          {pageContent?.introduce}
-        </S.Introduce>
+        <S.Introduce>{pageContent?.introduce}</S.Introduce>
         <S.UserLinkList>
-          {
-            pageContent?.link_url?.map((item, index) => {
-              <li
-                onClick={() => WindowOpenUtil(item)}
-              >
-                {item}
-              </li>
-            })
-          }
+          {pageContent?.link_url?.map((item, index) => {
+            <li onClick={() => WindowOpenUtil(item)}>{item}</li>;
+          })}
         </S.UserLinkList>
       </S.UserInfo>
       {isMine ? (
@@ -54,7 +46,7 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
           <FollowButton
             big={false}
             text="팔로우"
-            handleClick={() => console.log("asd")}
+            handleClick={() => console.log('asd')}
             disable={false}
             yellow={false}
             blue={true}
@@ -62,12 +54,9 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
           <S.SeeMoreBtn onClick={() => setSeeMoreModalStatus(true)}>
             <img src={seeMore} alt="이미지" />
             {seeMoreModalStatus ? (
-              <SeeMoreModal
-                optionList={seeMoreOptionList}
-                setModalStatus={setSeeMoreModalStatus}
-              />
+              <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModalStatus} />
             ) : (
-              ""
+              ''
             )}
           </S.SeeMoreBtn>
         </S.Follow>

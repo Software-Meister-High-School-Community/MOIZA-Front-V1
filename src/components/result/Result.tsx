@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import Dropdown from '../Common/Select/dropdown';
+import Dropdown from '../common/select/dropdown';
 import PostResult from './postResult/PostResult';
 import UserResult from './userResult/UserResult';
 import useResult from '../../hooks/result/useResult';
-import RadioButton from '../common/Select/RadioButton/RadioButton';
-import { departmentOptions, sortOptions } from '../Common/Select/dropdown/options';
+import RadioButton from '../common/select/radioButton/RadioButton';
+import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
 const Result: React.FC = () => {
   const {
     selectedRadio,

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import * as CONST from './constant/index';
-import FindIdForm from './FindIdForm/FindIdForm';
-import FindPwForm from './FindPwForm/FindPwForm';
+import FindIdForm from './findIdForm/FindIdForm';
+import FindPwForm from './findPwForm/FindPwForm';
 import { useRecoilState } from 'recoil';
 import { sendCertificationNumberStatus } from '../../store/FindAuthData/certificationStatus';
 import CertificationAlert from './certificationAlert/CertificationAlert';

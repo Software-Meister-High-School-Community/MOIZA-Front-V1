@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import SubmitButton from '../Common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../common/button/SubmitButton/SubmitButton';
 import Puzzle from '../../assets/img/introduce/puzzle.svg';
 import DownArrow from '../../assets/img/introduce/downArrow.svg';
 import LOGO from '../../assets/img/MOIZALogo/koreanHorizontalType.svg';

@@ -2,7 +2,7 @@ import useGraduateCheck from '../../../hooks/graduateCheck/useGraduateCheck';
 import { byteTransform } from '../../../util/byteTransform';
 import * as S from './style';
 import { GraduateCheckFooterWrap } from '../GraduateCheck.style';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import plusIcon from '../../../assets/img/common/plus.svg';
 import deleteIcon from '../../../assets/img/common/X.svg';
 

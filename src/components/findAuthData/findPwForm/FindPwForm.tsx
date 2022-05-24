@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router';
 import { useRecoilState } from 'recoil';
 import useFindPw from '../../../hooks/findAuthData/findPw/useFindPw';
 import { sendCertificationNumberStatus } from '../../../store/FindAuthData/certificationStatus';
-import SubmitButton from '../../Common/Button/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { FindAuthDataSubmitButtonWrap } from '../style';
-import FindPwCertification from './FindPwCertification';
-import FindPwCheck from './FindPwCheck';
+import FindPwCertification from './FindPwCertification/FindPwCertification';
+import FindPwCheck from './FindPwCheck/FindPwCheck';
 import { FindPwFormBox, FindPwFormWrap } from './style';
-import FindPwReset from './FindPwReset';
-import FindPwResult from './FindPwResult';
+import FindPwReset from './FindPwReset/FindPwReset';
+import FindPwResult from './FindPwResult/FindPwResult';
 import * as CONST from '../constant/index';
 
 const FindPwForm: React.FC = () => {

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import * as S from './style';
 import { SignupFooterWrap, SignupFormsWrap } from '../style';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { useRecoilValue } from 'recoil';
 import { SignupIdPwFormData } from '../../../store/Signup/registerInfoAtom';
 import { signupIdPwFormDataNullCheck } from '../../../util/signupDataNullCheck';

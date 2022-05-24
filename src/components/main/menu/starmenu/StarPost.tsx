@@ -1,14 +1,14 @@
-import React from "react";
-import * as S from "./style";
-import HeartButton from "../../../Common/Button/HeartButton/HeartButton";
-import BookRead from "../../../../assets/img/common/normalPostIcon.svg";
-import Question from "../../../../assets/img/common/questionPostIcon.svg";
+import React from 'react';
+import * as S from './style';
+import HeartButton from '../../../common/button/HeartButton/HeartButton';
+import BookRead from '../../../../assets/img/common/normalPostIcon.svg';
+import Question from '../../../../assets/img/common/questionPostIcon.svg';
 
 interface PostType {
   menu: string;
 }
 
-const StarPost: React.FC<PostType> = (menu) => {
+const StarPost: React.FC<PostType> = menu => {
   return (
     <>
       <S.StarPost>

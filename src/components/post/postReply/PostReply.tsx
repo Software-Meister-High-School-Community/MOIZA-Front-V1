@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Path from '../../Common/path';
+import Path from '../../common/path';
 import { PostListReplyPathArr, seeMoreOption } from '../constants';
 import * as S from './style';
 import menuCircle from '../../../assets/img/common/seeMoreBtnIcon.svg';
@@ -8,7 +8,7 @@ import heart from '../../../assets/img/common/onHeart.svg';
 import view from '../../../assets/img/common/openEye.svg';
 import questionCircle from '../../../assets/img/post/QuestionIcon.svg';
 import BookReadCircle from '../../../assets/img/post/BookReadIcon.svg';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { IPostReplyDataProps } from '../../../interface/Post/Post.type';
 import PostReplyComment from './PostComment/PostComment';
 import ImgSplit from '../../common/ImgSplit/ImgSplit';

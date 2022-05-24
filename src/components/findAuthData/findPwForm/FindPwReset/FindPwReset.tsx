@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import * as S from '../style';
-import EyeButton from '../../../common/Button/EyeButton/EyeButton';
+import EyeButton from '../../../common/button/EyeButton/EyeButton';
 import { IFindPwResetDataProps } from '../../../../interface/FindAuthData/FindAuthData.type';
 
 interface IFindPwResetRrops {

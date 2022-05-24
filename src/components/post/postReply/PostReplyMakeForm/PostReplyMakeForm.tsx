@@ -1,5 +1,5 @@
 import useNestedComment from '../../../../hooks/post/comment/useComment';
-import SubmitButton from '../../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../../common/button/SubmitButton/SubmitButton';
 import * as S from './style';
 import x from '../../../../assets/img/common/X.svg';
 import plus from '../../../../assets/img/common/plus.svg';

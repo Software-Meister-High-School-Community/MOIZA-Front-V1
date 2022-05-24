@@ -1,8 +1,8 @@
 import React from 'react';
 import useLogin from '../../hooks/login/useLogin';
-import SubmitButton from '../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../common/button/SubmitButton/SubmitButton';
 import * as S from './style';
-import LoginForm from './LoginForm/LoginForm';
+import LoginForm from './loginForm/LoginForm';
 
 const Login: React.FC = () => {
   const { loginData, handleLoginData, submitLoginData } = useLogin();

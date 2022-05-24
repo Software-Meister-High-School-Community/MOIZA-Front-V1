@@ -4,7 +4,7 @@ import { FindAuthDataSubmitButtonWrap } from '../style';
 import * as S from './style';
 import FindIdResult from './FindIdResult';
 import FindIdCertification from './FindIdCertification';
-import SubmitButton from '../../common/Button/SubmitButton/SubmitButton';
+import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import React, { Dispatch, SetStateAction } from 'react';
 
 interface IFindIdForm {
