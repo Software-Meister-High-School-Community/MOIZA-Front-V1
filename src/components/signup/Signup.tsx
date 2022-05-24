@@ -12,7 +12,7 @@ import StepProgressBar from 'react-step-progress';
 import * as CONST from './constant/index';
 import useSignup from '../../hooks/signup/useSignup';
 import { useRecoilValue } from 'recoil';
-import { signupPart } from '../../store/Signup/signupPartAtom';
+import { signupPart } from '../../store/signup/signupPartAtom';
 import 'react-step-progress/dist/index.css';
 
 const Signup: React.FC = () => {

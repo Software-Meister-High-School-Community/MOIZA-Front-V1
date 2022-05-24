@@ -1,5 +1,5 @@
 import * as S from './style';
-import { sendCertificationNumberStatus } from '../../../store/FindAuthData/certificationStatus';
+import { sendCertificationNumberStatus } from '../../../store/findAuthData/certificationStatus';
 import { useRecoilState } from 'recoil';
 import CertificationSend from '../../../assets/img/findAuthData/certificationIcon.svg';
 

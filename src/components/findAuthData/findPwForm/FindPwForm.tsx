@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { useNavigate } from 'react-router';
 import { useRecoilState } from 'recoil';
 import useFindPw from '../../../hooks/findAuthData/findPw/useFindPw';
-import { sendCertificationNumberStatus } from '../../../store/FindAuthData/certificationStatus';
+import { sendCertificationNumberStatus } from '../../../store/findAuthData/certificationStatus';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { FindAuthDataSubmitButtonWrap } from '../style';
 import FindPwCertification from './FindPwCertification/FindPwCertification';

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { registerSchoolSelect, SignupFormData } from '../../../store/Signup/registerInfoAtom';
+import { registerSchoolSelect, SignupFormData } from '../../../store/signup/registerInfoAtom';
 import { schoolEmailTransform } from '../../../util/schoolEmailTransform';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import OptionButton from '../../common/select/optionButton/OptionButton';

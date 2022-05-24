@@ -3,7 +3,7 @@ import * as S from './style';
 import { SignupFooterWrap, SignupFormsWrap } from '../style';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { useRecoilValue } from 'recoil';
-import { SignupIdPwFormData } from '../../../store/Signup/registerInfoAtom';
+import { SignupIdPwFormData } from '../../../store/signup/registerInfoAtom';
 import { signupIdPwFormDataNullCheck } from '../../../util/signupDataNullCheck';
 
 import useSignupIdPw from '../../../hooks/signup/useSignupIdPw';

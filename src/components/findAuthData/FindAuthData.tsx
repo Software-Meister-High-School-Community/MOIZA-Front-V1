@@ -4,7 +4,7 @@ import * as CONST from './constant/index';
 import FindIdForm from './findIdForm/FindIdForm';
 import FindPwForm from './findPwForm/FindPwForm';
 import { useRecoilState } from 'recoil';
-import { sendCertificationNumberStatus } from '../../store/FindAuthData/certificationStatus';
+import { sendCertificationNumberStatus } from '../../store/findAuthData/certificationStatus';
 import CertificationAlert from './certificationAlert/CertificationAlert';
 
 const FindAuthData: React.FC = () => {
