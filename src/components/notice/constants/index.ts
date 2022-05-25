@@ -1,4 +1,4 @@
-import { PathType } from '../../../interface/Common/Common.type';
+import { PathType } from '../../../utils/interface/common';
 
 export const noticeListPathArr: PathType[] = [
   {

@@ -1,5 +1,5 @@
 import * as S from './style';
-import { NoticeProps } from '../../../interface/Header/Notice.type';
+import { NoticeProps } from '../../../utils/interface/Notice';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 const Notice: React.FC<NoticeProps> = ({ noticeState, noticeClose }) => {

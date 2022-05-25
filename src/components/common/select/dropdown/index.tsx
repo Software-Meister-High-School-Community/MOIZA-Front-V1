@@ -8,7 +8,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
   value,
   onChangeValue,
 }) => {
-  // components > admin > notification > index.tsx 참고!
+  // components > admin > notification > certifiGraduation.tsx 참고!
   const [isFold, setIsFold] = useState(false);
   const onClickOption = (clickedOption: string) => {
     onChangeValue(clickedOption);

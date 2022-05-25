@@ -9,7 +9,7 @@ import view from '../../../assets/img/common/openEye.svg';
 import questionCircle from '../../../assets/img/post/QuestionIcon.svg';
 import BookReadCircle from '../../../assets/img/post/BookReadIcon.svg';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
-import { IPostReplyDataProps } from '../../../interface/Post/Post.type';
+import { IPostReplyDataProps } from '../../../utils/interface/Post';
 import PostReplyComment from './PostComment/PostComment';
 import ImgSplit from '../../common/ImgSplit/ImgSplit';
 import PostReplyMakeForm from './PostReplyMakeForm/PostReplyMakeForm';

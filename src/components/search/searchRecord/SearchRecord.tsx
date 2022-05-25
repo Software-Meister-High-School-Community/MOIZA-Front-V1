@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-import { ISearchProps } from '../../../interface/search/Search.type';
+import { ISearchProps } from '../../../utils/interface/Search';
 import X from '../../../assets/img/common/X.svg';
 const SearchRecord: React.FC<ISearchProps> = ({
   visible,

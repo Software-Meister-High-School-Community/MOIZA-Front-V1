@@ -5,7 +5,7 @@ import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
 } from "../../constants/token.constants";
-import { ILoginProps } from "../../interface/Login/Login.type";
+import { ILoginProps } from "../../utils/interface/Login";
 import token from "../../lib/token";
 
 const useLogin = () => {

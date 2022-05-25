@@ -1,4 +1,4 @@
-import { ICommnet } from '../../../../interface/Post/Post.type';
+import { ICommnet } from '../../../../utils/interface/Post';
 import * as S from './style';
 import menuCircle from '../../../../assets/img/common/seeMoreBtnIcon.svg';
 import commentIcon from '../../../../assets/img/common/comment.svg';

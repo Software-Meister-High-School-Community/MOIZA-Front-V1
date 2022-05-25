@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import DropDown from '../../common/select/dropdown/index';
-import NotificationList from './NotificationBox';
-import { NoticePropsType, NoticeListTestArray } from '../constant';
-import { sortOptions } from '../../common/select/dropdown/options';
+import DropDown from '../common/select/dropdown';
+import NotificationList from './notificationBox';
+import { NoticePropsType, noticeListTestArray } from './constant';
+import { sortOptions } from '../common/select/dropdown/options';
 
 const Notification = () => {
   const [value, setValue] = useState(sortOptions[0].option);
   const [noticeList, setNoticeList] = useState<NoticePropsType[]>([]);
   useEffect(() => {
-    setNoticeList(NoticeListTestArray);
+    setNoticeList(noticeListTestArray);
   }, []);
   return (
     <section className="noticeListWrapper">

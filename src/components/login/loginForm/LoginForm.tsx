@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
 import TextInput from '../../common/Input/TextInput/TextInput';
-import { ILoginProps } from '../../../interface/Login/Login.type';
+import { ILoginProps } from '../../../utils/interface/Login';
 
 type Props = {
   loginData: ILoginProps;

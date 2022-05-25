@@ -2,7 +2,7 @@ import {
   OptionArrType,
   PathType,
   SeeMoreOptionInterface,
-} from '../../../interface/Common/Common.type';
+} from '../../../utils/interface/common';
 
 interface TypeArrType {
   id: string;

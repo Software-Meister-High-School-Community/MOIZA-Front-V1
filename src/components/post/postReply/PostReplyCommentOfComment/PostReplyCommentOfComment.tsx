@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ICommnet } from '../../../../interface/Post/Post.type';
+import { ICommnet } from '../../../../utils/interface/Post';
 import * as S from './style';
 import camera from '../../../../assets/img/post/Camera.svg';
 import x from '../../../../assets/img/common/X.svg';

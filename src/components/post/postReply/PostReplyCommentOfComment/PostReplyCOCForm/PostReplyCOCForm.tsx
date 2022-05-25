@@ -1,4 +1,4 @@
-import { ICommnet } from '../../../../../interface/Post/Post.type';
+import { ICommnet } from '../../../../../utils/interface/Post';
 import ImgSplit from '../../../../Common/ImgSplit';
 import * as S from './style';
 import SeeMoreModal from '../../../../Common/seeMoreModal';

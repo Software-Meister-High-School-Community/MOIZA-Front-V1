@@ -1,5 +1,5 @@
 import React from 'react';
-import { IFindIdResultProps } from '../../../../interface/FindAuthData/FindAuthData.type';
+import { IFindIdResultProps } from '../../../../utils/interface/FindAuthData';
 import * as S from './FindIdResult.style';
 
 const FindIdResult: React.FC<IFindIdResultProps> = ({ name, resultId }) => {

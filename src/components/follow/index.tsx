@@ -17,7 +17,7 @@ const Follow: React.FC = () => {
         e.preventDefault();
     }
     const onChangeShowFollowType = (type: showFollowType) => {
-        setShowFollowType(type)
+        setShowFollowTypetype)
     }
     useEffect(
         () => {

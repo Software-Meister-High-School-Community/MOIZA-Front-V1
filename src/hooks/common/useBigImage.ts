@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { IImageSizeProps } from "../../interface/Common/Common.type";
+import { IImageSizeProps } from "../../utils/interface/common";
 
 const useBigImage = (imgLength: number) => {
   const [index, setIndex] = useState<number>(0);
