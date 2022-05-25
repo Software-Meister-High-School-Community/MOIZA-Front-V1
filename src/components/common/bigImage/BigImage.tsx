@@ -1,7 +1,7 @@
 import { AnimatePresence, useViewportScroll } from 'framer-motion';
 import React, { Dispatch, SetStateAction } from 'react';
 import * as S from './style';
-import useBigImage from '../../../hooks/Common/useBigImage';
+import useBigImage from '../../../hooks/common/useBigImage';
 import plusMG from '../../../assets/img/common/BigImage/plusMagnifyingGlass.svg';
 import minusMG from '../../../assets/img/common/BigImage/minusMagnifyingGlass.svg';
 import LeftArrow from '../../../assets/img/common/prevBtnIcon.svg';
