@@ -22,7 +22,7 @@ export interface ICommentReportResponse {
     };
     reported_count: number;
     content: string;
-    created_at: Date;
+    created_at: string;
   }>;
 }
 export interface IFeedReportResponse {
@@ -38,7 +38,7 @@ export interface IFeedReportResponse {
     reported_count: number;
     title: string;
     type: TFeed;
-    created_at: Date;
+    created_at: string;
   }>;
 }
 export interface IUserReportResponse {
@@ -48,8 +48,8 @@ export interface IUserReportResponse {
     name: string;
     school: TSchool;
     type: TUser;
-    suspension_created_at: Date;
-    suspension_expired_at: Date;
+    suspension_created_at: string;
+    suspension_expired_at: string;
     user_reported_count: number;
     feed_reported_count: number;
     comment_reported_count: number;
@@ -57,5 +57,5 @@ export interface IUserReportResponse {
 }
 
 export interface IUserSuspenseResponse {
-  expired_at: Date;
+  expired_at: string;
 }
