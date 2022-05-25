@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { acceptGraduate, rejectGraduate } from '../../../api/admin';
-import SearchInPage from '../../common/search/searchInPage';
-import Radio from '../../common/select/radioButton/RadioButton';
+import { approveGraduate, rejectGraduate } from '../../utils/api/admin';
+import SearchInPage from '../common/search/searchInPage';
+import Radio from '../common/select/radioButton/RadioButton';
 
 type certifyType = 'request' | 'allow' | 'refuse';
 
@@ -36,14 +36,14 @@ const CertifyGraduation: React.FC = () => {
     },
     [selectedType, setSelectedType],
   );
-  const onChnageSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
   const onKeyPressSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
   const accept = () => {
-    acceptGraduate(1);
+    approveGraduate(1);
   };
   const reject = () => {
     rejectGraduate(1);
@@ -61,7 +61,7 @@ const CertifyGraduation: React.FC = () => {
           heigth="40"
           fontsize="16"
           onSubmit={onKeyPressSearch}
-          onChange={onChnageSearchKeyword}
+          onChange={onChangeSearchKeyword}
           value={keyword}
           placeholder="유저 이름 입력"
           width="205"

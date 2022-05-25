@@ -1,8 +1,7 @@
 import {
-  OptionArrType,
   PathType,
   SeeMoreOptionInterface,
-} from '../../interface/Common/Common.type';
+} from '../../utils/interface/common';
 
 export type ManagementType = 'REPORT' | 'NOTIFICATION' | 'AUTHORITY';
 

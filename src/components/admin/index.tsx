@@ -2,10 +2,10 @@ import React, { useMemo } from 'react';
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ManageReport from "./manageReport";
-import Notification from "./notice";
-import { useQuery } from "../../util/hooks/useQuery";
+import Notification from "./noticeList";
+import { useQuery } from "../../hooks/useQuery";
 import { AUTHORITY, ManagementType, MANAGE_REPORT, NOTIFICATION } from "./constant";
-import CertifyGraduation from './certifyGraduation';
+import CertifyGraduation from './certifiGraduation';
 
 const AdminMain: React.FC = () => {
   const [type, setType] = useState<ManagementType>(MANAGE_REPORT);

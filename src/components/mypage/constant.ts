@@ -1,4 +1,4 @@
-import { OptionArrType, SeeMoreOptionInterface } from '../../interface/Common/Common.type';
+import { OptionArrType, SeeMoreOptionInterface } from '../../utils/interface/common';
 
 interface TypeArrType {
   id: string;

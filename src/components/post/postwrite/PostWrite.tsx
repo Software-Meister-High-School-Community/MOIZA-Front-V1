@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import * as S from './style';
 import Path from '../../common/path';
 import { PostWritePathArr } from '../constants';
-import { UploadDataType } from '../../../interface/Common/Common.type';
+import { UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton/RadioButton';
 import { RadioTypeArr } from '../constants';
