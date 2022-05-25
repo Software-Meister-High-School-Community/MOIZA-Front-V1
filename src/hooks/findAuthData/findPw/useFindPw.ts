@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useRecoilState } from "recoil";
-import { IFindPwResetDataProps } from "../../../interface/FindAuthData/FindAuthData.type";
+import { IFindPwResetDataProps } from "../../../utils/interface/FindAuthData";
 import { sendCertificationNumberStatus } from "../../../store/FindAuthData/certificationStatus";
 import { findPwResetDataNullCheck } from "../../../util/findAuthDataNullCheck";
 

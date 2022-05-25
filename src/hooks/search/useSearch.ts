@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState, createRef } from 'react';
-import { SearchRecord } from '../../interface/search/Search.type';
+import { SearchRecord } from '../../utils/interface/Search';
 const useSearch = () => {
   const searchEl = createRef<HTMLInputElement>();
   const [disabled, setDisabled] = useState<boolean>(false);

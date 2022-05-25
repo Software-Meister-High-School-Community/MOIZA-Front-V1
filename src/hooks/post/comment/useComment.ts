@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 
-import { ICommnet } from "../../../interface/Post/Post.type";
+import { ICommnet } from "../../../utils/interface/Post";
 
 const useComment = () => {
   const [makeCommentData, setMakeCommentData] = useState<ICommnet>({

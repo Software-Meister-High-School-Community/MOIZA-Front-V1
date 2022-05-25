@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useRecoilState } from "recoil";
-import { IFindIdResultProps } from "../../../interface/FindAuthData/FindAuthData.type";
+import { IFindIdResultProps } from "../../../utils/interface/FindAuthData";
 import { sendCertificationNumberStatus } from "../../../store/FindAuthData/certificationStatus";
 
 const useFindId = () => {

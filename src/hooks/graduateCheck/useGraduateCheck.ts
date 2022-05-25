@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router";
-import { IGraduateCheckFile } from "../../interface/GraduateCheck/GraduateCheck.type";
+import { IGraduateCheckFile } from "../../utils/interface/GraduateCheck";
 
 const useGraduateCheck = () => {
   const navigate = useNavigate();
