@@ -1,5 +1,5 @@
 import useGraduateCheck from '../../../hooks/graduateCheck/useGraduateCheck';
-import { byteTransform } from '../../../util/byteTransform';
+import { byteTransform } from '../../../utils/function/byteTransform';
 import * as S from './style';
 import { GraduateCheckFooterWrap } from '../GraduateCheck.style';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';

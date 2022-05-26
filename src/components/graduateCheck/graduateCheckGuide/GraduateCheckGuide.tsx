@@ -28,7 +28,7 @@ const GraduateCheckGuide: React.FC<IGraduateCheckGuideProps> = ({ setPart }) => 
           졸업생 인증을 하지 않으실 경우 아래의 서비스 이용이 어렵습니다.
         </S.GraduateCheckGuideTitle>
         <S.GraduateCheckGuideLimitList style={{ marginBottom: 64 }}>
-          {CONST.GraduateCheckLimitList.map(limit => {
+          {CONST.graduateCheckLimitList.map(limit => {
             return <li key={limit.id}>- {limit.content}</li>;
           })}
         </S.GraduateCheckGuideLimitList>
