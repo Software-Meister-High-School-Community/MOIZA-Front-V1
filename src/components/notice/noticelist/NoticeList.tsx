@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import Path from '../../Common/path';
-import { NoticeListPathArr } from '../constants/index';
+import Path from '../../common/path';
+import { noticeListPathArr } from '../constants';
 import Dropdown from '../../common/select/dropdown';
 import NoticePost from '../noticePost/NoticePost';
 import PagiNation from '../../common/pagination/Pagination';
@@ -14,7 +14,7 @@ const NoticeList: React.FC = () => {
   return (
     <S.Wrapper>
       <S.NoticeHeadDiv>
-        <Path pathArray={NoticeListPathArr} />
+        <Path pathArray={noticeListPathArr} />
         <S.NoticeNameDiv>
           <S.NoticeName>공지사항</S.NoticeName>
         </S.NoticeNameDiv>
