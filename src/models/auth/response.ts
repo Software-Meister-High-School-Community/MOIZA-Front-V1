@@ -1,7 +1,7 @@
 export interface IRefreshTokenResponse {
   access_token: string;
   refresh_token: string;
-  expired_at: Date;
+  expired_at: string;
 }
 
 export interface IFindIdResponse {

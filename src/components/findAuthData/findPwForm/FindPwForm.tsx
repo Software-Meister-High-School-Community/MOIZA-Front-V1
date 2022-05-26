@@ -48,7 +48,7 @@ const FindPwForm: React.FC = () => {
           {compList.map((comp, index) => {
             return (
               <React.Fragment key={index}>
-                {pwPart === CONST.IFindPwKind[index].title && comp}
+                {pwPart === CONST.iFindIdKind[index].title && comp}
               </React.Fragment>
             );
           })}

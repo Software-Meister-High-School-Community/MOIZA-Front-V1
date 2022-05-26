@@ -1,6 +1,6 @@
-import * as S from "./style";
-import GwangjuImg from "../../../assets/img/banner/광주.svg";
-import { WindowOpenUtil } from "../../../util/openWindow";
+import * as S from './style';
+import GwangjuImg from '../../../assets/img/banner/광주.svg';
+import { WindowOpenUtil } from '../../../utils/function/openWindow';
 
 const Gwangju: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const Gwangju: React.FC = () => {
           스마트IOT과
         </S.SchoolClass2>
         <S.SchoolHomePage
-          onClick={() => WindowOpenUtil("http://gsm.gen.hs.kr/main/main.php")}
+          onClick={() => WindowOpenUtil('http://gsm.gen.hs.kr/main/main.php')}
           width="140px"
           margin="0 0 0 650px"
         >

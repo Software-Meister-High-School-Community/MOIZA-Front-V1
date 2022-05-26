@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import Path from '../common/path';
 import { writeNoticePathArr } from './constant';
 import Switch from '../common/toggle/switch';
@@ -21,8 +21,8 @@ const WriteNotice: React.FC = () => {
   const onChangeNoticeContent = useCallback(
     (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
       if (
-        (e.target.name === "title" && e.target.value.length <= 30) ||
-        (e.target.name === "content" && e.target.value.length <= 500)
+        (e.target.name === 'title' && e.target.value.length <= 30) ||
+        (e.target.name === 'content' && e.target.value.length <= 500)
       ) {
         setNoticeContent({
           ...noticeContent,
@@ -36,7 +36,7 @@ const WriteNotice: React.FC = () => {
   const onSubmitNotification = useCallback(() => {
     FD.append('title', noticeContent.title);
     FD.append('content', noticeContent.content);
-    noticeContent.filemap(eachFile => FD.append('files', eachFile));
+    noticeContent.files.forEach(eachFile => FD.append('files', eachFile));
   }, [noticeContent]);
   return (
     <Wrapper>
@@ -80,7 +80,7 @@ export default WriteNotice;
 const Wrapper = styled.section`
   width: 1200px;
   margin: 0 auto;
-`
+`;
 const InputContentBox = styled.form`
   background-color: #ffffff;
   margin-top: 73px;
@@ -101,7 +101,7 @@ const InputContentBox = styled.form`
       color: #000000;
     }
   }
-`
+`;
 const Title = styled.strong`
   display: flex;
   align-items: center;
@@ -113,32 +113,32 @@ const Title = styled.strong`
     color: #000000;
   }
   > label {
-        width: 924px;
-        display: flex;
-        background-color: #F9F9F9;
-        border: 1px solid #E0E0E0;
-        border-radius: 5px;
-        margin-left: 12px;
+    width: 924px;
+    display: flex;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-left: 12px;
     align-items: center;
-      >input {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        width: 874px;
-        height: 40px;
-        box-sizing: border-box;
-        padding: 9px 0 10px 15px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
-        color: #555555;
-      }
+    > input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 874px;
+      height: 40px;
+      box-sizing: border-box;
+      padding: 9px 0 10px 15px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      color: #555555;
+    }
   }
-`
+`;
 const NoticeMainContent = styled.textarea`
-  background: #F9F9F9;
-  border: 1px solid #E0E0E0;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
   box-sizing: border-box;
   border-radius: 5px;
   width: 100%;
@@ -150,15 +150,15 @@ const NoticeMainContent = styled.textarea`
   font-size: 18px;
   line-height: 21px;
   color: #555555;
-`
+`;
 const PostOptionalFunction = styled.section`
   display: flex;
-`
+`;
 const SubmitBtn = styled.section`
   > button {
     margin: 148px auto 115px auto;
   }
-`
+`;
 const TextCount = styled.div<{ marginTop?: string }>`
   font-style: normal;
   font-weight: normal;
@@ -166,5 +166,5 @@ const TextCount = styled.div<{ marginTop?: string }>`
   line-height: 19px;
   text-align: right;
   color: #999999;
-  margin-top: ${(props) => props.marginTop};
-`
+  margin-top: ${props => props.marginTop};
+`;

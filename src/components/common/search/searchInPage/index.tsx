@@ -1,7 +1,7 @@
-import React from "react";
-import * as S from "./styles";
-import searchIcon from "../../../../assets/img/common/searchIcon.svg";
-import { searchInPagePropsType } from "../../../../interface/Common/Common.type";
+import React from 'react';
+import * as S from './styles';
+import searchIcon from '../../../../assets/img/common/searchIcon.svg';
+import { searchInPagePropsType } from '../../../../utils/interface/common';
 
 const SearchInPage: React.FC<searchInPagePropsType> = ({
   onSubmit,
@@ -15,12 +15,7 @@ const SearchInPage: React.FC<searchInPagePropsType> = ({
   return (
     <S.Wrapper onSubmit={onSubmit} className="searchInPage">
       <S.SearchInput width={width} heigth={heigth} fontsize={fontsize}>
-        <input
-          type="text"
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-        />
+        <input type="text" onChange={onChange} value={value} placeholder={placeholder} />
         <img src={searchIcon} />
       </S.SearchInput>
     </S.Wrapper>

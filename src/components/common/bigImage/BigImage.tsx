@@ -40,7 +40,7 @@ const BigImage: React.FC<IBigImageProps> = ({ imgs, handleDisplay }) => {
         <S.BigImageWrap>
           <AnimatePresence initial={false} custom={direction}>
             <S.BigImageRow
-              variants={BI.rowVariants}
+              variants={S.rowVariants}
               initial="hidden"
               animate="visible"
               exit="exit"

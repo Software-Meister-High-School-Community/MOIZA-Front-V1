@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as S from './style';
 import { useSelectColor } from '../../hooks/recommendation/useSelectColor';
-import { dateTransform } from '../../util/dateTransform';
+import { dateTransform } from '../../utils/function/dateTransform';
 import questionIcon from '../../assets/img/recommendation/questionIcon.svg';
 import commonIcon from '../../assets/img/recommendation/commonIcon.svg';
 const Recommendation = () => {

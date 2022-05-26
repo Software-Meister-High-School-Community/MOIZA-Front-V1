@@ -1,4 +1,4 @@
-import { IEyeButtonProps } from '../../../../interface/Common/Common.type';
+import { IEyeButtonProps } from '../../../../utils/interface/common';
 import * as S from './style';
 import closeEye from '../../../../assets/img/common/closeEye.svg';
 import openEye from '../../../../assets/img/common/openEye.svg';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 import RadioButton from '../../common/select/radioButton/RadioButton';
-import { MypageOptionArray } from '../constant';
+import { mypageOptionArray } from '../constant';
 import Dropdown from '../../common/select/dropdown/index';
 import { departmentOptions, sortOptions } from '../../common/select/dropdown/options';
 
@@ -30,7 +30,7 @@ const PostList: React.FC<PropsType> = ({ isMine }) => {
           name="mypageOption"
           selected={selectedOption}
           setSelected={setSelectedOption}
-          radioArray={MypageOptionArray}
+          radioArray={mypageOptionArray}
         />
         <Dropdown options={departmentOptions} value={field} onChangeValue={setField} />
         <Dropdown options={sortOptions} value={sort} onChangeValue={setSort} />

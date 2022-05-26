@@ -1,26 +1,24 @@
-import { useState, useMemo } from "react";
-import styled from 'styled-components'
-import fixed from "../../assets/img/notice/fixedNotification.svg";
-import unFixed from "../../assets/img/notice/notification.svg";
-import view from "../../assets/img/common/openEye.svg";
-import heart from "../../assets/img/common/onHeart.svg";
-import seeMore from "../../assets/img/common/seeMoreBtnIcon.svg";
-import SeeMoreModal from "../common/seeMoreModal";
-import { NoticePropsType, seeMoreOptionList } from "./constant";
-import { dateTransform } from "../../../util/dateTransform";
+import { useState, useMemo } from 'react';
+import styled from 'styled-components';
+import fixed from '../../assets/img/notice/fixedNotification.svg';
+import unFixed from '../../assets/img/notice/notification.svg';
+import view from '../../assets/img/common/openEye.svg';
+import heart from '../../assets/img/common/onHeart.svg';
+import seeMore from '../../assets/img/common/seeMoreBtnIcon.svg';
+import SeeMoreModal from '../common/seeMoreModal';
+import { NoticePropsType, seeMoreOptionList } from './constant';
+import { dateTransform } from '../../utils/function/dateTransform';
 
 const NotificationList: React.FC<{ item: NoticePropsType }> = ({ item }) => {
   const [seeMoreModal, setSeeMoreModal] = useState(false);
-  const viewDivideby1000 = useMemo(
-    () => {
-      Math.floor(item.view / 100) / 10;
-    }, [item.view]
-  )
+  const viewDivideby1000 = useMemo(() => {
+    return Math.floor(item.view / 100) / 10;
+  }, [item.view]);
   const postDate = item.postDate;
   const date = dateTransform(postDate);
   return (
-    <List fixed={item.fix === "FIX"}>
-      <img src={item.fix === "FIX" ? fixed : unFixed} />
+    <List fixed={item.fix === 'FIX'}>
+      <img src={item.fix === 'FIX' ? fixed : unFixed} />
       <h1>{item.title}</h1>
       <Date>{date}</Date>
       <Views>
@@ -34,20 +32,16 @@ const NotificationList: React.FC<{ item: NoticePropsType }> = ({ item }) => {
       <SeeMore onClick={() => setSeeMoreModal(true)}>
         <img src={seeMore} />
         {seeMoreModal && (
-          <SeeMoreModal
-            optionList={seeMoreOptionList}
-            setModalStatus={setSeeMoreModal}
-          />
+          <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModal} />
         )}
       </SeeMore>
     </List>
-
   );
 };
 export default NotificationList;
 
 const List = styled.li<{
-  fixed: boolean
+  fixed: boolean;
 }>`
   width: 1200px;
   height: 65px;
@@ -65,7 +59,7 @@ const List = styled.li<{
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    color: ${(props) => props.fixed ? "#FFB500" : "#555555"};
+    color: ${props => (props.fixed ? '#FFB500' : '#555555')};
   }
 `;
 const Date = styled.em`
@@ -76,11 +70,11 @@ const Date = styled.em`
   text-align: right;
   color: #999999;
   margin-left: auto;
-  :after{
+  :after {
     width: 1px;
     height: 100%;
-    content: "";
-    border-right: 1px solid #E0E0E0;
+    content: '';
+    border-right: 1px solid #e0e0e0;
     margin: 0 30px;
   }
 `;
@@ -109,8 +103,8 @@ const SeeMore = styled.button`
   margin-left: 37px;
   position: relative;
   cursor: pointer;
-  > div >.seeMoreModal {
-    position: absolute; 
+  > div > .seeMoreModal {
+    position: absolute;
     top: 24px;
     right: 0;
   }

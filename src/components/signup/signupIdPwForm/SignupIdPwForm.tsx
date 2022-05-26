@@ -3,8 +3,8 @@ import * as S from './style';
 import { SignupFooterWrap, SignupFormsWrap } from '../style';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import { useRecoilValue } from 'recoil';
-import { SignupIdPwFormData } from '../../../store/signup/registerInfoAtom';
-import { signupIdPwFormDataNullCheck } from '../../../util/signupDataNullCheck';
+import { signUpIdPwFormData } from '../../../store/signup/registerInfoAtom';
+import { signupIdPwFormDataNullCheck } from '../../../utils/data/signupDataNullCheck';
 
 import useSignupIdPw from '../../../hooks/signup/useSignupIdPw';
 import TextInput from '../../common/Input/TextInput/TextInput';
@@ -13,7 +13,7 @@ const SignupIdPwForm: React.FC = () => {
   const { isPwShow, setIsPwShow, isCheckPwShow, setIsCheckPwShow, handleIdPw, goToLogin } =
     useSignupIdPw();
 
-  const authData = useRecoilValue(SignupIdPwFormData);
+  const authData = useRecoilValue(signUpIdPwFormData);
 
   const isNull = useMemo(() => signupIdPwFormDataNullCheck(authData), [authData]);
 

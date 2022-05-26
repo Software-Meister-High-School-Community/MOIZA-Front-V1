@@ -1,6 +1,6 @@
-import * as S from "./style";
-import DaeguImg from "../../../assets/img/banner/대구.svg";
-import { WindowOpenUtil } from "../../../util/openWindow";
+import * as S from './style';
+import DaeguImg from '../../../assets/img/banner/대구.svg';
+import { WindowOpenUtil } from '../../../utils/function/openWindow';
 
 const Daegu: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const Daegu: React.FC = () => {
           인공지능 소프트웨어과
         </S.SchoolClass3>
         <S.SchoolHomePage
-          onClick={() => WindowOpenUtil("http://www.dgsw.hs.kr/index.do")}
+          onClick={() => WindowOpenUtil('http://www.dgsw.hs.kr/index.do')}
           width="140px"
           margin="0 623px 0 82px"
         >

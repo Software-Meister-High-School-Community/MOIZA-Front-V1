@@ -1,9 +1,9 @@
-import React from "react";
-import * as S from "./style";
-import { NoticePostCount } from "../constants";
+import React from 'react';
+import * as S from './style';
+import { noticePostCount } from '../constants';
 
 const NoticeMenu: React.FC = () => {
-  const menuList = NoticePostCount.map((menu, index) => {
+  const menuList = noticePostCount.map((menu, index) => {
     return (
       <S.NoticeDiv>
         <S.NoticeTextDiv>

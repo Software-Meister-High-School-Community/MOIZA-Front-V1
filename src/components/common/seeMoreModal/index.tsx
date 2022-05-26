@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import OutsideClickHandler from "react-outside-click-handler";
-import { SeeMoreOptionInterface } from "../../../interface/Common/Common.type";
+import React from 'react';
+import styled from 'styled-components';
+import OutsideClickHandler from 'react-outside-click-handler';
+import { SeeMoreOptionInterface } from '../../../utils/interface/common';
 
 interface PropsType {
   setModalStatus: (status: boolean) => void;
@@ -13,7 +13,9 @@ const SeeMoreModal: React.FC<PropsType> = ({ setModalStatus, optionList }) => {
     <OutsideClickHandler onOutsideClick={() => setModalStatus(false)}>
       <Wrapper className="seeMoreModal">
         {optionList.map((item, index) => (
-          <Option key={index} onClick={item.onClickFunction}>{item.option}</Option>
+          <Option key={index} onClick={item.onClickFunction}>
+            {item.option}
+          </Option>
         ))}
       </Wrapper>
     </OutsideClickHandler>
@@ -50,7 +52,7 @@ const Option = styled.button`
   flex-direction: column;
   cursor: pointer;
   :after {
-    content: "";
+    content: '';
     width: 131.6px;
     border-bottom: 1px solid #e0e0e0;
     position: absolute;

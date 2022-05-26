@@ -1,7 +1,7 @@
 import { ICommnet } from '../../../../../utils/interface/Post';
-import ImgSplit from '../../../../Common/ImgSplit';
+import ImgSplit from '../../../../common/ImgSplit/ImgSplit';
 import * as S from './style';
-import SeeMoreModal from '../../../../Common/seeMoreModal';
+import SeeMoreModal from '../../../../common/seeMoreModal';
 import menuCircle from '../../../../../assets/img/common/seeMoreBtnIcon.svg';
 import { seeMoreOption } from '../../../constants';
 import { useState } from 'react';

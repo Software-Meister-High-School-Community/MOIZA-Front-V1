@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import * as S from './style';
 import Vector from '../../../assets/img/post/vector.svg';
 import Write from '../../../assets/img/common/writePen.svg';
-import Path from '../../Common/path';
-import { PostListPathArr } from '../constants';
+import Path from '../../common/path';
+import { postListPathArr } from '../constants';
 import Dropdown from '../../common/select/dropdown';
 import RadioButton from '../../common/select/radioButton/RadioButton';
-import { TypeArr } from '../constants';
+import { typeArr } from '../constants';
 import PostForm from '../../common/postform/PostForm';
 import PagiNation from '../../common/pagination/Pagination';
 import { sortOptions } from '../../common/select/dropdown/options';
@@ -23,7 +23,7 @@ const PostList: React.FC = () => {
       </S.WriteBtn>
       <S.Wrapper>
         <S.PostHeadDiv>
-          <Path pathArray={PostListPathArr} />
+          <Path pathArray={postListPathArr} />
           <S.PostNameDiv>
             <S.PostName>OOO 커뮤니티</S.PostName>
             <S.PostVector src={Vector} alt="" />
@@ -35,7 +35,7 @@ const PostList: React.FC = () => {
               <RadioButton
                 selected={seleted}
                 setSelected={setSeleted}
-                radioArray={TypeArr}
+                radioArray={typeArr}
                 name="typecheckbox"
               />
             </S.RadioBtnDiv>

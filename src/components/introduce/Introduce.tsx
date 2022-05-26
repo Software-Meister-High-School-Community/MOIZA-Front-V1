@@ -35,7 +35,7 @@ const Introduce: FC = () => {
           <S.SecondTitle>
             <h3>모이자 Q&A</h3>
           </S.SecondTitle>
-          {Content.map((item, index) => (
+          {content.map((item, index) => (
             <>
               <S.QuestionDiv>
                 <S.QuestionTitle key={index}>

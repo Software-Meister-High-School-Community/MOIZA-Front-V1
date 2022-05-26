@@ -8,7 +8,7 @@ import LinkList from './link';
 import ChangeUserType from './changeUserType';
 import { useRecoilValue } from 'recoil';
 import { profileElementState } from '../../store/editProfile/profileElement';
-import { BackGroundColorType } from './constant';
+import { TBackGroundColor } from '../../models/common';
 
 const EditProfile: React.FC = () => {
   const profileContent = useRecoilValue(profileElementState);
@@ -50,7 +50,7 @@ const EditProfile: React.FC = () => {
 export default EditProfile;
 
 const Wrapper = styled.section<{
-  color: BackGroundColorType;
+  color: TBackGroundColor;
 }>`
   width: 1200px;
   margin: 0 auto;

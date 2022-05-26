@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import * as S from './style';
 import Path from '../../common/path';
-import { PostWritePathArr } from '../constants';
+import { postWritePathArr } from '../constants';
 import { UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton/RadioButton';
-import { RadioTypeArr } from '../constants';
+import { radioTypeArr } from '../constants';
 import UploadFiles from '../../common/upload/files/index';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 
@@ -44,7 +44,7 @@ const PostWrite: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <Path pathArray={PostWritePathArr} />
+      <Path pathArray={postWritePathArr} />
       <S.WriteForm>
         <S.Title>
           <p>제목</p>
@@ -57,7 +57,7 @@ const PostWrite: React.FC = () => {
           <RadioButton
             selected={seleted}
             setSelected={setSeleted}
-            radioArray={RadioTypeArr}
+            radioArray={radioTypeArr}
             name="typecheckbox"
           />
           <S.TempList>임시저장 게시물&gt;</S.TempList>

@@ -1,9 +1,9 @@
-import React, { ChangeEvent, useCallback, useMemo } from "react";
-import * as S from "./styles";
-import addFile from "../../../../assets/img/common/plus.svg";
-import removeFileIcon from "../../../../assets/img/Common/removeFile.svg";
-import { UploadDataType } from "../../../../interface/Common/Common.type";
-import x from "../../../../assets/img/common/X.svg";
+import React, { ChangeEvent, useCallback, useMemo } from 'react';
+import * as S from './styles';
+import addFile from '../../../../assets/img/common/plus.svg';
+import removeFileIcon from '../../../../assets/img/Common/removeFile.svg';
+import { UploadDataType } from '../../../../utils/interface/common';
+import x from '../../../../assets/img/common/X.svg';
 
 interface PropsType {
   state: UploadDataType;
@@ -21,29 +21,27 @@ const UploadFiles: React.FC<PropsType> = ({ state, setStateFunction }) => {
       const file = fileList[0];
       const fileInArr = Array.from(fileList); // 객체형태로 되어있는 파일 정보를 배열로 바꿈
       if (state.files.length + fileInArr.length > 4)
-        alert("파일은 최대 4개까지만 업로드 가능합니다.");
+        alert('파일은 최대 4개까지만 업로드 가능합니다.');
       reader.onloadend = () => {
         setStateFunction({
           ...state,
-          ["files"]: fileListArr.concat(
-            fileInArr.filter(
-              (item, index) => state.files.length + (index + 1) <= 4
-            )
+          ['files']: fileListArr.concat(
+            fileInArr.filter((item, index) => state.files.length + (index + 1) <= 4),
           ),
         });
       };
       if (file) reader.readAsDataURL(file);
     },
-    [fileListArr, state]
+    [fileListArr, state],
   );
   const onClickRemoveFile = useCallback(
     (id: number) => {
       setStateFunction({
         ...state,
-        ["files"]: state.files.filter((item, index) => index !== id),
+        ['files']: state.files.filter((item, index) => index !== id),
       });
     },
-    [fileListArr, state, setStateFunction]
+    [fileListArr, state, setStateFunction],
   );
   const ImgList = useMemo(
     () =>
@@ -58,7 +56,7 @@ const UploadFiles: React.FC<PropsType> = ({ state, setStateFunction }) => {
           </S.ImgInfo>
         </S.PreView>
       )),
-    [fileListArr]
+    [fileListArr],
   );
 
   return (
@@ -75,7 +73,7 @@ const UploadFiles: React.FC<PropsType> = ({ state, setStateFunction }) => {
             <input type="file" onChange={UploadImgs} multiple />
           </S.AddFileButton>
         ) : (
-          ""
+          ''
         )}
       </S.Files>
     </S.Wrapper>

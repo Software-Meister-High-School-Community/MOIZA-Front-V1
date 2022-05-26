@@ -1,6 +1,6 @@
-import * as S from "./style";
-import DaeduckImg from "../../../assets/img/banner/대덕.svg";
-import { WindowOpenUtil } from "../../../util/openWindow";
+import * as S from './style';
+import DaeduckImg from '../../../assets/img/banner/대덕.svg';
+import { WindowOpenUtil } from '../../../utils/function/openWindow';
 
 const Daeduck: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const Daeduck: React.FC = () => {
           정보보안과
         </S.SchoolClass3>
         <S.SchoolHomePage
-          onClick={() => WindowOpenUtil("https://dsmhs.djsch.kr/main.do")}
+          onClick={() => WindowOpenUtil('https://dsmhs.djsch.kr/main.do')}
           width="140px"
           margin="0 623px 0 82px"
         >

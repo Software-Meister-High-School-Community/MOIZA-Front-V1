@@ -1,15 +1,15 @@
-import React from "react";
-import fixed from "../../../assets/img/notice/fixedNotification.svg";
-import nomal from "../../../assets/img/notice/notification.svg";
-import Path from "../../Common/path";
-import { NoticePostPathArr } from "../constants";
-import * as S from "./style";
+import React from 'react';
+import fixed from '../../../assets/img/notice/fixedNotification.svg';
+import nomal from '../../../assets/img/notice/notification.svg';
+import Path from '../../common/path';
+import { noticePostPathArr } from '../constants';
+import * as S from './style';
 
 const ShowNotice: React.FC = () => {
   return (
     <S.Wrapper>
       <S.NoticeHeadDiv>
-        <Path pathArray={NoticePostPathArr} />
+        <Path pathArray={noticePostPathArr} />
       </S.NoticeHeadDiv>
       <S.PostDiv>
         <S.PostHead>
