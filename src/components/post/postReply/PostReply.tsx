@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Path from '../../common/path';
-import { PostListReplyPathArr, seeMoreOption } from '../constants';
+import { postListReplyPathArr, seeMoreOption } from '../constants';
 import * as S from './style';
 import menuCircle from '../../../assets/img/common/seeMoreBtnIcon.svg';
 import heart from '../../../assets/img/common/onHeart.svg';
@@ -13,7 +13,7 @@ import { IPostReplyDataProps } from '../../../utils/interface/Post';
 import PostReplyComment from './PostComment/PostComment';
 import ImgSplit from '../../common/ImgSplit/ImgSplit';
 import PostReplyMakeForm from './PostReplyMakeForm/PostReplyMakeForm';
-import SeeMoreModal from '../../Common/seeMoreModal';
+import SeeMoreModal from '../../common/seeMoreModal';
 
 const PostReply: React.FC = () => {
   const exampleData = {
@@ -130,7 +130,7 @@ const PostReply: React.FC = () => {
         <>
           {postData && (
             <>
-              <Path pathArray={PostListReplyPathArr} />
+              <Path pathArray={postListReplyPathArr} />
               <S.PostReplyWrap>
                 <S.PostReplyHeaderWrap>
                   <S.PostReplyIconCircle src={questionCircle} alt="postIcon" />

@@ -4,9 +4,9 @@ import menuCircle from '../../../../assets/img/common/seeMoreBtnIcon.svg';
 import commentIcon from '../../../../assets/img/common/comment.svg';
 import ImgSplit from '../../../common/ImgSplit/ImgSplit';
 import { useState } from 'react';
-import PostReplyCommentOfComment from '../PostReplyCommentOfComment';
-import { seeMoreOption } from '../../constants/index';
-import SeeMoreModal from '../../../Common/seeMoreModal';
+import PostReplyCommentOfComment from '../PostReplyCommentOfComment/PostReplyCommentOfComment';
+import { seeMoreOption } from '../../constants';
+import SeeMoreModal from '../../../common/seeMoreModal';
 import FixPin from '../../../../assets/img/post/Pin.svg';
 
 interface IPostReplyCommentProps {
