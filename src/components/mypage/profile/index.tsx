@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import * as S from './styles';
 import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
-import { WindowOpenUtil } from '../../../util/openWindow';
+import { WindowOpenUtil } from '../../../utils/function/openWindow';
 import FollowButton from '../../common/button/SubmitButton/SubmitButton';
 import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
-import SeeMoreModal from '../../Common/seeMoreModal/index';
+import SeeMoreModal from '../../common/seeMoreModal';
 import { seeMoreOptionList } from '../constant';
-import { UserProfileResponseType } from '../../../models/users/response';
+import { IGetUserProfileResponse } from '../../../models/users/response';
 
 interface PropsType {
   isMine: boolean;
@@ -15,7 +15,7 @@ interface PropsType {
 const Profile: React.FC<PropsType> = ({ isMine }) => {
   const img = '';
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
-  const [pageContent, setPageContent] = useState<UserProfileResponseType>();
+  const [pageContent, setPageContent] = useState<IGetUserProfileResponse>();
   return (
     <S.Wrapper>
       <img className="userProfile" src={img || defaultProfile} alt="프로필" />
@@ -34,9 +34,9 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
         </S.ActiveInfo>
         <S.Introduce>{pageContent?.introduce}</S.Introduce>
         <S.UserLinkList>
-          {pageContent?.link_url?.map((item, index) => {
-            <li onClick={() => WindowOpenUtil(item)}>{item}</li>;
-          })}
+          {pageContent?.link_url?.map((item, index) => (
+            <li onClick={() => WindowOpenUtil(item)}>{item}</li>
+          ))}
         </S.UserLinkList>
       </S.UserInfo>
       {isMine ? (
