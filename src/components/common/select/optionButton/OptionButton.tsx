@@ -1,4 +1,4 @@
-import { IOptionButtonProps } from '../../../../interface/Common/Common.type';
+import { IOptionButtonProps } from '../../../../utils/interface/common';
 import * as S from './style';
 import checkIcon from '../../../../assets/img/common/check.svg';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IRadioButtonProps } from '../../../../interface/Common/Common.type';
+import { IRadioButtonProps } from '../../../../utils/interface/common';
 import * as S from './style';
 
 const RadioButton: React.FC<IRadioButtonProps> = ({ name, radioArray, setSelected, selected }) => {

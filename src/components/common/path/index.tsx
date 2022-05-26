@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
-import * as S from "./styles";
-import { PathType } from "../../../interface/Common/Common.type";
-import { Link } from "react-router-dom";
-import PathArrow from "../../../assets/img/common/nextBtnIcon.svg";
+import React, { useMemo } from 'react';
+import * as S from './styles';
+import { PathType } from '../../../utils/interface/common';
+import { Link } from 'react-router-dom';
+import PathArrow from '../../../assets/img/common/nextBtnIcon.svg';
 
 interface PropsType {
   pathArray: PathType[];

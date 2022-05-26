@@ -1,13 +1,9 @@
-import * as S from "./styles";
-import React, { useMemo, useState } from "react";
-import Arrow from "../../../../assets/img/common/arrow.svg";
-import { IDropdownProps, OptionArrType } from "../../../../interface/Common/Common.type";
-import OutsideClickHandler from "react-outside-click-handler";
-const Dropdown: React.FC<IDropdownProps> = ({
-  options,
-  value,
-  onChangeValue,
-}) => {
+import * as S from './styles';
+import React, { useMemo, useState } from 'react';
+import Arrow from '../../../../assets/img/common/arrow.svg';
+import { IDropdownProps, OptionArrType } from '../../../../utils/interface/common';
+import OutsideClickHandler from 'react-outside-click-handler';
+const Dropdown: React.FC<IDropdownProps> = ({ options, value, onChangeValue }) => {
   // components > admin > notification > certifiGraduation.tsx 참고!
   const [isFold, setIsFold] = useState(false);
   const onClickOption = (clickedOption: string) => {
@@ -17,15 +13,11 @@ const Dropdown: React.FC<IDropdownProps> = ({
   const onClickCloseDropdown = () => {
     isFold && setIsFold(false);
   };
-  const selectedValue = useMemo(
-    () => {
-      const index = options.findIndex(
-        (i: OptionArrType) => i.value === value
-      );
-      if (index === -1) return value;
-      return options[index].option
-    }, [value]
-  )
+  const selectedValue = useMemo(() => {
+    const index = options.findIndex((i: OptionArrType) => i.value === value);
+    if (index === -1) return value;
+    return options[index].option;
+  }, [value]);
   return (
     <S.Wrapper className="dropdownWrapper" isFold={isFold}>
       <OutsideClickHandler onOutsideClick={onClickCloseDropdown}>
@@ -34,8 +26,8 @@ const Dropdown: React.FC<IDropdownProps> = ({
           <S.Arrow isFold={isFold} src={Arrow} />
         </label>
         <div className="list">
-          {isFold
-            && options.map((item) => (
+          {isFold &&
+            options.map(item => (
               <S.Option
                 key={item.value}
                 onClick={() => onClickOption(item.value)}
@@ -43,8 +35,7 @@ const Dropdown: React.FC<IDropdownProps> = ({
               >
                 {item.option}
               </S.Option>
-            ))
-          }
+            ))}
         </div>
       </OutsideClickHandler>
     </S.Wrapper>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ITextInputProps } from '../../../../interface/Common/Input/Input.type';
+import { ITextInputProps } from '../../../../utils/interface/input';
 import EyeButton from '../../button/EyeButton/EyeButton';
 import * as S from './style';
 

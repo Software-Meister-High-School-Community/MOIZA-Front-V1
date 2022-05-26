@@ -1,5 +1,5 @@
 import React from 'react';
-import { ISubmitButtonProps } from '../../../../interface/Common/Common.type';
+import { ISubmitButtonProps } from '../../../../utils/interface/common';
 import * as S from './style';
 
 const SubmitButton: React.FC<ISubmitButtonProps> = ({

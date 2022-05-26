@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import LeftArrow from '../../../assets/img/common/prevBtnIcon.svg';
 import RightArrow from '../../../assets/img/common/nextBtnIcon.svg';
-import { IPaginationProps } from '../../../interface/Common/Common.type';
+import { IPaginationProps } from '../../../utils/interface/common';
 const Pagination: React.FC<IPaginationProps> = ({ total, limit, page, setPage }) => {
   const totalPages = Math.ceil(total / limit);
   return (
