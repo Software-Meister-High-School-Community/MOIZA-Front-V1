@@ -1,49 +1,44 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { useRecoilState } from "recoil";
-import { IFindPwResetDataProps } from "../../../utils/interface/FindAuthData";
-import { sendCertificationNumberStatus } from "../../../store/FindAuthData/certificationStatus";
-import { findPwResetDataNullCheck } from "../../../util/findAuthDataNullCheck";
+import React, { useCallback, useMemo, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { IFindPwResetDataProps } from '../../../utils/interface/FindAuthData';
+import { sendCertificationNumberStatus } from '../../../store/FindAuthData/certificationStatus';
+import { findPwResetDataNullCheck } from '../../../utils/data/findAuthDataNullCheck';
 
 const useFindPw = () => {
-  const [pwPart, setPwPart] = useState<string>("아이디 입력");
-  const [id, setId] = useState<string>("");
-  const [certificationNumber, setCertificationNumber] = useState<string>("");
-  const [isSendNumber, setIsSendNumber] = useRecoilState(
-    sendCertificationNumberStatus
-  );
+  const [pwPart, setPwPart] = useState<string>('아이디 입력');
+  const [id, setId] = useState<string>('');
+  const [certificationNumber, setCertificationNumber] = useState<string>('');
+  const [isSendNumber, setIsSendNumber] = useRecoilState(sendCertificationNumberStatus);
   const [resetPw, setResetPw] = useState<IFindPwResetDataProps>({
-    pw: "",
-    checkPw: "",
+    pw: '',
+    checkPw: '',
   });
 
-  const resetPartIsNull = useMemo(
-    () => findPwResetDataNullCheck(resetPw),
-    [resetPw]
-  );
+  const resetPartIsNull = useMemo(() => findPwResetDataNullCheck(resetPw), [resetPw]);
 
   const goToCertification = useCallback(
     (e: React.ChangeEvent<HTMLButtonElement>) => {
       //인증번호 api 통신
-      setId("");
+      setId('');
       setPwPart(e.target.name);
-      setIsSendNumber((prev) => ({ ...prev, findPwSendNumber: true }));
+      setIsSendNumber(prev => ({ ...prev, findPwSendNumber: true }));
     },
-    [setIsSendNumber]
+    [setIsSendNumber],
   );
 
   const goToResetPw = useCallback(
     (e: React.ChangeEvent<HTMLButtonElement>) => {
       //인증번호 확인 api 통신
-      setIsSendNumber((prev) => ({ ...prev, findPwSendNumber: false }));
+      setIsSendNumber(prev => ({ ...prev, findPwSendNumber: false }));
       setPwPart(e.target.name);
-      setCertificationNumber("");
+      setCertificationNumber('');
     },
-    [setIsSendNumber]
+    [setIsSendNumber],
   );
 
   const goToResult = (e: React.ChangeEvent<HTMLButtonElement>) => {
     //비밀번호 재설정 api 통신
-    setResetPw({ pw: "", checkPw: "" });
+    setResetPw({ pw: '', checkPw: '' });
     setPwPart(e.target.name);
   };
 
