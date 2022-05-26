@@ -25,7 +25,7 @@ const Graduate: React.FC = () => {
         {procedureImgs.map((procedure, idx) => {
           return (
             <React.Fragment key={idx}>
-              {part === CONST.GraduatePartList[idx] && <GraduateCheckProcedure img={procedure} />}
+              {part === CONST.graduatePartList[idx] && <GraduateCheckProcedure img={procedure} />}
             </React.Fragment>
           );
         })}
@@ -33,7 +33,7 @@ const Graduate: React.FC = () => {
           {compList.map((comp, idx) => {
             return (
               <React.Fragment key={idx}>
-                {part === CONST.GraduatePartList[idx] && comp}
+                {part === CONST.graduatePartList[idx] && comp}
               </React.Fragment>
             );
           })}
