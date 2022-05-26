@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import * as S from './style';
-import SignupForm from './signupForm';
-import SignupProcedure from './signupProcedure';
-import SignupTermsForm from './signupTermsForm';
-import SignupIdPwForm from './signupIdPwForm';
+import SignupForm from './signupForm/SignupForm';
+import SignupProcedure from './signupProcedure/SignupProcedure';
+import SignupTermsForm from './signupTermsForm/SignupTermsForm';
+import SignupIdPwForm from './signupIdPwForm/SignupIdPwForm';
 import Procedure1 from '../../assets/img/signup/signupProcedure1.svg';
 import Procedure2 from '../../assets/img/signup/signupProcedure2.svg';
 import Procedure3 from '../../assets/img/signup/signupProcedure3.svg';
@@ -35,8 +35,8 @@ const Signup: React.FC = () => {
         {compList.map((comp, idx) => {
           return (
             <React.Fragment key={idx}>
-              {part === CONST.SignupPartList[idx] && <SignupProcedure img={procedureImgs[idx]} />}
-              {part === CONST.SignupPartList[idx] && comp}
+              {part === CONST.signupPartList[idx] && <SignupProcedure img={procedureImgs[idx]} />}
+              {part === CONST.signupPartList[idx] && comp}
             </React.Fragment>
           );
         })}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { registerSchoolSelect, SignupFormData } from '../../../store/signup/registerInfoAtom';
-import { schoolEmailTransform } from '../../../util/schoolEmailTransform';
+import { registerSchoolSelect, signUpFormData } from '../../../store/signup/registerInfoAtom';
+import { schoolEmailTransform } from '../../../utils/function/schoolEmailTransform';
 import SubmitButton from '../../common/button/SubmitButton/SubmitButton';
 import OptionButton from '../../common/select/optionButton/OptionButton';
 import RadioButton from '../../common/select/radioButton/RadioButton';
@@ -13,7 +13,7 @@ import TextInput from '../../common/Input/TextInput/TextInput';
 
 const SignupForm: React.FC = () => {
   const [schoolSelect, setSchoolSelect] = useRecoilState(registerSchoolSelect);
-  const [userInfo, setUserInfo] = useRecoilState(SignupFormData);
+  const [userInfo, setUserInfo] = useRecoilState(signUpFormData);
 
   const {
     sexSelect,
@@ -45,7 +45,7 @@ const SignupForm: React.FC = () => {
           <RadioButton
             selected={studentStatus}
             setSelected={setStudentStatus}
-            radioArray={CONST.StudentStatusList}
+            radioArray={CONST.studentStatusList}
             name="studentStatusSelect"
           />
         </S.SignupFormFlexWrap>
@@ -76,13 +76,13 @@ const SignupForm: React.FC = () => {
           <RadioButton
             selected={sexSelect}
             setSelected={setSexSelect}
-            radioArray={CONST.SexList}
+            radioArray={CONST.sexList}
             name="sexSelect"
           />
         </S.SignupFormFlexWrap>
         <S.SignupFormTitle marginBottom={13}>학교선택</S.SignupFormTitle>
         <S.SignupFormSchoolWrap>
-          {CONST.SchoolList.map(item => {
+          {CONST.schoolList.map(item => {
             return (
               <S.SignupFormSchoolButton name={item} key={item}>
                 <OptionButton
@@ -108,7 +108,7 @@ const SignupForm: React.FC = () => {
           >
             인증번호 보내기
           </S.SignupFormSubmitButton>
-        </.SignupFormFlexWrap>
+        </S.SignupFormFlexWrap>
         <S.SignupFormTitle marginBottom={13}>인증번호</S.SignupFormTitle>
         <S.SignupFormFlexWrap>
           <TextInput
