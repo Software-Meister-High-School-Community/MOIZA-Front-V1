@@ -2,17 +2,17 @@ import React, { ChangeEvent, ChangeEventHandler } from "react";
 import * as S from "./styles";
 import Arrow from "../../../../../assets/img/common/arrow.svg";
 import { useState } from "react";
-import UseReplaceKeyword from '../../../../Common/search/replaceKeyword/index'
-import { userSuspension } from "../../../../../api/admin";
-import { UserReportResponseType } from "../../../../../models/admin/response";
+import UseReplaceKeyword from '../../../../common/search/replaceKeyword'
+import { userSuspension } from "../../../../../utils/api/admin";
+import { IUserReportResponse } from "../../../../../models/admin/response";
 
 
 const ReportOfUser: React.FC = () => {
   const [showDetail, setShowDetail] = useState(false);
-  const [userReports, setUserReports] = useState<UserReportResponseType>()
+  const [userReports, setUserReports] = useState<IUserReportResponse>()
   return (
     <>
-      {userReports?.user_list.map((i, index) => {
+      {userReports?.user_list.map((i, index) => (
         <S.Wrapper isOpen={showDetail} key={index}>
           <S.Summary>
             <S.UserInfo>
@@ -45,7 +45,8 @@ const ReportOfUser: React.FC = () => {
             feed_reported_count={i.feed_reported_count}
             comment_reported_count={i.comment_reported_count} />}
         </S.Wrapper>
-      })}
+          )
+      )}
     </>
   );
 };

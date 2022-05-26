@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import * as S from './styles'
 import UseReplaceKeyword from '../../../../Common/search/replaceKeyword/index'
-import { removeComment } from '../../../../../api/comments'
-import { CommentReporResponsetType } from '../../../../../models/admin/response'
+import { removeComment } from '../../../../../utils/api/comments'
+import { ICommentReportResponse } from '../../../../../models/admin/response'
 
 const ReportsofComment = () => {
-    const [commentReports, setCommentReports] = useState<CommentReporResponsetType>()
+    const [commentReports, setCommentReports] = useState<ICommentReportResponse>()
     const onClickRemoveComment = () => {
         removeComment(1)
     }

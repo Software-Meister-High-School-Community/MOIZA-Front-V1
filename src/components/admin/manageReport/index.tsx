@@ -1,5 +1,5 @@
 import * as S from './styles';
-import { TypeArr, InputStyle } from '../constant';
+import { typeArr, inputStyle } from '../constant';
 import { useState, ChangeEvent, useMemo, useEffect, FormEvent } from 'react';
 import ReportOfUser from './reports/user';
 import ReportOfPost from './reports/post';
@@ -20,9 +20,9 @@ const ManageReport: React.FC = () => {
     e.preventDefault();
   };
   const InputStyleObject = useMemo(() => {
-    if (selectedType === 'users') return InputStyle.user;
-    else if (selectedType === 'posts') return InputStyle.post;
-    else if (selectedType === 'comments') return InputStyle.comment;
+    if (selectedType === 'users') return inputStyle.user;
+    else if (selectedType === 'posts') return inputStyle.post;
+    else if (selectedType === 'comments') return inputStyle.comment;
     else
       return {
         width: '1000',
@@ -35,7 +35,7 @@ const ManageReport: React.FC = () => {
         <RadioButton
           selected={selectedType}
           setSelected={setselectedType}
-          radioArray={TypeArr}
+          radioArray={typeArr}
           name="typecheckbox"
         />
         <SearchInPage
