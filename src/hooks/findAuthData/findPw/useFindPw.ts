@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { IFindPwResetDataProps } from '../../../utils/interface/FindAuthData';
-import { sendCertificationNumberStatus } from '../../../store/FindAuthData/certificationStatus';
+import { sendCertificationNumberStatus } from '../../../store/findAuthData/certificationStatus';
 import { findPwResetDataNullCheck } from '../../../utils/data/findAuthDataNullCheck';
 
 const useFindPw = () => {

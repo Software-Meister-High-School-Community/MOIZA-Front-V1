@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { registerSchoolSelect, signUpFormData } from '../../store/Signup/registerInfoAtom';
+import { registerSchoolSelect, signUpFormData } from '../../store/signup/registerInfoAtom';
 import { signupPart } from '../../store/signup/signupPartAtom';
 import { schoolEmailTransform } from '../../utils/function/schoolEmailTransform';
 import { signupFormDataNullcheck } from '../../utils/data/signupDataNullCheck';

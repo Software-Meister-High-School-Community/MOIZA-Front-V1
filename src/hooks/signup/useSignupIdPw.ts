@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { signUpFormData, signUpIdPwFormData } from '../../store/signup/registerInfoAtom';
-import { signupPart } from '../../store/Signup/signupPartAtom';
+import { signupPart } from '../../store/signup/signupPartAtom';
 
 const useSignupIdPw = () => {
   const setPart = useSetRecoilState(signupPart);

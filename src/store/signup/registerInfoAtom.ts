@@ -3,7 +3,7 @@ import {
   ISignupFormDataProps,
   ISignupIdPwFormDataProps,
   ISignupTermsFormDataProps,
-} from '../../interface/Signup/Signup.type';
+} from '../../utils/interface/Signup';
 
 export const signUpFormData = atom<ISignupFormDataProps>({
   key: 'registerInfo',
