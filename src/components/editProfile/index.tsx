@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import SubmitButton from '../common/button/SubmitButton/SubmitButton';
+import Index from '../common/button/submitButton';
 import ChangeUserProfile from './changeUserProfile';
 import BackgroundColor from './backgroundColor';
 import Introduction from './introduction';
@@ -33,7 +33,7 @@ const EditProfile: React.FC = () => {
           <LinkList />
           <ChangeUserType />
           <section className="saveButtonSection">
-            <SubmitButton
+            <Index
               big={false}
               text="저장"
               handleClick={() => console.log('sd')}

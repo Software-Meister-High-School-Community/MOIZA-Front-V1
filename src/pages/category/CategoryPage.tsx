@@ -1,5 +1,5 @@
 import React from 'react';
-import Category from '../../components/category/category';
+import Category from '../../components/category';
 
 const CategoryPage: React.FC = () => {
   return <Category />;

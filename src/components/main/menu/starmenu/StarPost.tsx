@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-import HeartButton from '../../../common/button/HeartButton/HeartButton';
+import Index from '../../../common/button/heartButton';
 import BookRead from '../../../../assets/img/common/normalPostIcon.svg';
 import Question from '../../../../assets/img/common/questionPostIcon.svg';
 
@@ -21,7 +21,7 @@ const StarPost: React.FC<PostType> = menu => {
         </S.PostHead>
         <S.PostText>{menu.menu}</S.PostText>
         <S.PostFooter>
-          <HeartButton />
+          <Index />
           <S.HeartCount>123</S.HeartCount>
           <S.PostDate>01/21 8:29</S.PostDate>
         </S.PostFooter>

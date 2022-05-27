@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { approveGraduate, rejectGraduate } from '../../utils/api/admin';
 import SearchInPage from '../common/search/searchInPage';
-import Radio from '../common/select/radioButton/RadioButton';
+import Radio from '../common/select/radioButton';
 
 type certifyType = 'request' | 'allow' | 'refuse';
 

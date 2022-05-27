@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './styles';
 import Profile from './profile/index';
 import PostList from './postList/index';
-import PageNation from '../common/pagination/Pagination';
+import PageNation from '../common/pagination';
 
 const Mypage: React.FC = () => {
   const [isMine, setIsMine] = useState(false);

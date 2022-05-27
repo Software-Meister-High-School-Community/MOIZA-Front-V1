@@ -1,4 +1,4 @@
-import PostReply from '../../components/post/postReply/PostReply';
+import PostReply from '../../components/post/postReply';
 
 const PostReplyPage: React.FC = () => {
   return (

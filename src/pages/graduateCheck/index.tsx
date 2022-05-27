@@ -1,4 +1,4 @@
-import GraduateCheck from '../../components/graduateCheck/GraduateCheck';
+import GraduateCheck from '../../components/graduateCheck';
 
 const GraduateCheckPage: React.FC = () => {
   return (

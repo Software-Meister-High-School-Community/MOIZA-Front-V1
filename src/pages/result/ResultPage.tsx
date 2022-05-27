@@ -1,6 +1,6 @@
 import React from 'react';
-import Search from '../../components/search/Search';
-import Result from '../../components/result/Result';
+import Search from '../../components/search';
+import Result from '../../components/result';
 const ResultPage = () => {
   return (
     <>
