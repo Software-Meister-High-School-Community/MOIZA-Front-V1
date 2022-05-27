@@ -1,5 +1,5 @@
-import Search from '../../components/search/Search';
-import Recommendation from '../../components/recommendation/Recommendation';
+import Search from '../../components/search';
+import Recommendation from '../../components/recommendation';
 const SearchPage: React.FC = () => {
   return (
     <>

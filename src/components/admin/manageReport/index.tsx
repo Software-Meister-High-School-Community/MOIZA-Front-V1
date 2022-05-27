@@ -4,7 +4,7 @@ import { useState, ChangeEvent, useMemo, useEffect, FormEvent } from 'react';
 import ReportOfUser from './reports/user';
 import ReportOfPost from './reports/post';
 import ReportsofComment from './reports/comment';
-import RadioButton from '../../common/select/radioButton/RadioButton';
+import RadioButton from '../../common/select/radioButton';
 import SearchInPage from '../../common/search/searchInPage/index';
 
 const ManageReport: React.FC = () => {

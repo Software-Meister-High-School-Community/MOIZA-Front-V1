@@ -1,0 +1,14 @@
+import { IEyeButtonProps } from '../../../../utils/interface/common';
+import * as S from './style';
+import closeEye from '../../../../assets/img/common/closeEye.svg';
+import openEye from '../../../../assets/img/common/openEye.svg';
+
+const Index: React.FC<IEyeButtonProps> = ({ isShow, onClick, left }) => {
+  return (
+    <S.EyeButtonBox onClick={() => (onClick ? onClick(!isShow) : null)} left={left}>
+      <S.EyeButtonImg src={isShow ? closeEye : openEye} />
+    </S.EyeButtonBox>
+  );
+};
+
+export default Index;

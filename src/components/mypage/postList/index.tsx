@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styles';
-import RadioButton from '../../common/select/radioButton/RadioButton';
+import RadioButton from '../../common/select/radioButton';
 import { mypageOptionArray } from '../constant';
 import Dropdown from '../../common/select/dropdown/index';
 import { departmentOptions, sortOptions } from '../../common/select/dropdown/options';

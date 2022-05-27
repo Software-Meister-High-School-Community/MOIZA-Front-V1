@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './styles';
 import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
 import { WindowOpenUtil } from '../../../utils/function/openWindow';
-import FollowButton from '../../common/button/SubmitButton/SubmitButton';
+import FollowButton from '../../common/button/submitButton';
 import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
 import SeeMoreModal from '../../common/seeMoreModal';
 import { seeMoreOptionList } from '../constant';

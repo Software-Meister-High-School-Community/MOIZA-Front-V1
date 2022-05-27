@@ -1,4 +1,4 @@
-import FindAuthData from '../../components/findAuthData/FindAuthData';
+import FindAuthData from '../../components/findAuthData';
 
 const FindAuthDataPage: React.FC = () => {
   return (
