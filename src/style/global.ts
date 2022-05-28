@@ -21,6 +21,9 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         background-color: transparent;
     }
+    body {
+      background-color: #F9F9F9;
+    }
     blockquote, q {
         quotes: none;
     }
