@@ -15,6 +15,7 @@ export const Wrapper = styled.section<{
 
   .list {
     position: absolute;
+    z-index: 99;
     top: 34px;
     left: -1px;
     width: 100%;
