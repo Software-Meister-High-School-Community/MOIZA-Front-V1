@@ -6,6 +6,7 @@ import Notification from './noticeList';
 import { useQuery } from '../../hooks/useQuery';
 import { AUTHORITY, ManagementType, MANAGE_REPORT, NOTIFICATION } from './constant';
 import CertifyGraduation from './certifiGraduation';
+import WithAuthorization from '../../hoc/withAuthorization';
 
 const AdminMain: React.FC = () => {
   const [type, setType] = useState<ManagementType>(MANAGE_REPORT);
@@ -53,6 +54,7 @@ const AdminMain: React.FC = () => {
     </Wrapper>
   );
 };
+// export default WithAuthorization(AdminMain, ['ADMIN']);
 export default AdminMain;
 
 interface StyleProps {
@@ -66,7 +68,7 @@ const Wrapper = styled.section`
 const Title = styled.h1`
   font-size: ${props => props.theme.fontSize.head_small};
   font-weight: 700;
-  font-family: Roboto;
+
   font-style: normal;
   line-height: 37.5px;
   margin-top: 123px;
@@ -88,7 +90,7 @@ const Type = styled.div`
   width: 400px;
   height: 45px;
   background-color: ${(props: StyleProps) => (props.isSelected ? '#999999' : '#FFFFFF')};
-  font-family: Roboto;
+
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
