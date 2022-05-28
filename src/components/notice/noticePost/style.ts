@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,12 +21,12 @@ export const List = styled.li<{
   align-items: center;
   > h1 {
     margin-left: 20px;
-    font-family: "Roboto", sans-serif;
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    color: ${(props) => (props.fixed ? "#FFB500" : "#555555")};
+    color: ${props => (props.fixed ? '#FFB500' : '#555555')};
   }
 `;
 
@@ -35,7 +35,6 @@ export const Date = styled.div`
   display: flex;
   align-items: center;
   > span {
-    font-family: "Roboto", sans-serif;
     font-style: nomal;
     font-weight: normal;
     margin-right: 30px;
@@ -51,7 +50,6 @@ export const Views = styled.em`
   display: flex;
   align-items: center;
   > span {
-    font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

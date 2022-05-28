@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -27,7 +27,6 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   > p {
-    font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: ${({ theme }) => theme.fontSize.body_large};
@@ -58,13 +57,13 @@ export const Title = styled.div`
 
 export const TextCount = styled.div<{ marginTop?: string }>`
   font-style: normal;
-  font-family: "Roboto", sans-serif;
+
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   text-align: right;
   color: #999999;
-  margin-top: ${(props) => props.marginTop};
+  margin-top: ${props => props.marginTop};
 `;
 
 export const PostMainContent = styled.textarea`
@@ -86,7 +85,6 @@ export const PostMainContent = styled.textarea`
 `;
 
 export const TempList = styled.p`
-  font-family: "Roboto", sans-serif;
   color: ${({ theme }) => theme.color.gray_color5};
   font-style: normal;
   font-weight: 400;

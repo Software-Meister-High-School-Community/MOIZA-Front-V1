@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,13 +20,13 @@ export const SchoolName = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${props => props.width};
+  height: ${props => props.height};
   font-weight: 700;
   font-size: ${({ theme }) => theme.fontSize.head_large};
-  font-family: "Roboto", sans-serif;
+
   font-style: normal;
-  margin: ${(props) => props.margin};
+  margin: ${props => props.margin};
 `;
 
 export const SchoolText = styled.p<{
@@ -34,11 +34,11 @@ export const SchoolText = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin: ${props => props.margin};
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
+
   font-style: normal;
   font-size: ${({ theme }) => theme.fontSize.body_large};
 `;
@@ -48,7 +48,7 @@ export const Hr = styled.hr<{
 }>`
   width: 181px;
   height: 1px;
-  margin: ${(props) => props.margin};
+  margin: ${props => props.margin};
   border: none;
   background-color: #eeb322;
 `;
@@ -58,12 +58,12 @@ export const SchoolClass1 = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin: ${props => props.margin};
   font-style: normal;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+
   font-size: ${({ theme }) => theme.fontSize.body_medium};
 `;
 
@@ -72,11 +72,11 @@ export const SchoolClass2 = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin: ${props => props.margin};
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+
   font-size: ${({ theme }) => theme.fontSize.body_medium};
 `;
 export const SchoolClass3 = styled.p<{
@@ -84,11 +84,11 @@ export const SchoolClass3 = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin: ${props => props.margin};
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+
   font-size: ${({ theme }) => theme.fontSize.body_medium};
 `;
 
@@ -96,11 +96,11 @@ export const SchoolHomePage = styled.p<{
   width: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  margin: ${props => props.margin};
   cursor: pointer;
   text-decoration: underline 1px;
   font-weight: 600;
-  font-family: "Roboto", sans-serif;
+
   font-size: ${({ theme }) => theme.fontSize.body_medium};
 `;

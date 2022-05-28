@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         border: 0;
         outline: unset;
         list-style: none;
-        font-family: "Roboto", sans-serif;
+      font-family: "Roboto", sans-serif;
         text-decoration: none;
 	    font-weight:400
     }
@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     button,label {
         cursor: pointer;
+        background-color: transparent;
     }
     blockquote, q {
         quotes: none;

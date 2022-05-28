@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,13 +11,12 @@ export const StarName = styled.p<{
   height: string;
   margin: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  margin: ${(props) => props.margin};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  margin: ${props => props.margin};
   font-size: 30px;
   font-weight: 400;
   font-style: normal;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const HR = styled.hr<{
@@ -25,11 +24,11 @@ export const HR = styled.hr<{
   height: string;
   background: string;
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${props => props.width};
+  height: ${props => props.height};
   margin: 0 0 30px 0;
   border: none;
-  background-color: ${(props) => props.background};
+  background-color: ${props => props.background};
 `;
 
 /* starmenu */
@@ -74,7 +73,6 @@ export const PostUser = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body_small};
   font-weight: 400;
   font-style: normal;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const PostField = styled.p`
@@ -82,7 +80,6 @@ export const PostField = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body_small};
   font-weight: 400;
   font-style: normal;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const PostText = styled.p`
@@ -93,7 +90,6 @@ export const PostText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body_large};
   font-weight: 400;
   font-style: normal;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const PostFooter = styled.div`
@@ -121,5 +117,4 @@ export const PostDate = styled.p`
   font-size: ${({ theme }) => theme.fontSize.body_small};
   font-weight: 400;
   font-style: normal;
-  font-family: "Roboto", sans-serif;
 `;

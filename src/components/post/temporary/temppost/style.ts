@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ export const Title = styled.div`
   }
   > h1 {
     margin-left: 20px;
-    font-family: "Roboto", sans-serif;
+
     font-style: normal;
     font-weight: normal;
     line-height: 21px;
@@ -47,7 +47,6 @@ export const State = styled.em`
   border: 1px solid ${({ theme }) => theme.color.gray_color3};
   border-radius: 25px;
   > p {
-    font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: ${({ theme }) => theme.fontSize.body_small};

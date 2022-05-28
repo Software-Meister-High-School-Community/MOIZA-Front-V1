@@ -27,8 +27,6 @@ const Wrapper = styled.section`
   width: 140px;
   box-sizing: border-box;
   position: absolute;
-  top: 340px;
-  right: 232px;
   border: 1px solid #999999;
   background-color: #ffffff;
   z-index: 99;

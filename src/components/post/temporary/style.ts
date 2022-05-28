@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   margin-top: 100px;
   > p {
-    font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: ${({ theme }) => theme.fontSize.body_large};

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -39,15 +39,14 @@ export const PostName = styled.p<{
   fixed: boolean;
 }>`
   margin-right: 435px;
-  font-family: Roboto;
+
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.head_small};
-  color: ${(props) => (props.fixed ? "#FFB500" : "#555555")};
+  color: ${props => (props.fixed ? '#FFB500' : '#555555')};
 `;
 
 export const PostTime = styled.p`
-  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.body_small};
@@ -65,7 +64,6 @@ export const PostBody = styled.div`
 `;
 
 export const BodyText = styled.p`
-  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.body_large};

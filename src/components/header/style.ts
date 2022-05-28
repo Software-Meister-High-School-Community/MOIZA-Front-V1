@@ -1,6 +1,6 @@
 import SVG from 'react-inlinesvg';
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface StyleProps {
   isDisplay: string;
@@ -16,11 +16,11 @@ export const Container = styled.header`
   justify-content: space-evenly;
   width: 100%;
   height: 60px;
-  background-color: ${(props) => props.theme.color.gray_color1};
+  background-color: ${props => props.theme.color.gray_color1};
 `;
 export const StyleLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => props.theme.color.gray_color6};
+  color: ${props => props.theme.color.gray_color6};
   cursor: pointer;
 
   &:focus,
@@ -49,7 +49,7 @@ export const CategoryImg = styled.img`
   width: 24px;
 `;
 export const CategoryText = styled.p`
-  font-size: ${(props) => props.theme.fontSize.body_medium};
+  font-size: ${props => props.theme.fontSize.body_medium};
   text-decoration: none;
 `;
 export const ItemContainer = styled.div`
@@ -58,12 +58,12 @@ export const ItemContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const ItemImg = styled(SVG) <SVGStyleProps>`
+export const ItemImg = styled(SVG)<SVGStyleProps>`
   cursor: pointer;
-  & path{
-    fill: ${(props) => props.color};
+  & path {
+    fill: ${props => props.color};
   }
-  `;
+`;
 export const AuthContainer = styled.div`
   display: flex;
   width: 120px;
@@ -71,6 +71,6 @@ export const AuthContainer = styled.div`
 `;
 
 export const AuthText = styled.a`
-  font-size: ${(props) => props.theme.fontSize.body_medium};
+  font-size: ${props => props.theme.fontSize.body_medium};
   cursor: pointer;
 `;

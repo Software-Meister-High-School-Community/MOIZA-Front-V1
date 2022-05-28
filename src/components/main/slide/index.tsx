@@ -1,11 +1,11 @@
-import Daeduck from "../banner/Daeduck";
-import Daegu from "../banner/Daegu";
-import Gwangju from "../banner/Gwangju";
-import Mirim from "../banner/Mirim";
-import Busan from "../banner/Busan";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Daeduck from '../banner/Daeduck';
+import Daegu from '../banner/Daegu';
+import Gwangju from '../banner/Gwangju';
+import Mirim from '../banner/Mirim';
+import Busan from '../banner/Busan';
+import Slider from 'react-slick';
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 const Slide = () => {
   const settings = {
@@ -18,7 +18,7 @@ const Slide = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: false,
-    cssEase: "linear",
+    cssEase: 'linear',
     centerMode: true,
     variableWidth: true,
   };

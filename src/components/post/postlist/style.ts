@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -29,7 +29,6 @@ export const PostName = styled.p`
   font-size: ${({ theme }) => theme.fontSize.head_small};
   font-style: normal;
   font-weight: 400;
-  font-family: Roboto;
 `;
 
 export const PostVector = styled.img`

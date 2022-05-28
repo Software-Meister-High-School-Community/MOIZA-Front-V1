@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -21,13 +21,12 @@ export const firstTitleDiv = styled.div`
   > h3 {
     font-size: ${({ theme }) => theme.fontSize.head_large};
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
   }
   > p {
     margin-top: 21px;
     font-size: ${({ theme }) => theme.fontSize.body_large};
     font-weight: 400;
-    font-family: "Roboto", sans-serif;
+
     line-height: 30px;
   }
 `;
@@ -49,7 +48,6 @@ export const SecondTitle = styled.div`
     margin-bottom: 110px;
     font-size: ${({ theme }) => theme.fontSize.head_large};
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
   }
 `;
 
@@ -68,7 +66,6 @@ export const QuestionDiv = styled.div`
     color: ${({ theme }) => theme.color.gray_color5};
     font-size: ${({ theme }) => theme.fontSize.button_large};
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
   }
 `;
 
@@ -81,13 +78,11 @@ export const QuestionTitle = styled.div`
     font-size: 24px;
     font-weight: 700;
     color: ${({ theme }) => theme.color.main_blue_color};
-    font-family: "Roboto", sans-serif;
   }
   > p {
     margin-top: 1px;
     font-size: 19px;
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
   }
 `;
 
@@ -114,7 +109,6 @@ export const FooterDiv = styled.div`
     line-height: 30px;
     font-size: ${({ theme }) => theme.fontSize.body_large};
     font-weight: 500;
-    font-family: "Roboto", sans-serif;
   }
   > img {
     width: 200px;

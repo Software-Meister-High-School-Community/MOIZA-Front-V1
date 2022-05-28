@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -23,12 +23,12 @@ export const List = styled.li<{ fixed: boolean }>`
   }
   > h1 {
     margin-left: 20px;
-    font-family: Roboto;
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    color: ${(props) => (props.fixed ? "#FFB500" : "#555555")};
+    color: ${props => (props.fixed ? '#FFB500' : '#555555')};
   }
 `;
 
@@ -36,7 +36,7 @@ export const Line = styled.div`
   max-width: 1px;
   height: 24px;
   border: 0px;
-  border-right: 1px solid ${(props) => props.theme.color.gray_color3};
+  border-right: 1px solid ${props => props.theme.color.gray_color3};
 `;
 
 export const Date = styled.div`
@@ -44,7 +44,7 @@ export const Date = styled.div`
   display: flex;
   align-items: center;
   > span {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: nomal;
     font-weight: 400;
     margin-right: 30px;
@@ -60,7 +60,6 @@ export const Views = styled.em`
   display: flex;
   align-items: center;
   > span {
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

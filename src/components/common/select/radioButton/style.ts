@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Radios = styled.section`
   display: flex;
@@ -10,7 +10,6 @@ export const Wrapper = styled.label`
   margin-right: 55px;
   cursor: pointer;
   > p {
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -29,7 +28,7 @@ export const RadioButtonRect = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${(props) => props.theme.color.gray_color3};
+  border: 1px solid ${props => props.theme.color.gray_color3};
 `;
 
 export const RadioButtonBox = styled.input<{ checked: boolean }>`
@@ -44,6 +43,6 @@ export const RadioButtonBox = styled.input<{ checked: boolean }>`
   outline: none;
   cursor: pointer;
   :checked {
-    background-color: ${(props) => props.theme.color.main_yellow_color};
+    background-color: ${props => props.theme.color.main_yellow_color};
   }
 `;
