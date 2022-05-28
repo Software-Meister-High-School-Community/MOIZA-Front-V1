@@ -1,4 +1,4 @@
-export type TUser = 'STUDENT' | 'USER' | 'GRADUATE';
+export type TUser = 'STUDENT' | 'USER' | 'GRADUATE' | 'ADMIN';
 export type TSchool = 'DSM' | 'GSM' | 'DGSW' | 'BSSM' | 'NCMM';
 export type TSex = 'MALE' | 'FEMALE';
 export type TFeed = 'ALL' | 'QUESTION' | 'COMMON';

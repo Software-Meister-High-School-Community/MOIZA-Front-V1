@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import Index from '../common/button/submitButton';
+import SubmitButton from '../common/button/submitButton';
 import ChangeUserProfile from './changeUserProfile';
 import BackgroundColor from './backgroundColor';
 import Introduction from './introduction';
@@ -9,6 +9,7 @@ import ChangeUserType from './changeUserType';
 import { useRecoilValue } from 'recoil';
 import { profileElementState } from '../../store/editProfile/profileElement';
 import { TBackGroundColor } from '../../models/common';
+import WithAuthorization from '../../hoc/withAuthorization';
 
 const EditProfile: React.FC = () => {
   const profileContent = useRecoilValue(profileElementState);
@@ -33,7 +34,7 @@ const EditProfile: React.FC = () => {
           <LinkList />
           <ChangeUserType />
           <section className="saveButtonSection">
-            <Index
+            <SubmitButton
               big={false}
               text="저장"
               handleClick={() => console.log('sd')}
@@ -47,7 +48,7 @@ const EditProfile: React.FC = () => {
     </Wrapper>
   );
 };
-export default EditProfile;
+export default WithAuthorization(EditProfile);
 
 const Wrapper = styled.section<{
   color: TBackGroundColor;

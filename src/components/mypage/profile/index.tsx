@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './styles';
 import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
 import { WindowOpenUtil } from '../../../utils/function/openWindow';
-import FollowButton from '../../common/button/submitButton';
+import SubmitButton from '../../common/button/submitButton';
 import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
 import SeeMoreModal from '../../common/seeMoreModal';
 import { seeMoreOptionList } from '../constant';
@@ -43,7 +43,7 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
         <S.modifyProfile>프로필 편집</S.modifyProfile>
       ) : (
         <S.Follow>
-          <FollowButton
+          <SubmitButton
             big={false}
             text="팔로우"
             handleClick={() => console.log('asd')}
@@ -53,10 +53,8 @@ const Profile: React.FC<PropsType> = ({ isMine }) => {
           />
           <S.SeeMoreBtn onClick={() => setSeeMoreModalStatus(true)}>
             <img src={seeMore} alt="이미지" />
-            {seeMoreModalStatus ? (
+            {seeMoreModalStatus && (
               <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModalStatus} />
-            ) : (
-              ''
             )}
           </S.SeeMoreBtn>
         </S.Follow>

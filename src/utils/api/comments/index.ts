@@ -40,7 +40,6 @@ export const reportComment = async (comment_id: number) => {
 export const writeComment = async (body: IWriteCommentRequest) => {
   try {
     await instance.post('/comments', body);
-    ``;
   } catch (err) {
     throw err;
   }

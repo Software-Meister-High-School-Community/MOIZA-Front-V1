@@ -4,7 +4,7 @@ import Profile from './profile/index';
 import PostList from './postList/index';
 import PageNation from '../common/pagination';
 
-const Mypage: React.FC = () => {
+const MyPageComponent: React.FC = () => {
   const [isMine, setIsMine] = useState(false);
   const [pagenation, setPagenation] = useState(1);
   return (
@@ -18,4 +18,4 @@ const Mypage: React.FC = () => {
     </S.Wrapper>
   );
 };
-export default Mypage;
+export default MyPageComponent;

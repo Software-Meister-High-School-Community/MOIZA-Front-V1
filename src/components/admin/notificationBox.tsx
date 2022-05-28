@@ -54,7 +54,7 @@ const List = styled.li<{
   align-items: center;
   > h1 {
     margin-left: 20px;
-    font-family: Roboto;
+
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -82,7 +82,6 @@ const Views = styled.em`
   display: flex;
   align-items: center;
   > span {
-    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

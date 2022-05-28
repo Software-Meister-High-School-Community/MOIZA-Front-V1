@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { approveGraduate, rejectGraduate } from '../../utils/api/admin';
 import SearchInPage from '../common/search/searchInPage';
-import Radio from '../common/select/radioButton';
+import RadioButton from '../common/select/radioButton';
 
 type certifyType = 'request' | 'allow' | 'refuse';
 
@@ -51,7 +51,7 @@ const CertifyGraduation: React.FC = () => {
   return (
     <Wrapper>
       <Options>
-        <Radio
+        <RadioButton
           name="certifyType"
           selected={selectedType}
           radioArray={CertifyTypeRadioArray}
