@@ -1,13 +1,13 @@
 import { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import fixed from '../../assets/img/notice/fixedNotification.svg';
-import unFixed from '../../assets/img/notice/notification.svg';
-import view from '../../assets/img/common/openEye.svg';
-import heart from '../../assets/img/common/onHeart.svg';
-import seeMore from '../../assets/img/common/seeMoreBtnIcon.svg';
-import SeeMoreModal from '../common/seeMoreModal';
-import { NoticePropsType, seeMoreOptionList } from './constant';
-import { dateTransform } from '../../utils/function/dateTransform';
+import fixed from '../../../assets/img/notice/fixedNotification.svg';
+import unFixed from '../../../assets/img/notice/notification.svg';
+import view from '../../../assets/img/common/openEye.svg';
+import heart from '../../../assets/img/common/onHeart.svg';
+import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
+import SeeMoreModal from '../seeMoreModal';
+import { NoticePropsType, seeMoreOptionList } from '../../admin/constant';
+import { dateTransform } from '../../../utils/function/dateTransform';
 
 const NoticeForm: React.FC<{ item: NoticePropsType }> = ({ item }) => {
   const [seeMoreModal, setSeeMoreModal] = useState(false);
