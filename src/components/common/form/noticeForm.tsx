@@ -9,7 +9,7 @@ import SeeMoreModal from '../common/seeMoreModal';
 import { NoticePropsType, seeMoreOptionList } from './constant';
 import { dateTransform } from '../../utils/function/dateTransform';
 
-const NotificationList: React.FC<{ item: NoticePropsType }> = ({ item }) => {
+const NoticeForm: React.FC<{ item: NoticePropsType }> = ({ item }) => {
   const [seeMoreModal, setSeeMoreModal] = useState(false);
   const viewDivideby1000 = useMemo(() => {
     return Math.floor(item.view / 100) / 10;
@@ -38,7 +38,7 @@ const NotificationList: React.FC<{ item: NoticePropsType }> = ({ item }) => {
     </List>
   );
 };
-export default NotificationList;
+export default NoticeForm;
 
 const List = styled.li<{
   fixed: boolean;
