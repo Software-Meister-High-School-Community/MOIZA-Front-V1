@@ -22,4 +22,4 @@ jobs:
       - name : Formatting code
         run : yarn format:fix
       - name: Build
-        run: yarn build
+        run: DISABLE_ESLINT_PLUGIN=true yarn build
