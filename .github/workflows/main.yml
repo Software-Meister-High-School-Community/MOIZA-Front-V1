@@ -16,7 +16,8 @@ jobs:
 
       - name: Check Node v
         run: node -v
-
+        with:
+          node-version: 14.x
       - name: Install Dependencies
         run: yarn install
       - name: Formatting code
