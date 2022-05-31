@@ -20,6 +20,10 @@ jobs:
           node-version: 14.x
       - name: Check Node v
         run: node -v
+      - name: remove cache
+        run : npm cache clean --force
+      - name: remove package-lock.json
+        run : rm -rf package-lock.json
       - name: Install Dependencies
         run: npm install --force
       - name: Formatting code
