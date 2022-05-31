@@ -17,6 +17,10 @@ interface PropsType {
 
 const PostList: React.FC<PropsType> = ({ isMine, page }) => {
   const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
+  const onChangeFeedType = (feed: string) => {
+    const feedValue = feed as TFeed;
+    setSelectedOption(feedValue);
+  };
   const [field, setField] = useState(departmentOptions[0].value);
   const [sort, setSort] = useState(sortOptions[0].value);
   const [feedList, setFeedList] = useState<IGetFeedListResponse>();
@@ -48,7 +52,7 @@ const PostList: React.FC<PropsType> = ({ isMine, page }) => {
         <RadioButton
           name="mypageOption"
           selected={selectedOption}
-          setSelected={setSelectedOption}
+          setSelected={onChangeFeedType}
           radioArray={mypageOptionArray}
         />
         <Dropdown options={departmentOptions} value={field} onChangeValue={onChangeFiled} />
