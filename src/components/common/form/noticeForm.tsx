@@ -2,39 +2,34 @@ import { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import fixed from '../../../assets/img/notice/fixedNotification.svg';
 import unFixed from '../../../assets/img/notice/notification.svg';
-import view from '../../../assets/img/common/openEye.svg';
-import heart from '../../../assets/img/common/onHeart.svg';
 import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
 import SeeMoreModal from '../seeMoreModal';
-import { NoticePropsType, seeMoreOptionList } from '../../admin/constant';
+import { seeMoreOptionList } from '../../admin/constant';
 import { dateTransform } from '../../../utils/function/dateTransform';
+import { useUserInfo } from '../../../hooks/user/useUserInfo';
+import { INoticeResponse } from '../../../models/notice/response';
 
-const NoticeForm: React.FC<{ item: NoticePropsType }> = ({ item }) => {
+const NoticeForm: React.FC<{ item: INoticeResponse }> = ({ item }) => {
   const [seeMoreModal, setSeeMoreModal] = useState(false);
-  const viewDivideby1000 = useMemo(() => {
-    return Math.floor(item.view / 100) / 10;
-  }, [item.view]);
-  const postDate = item.postDate;
-  const date = dateTransform(postDate);
+  const { userInfo } = useUserInfo();
+  // const is_admin = useMemo(() => {
+  //   return userInfo.user_scope === 'ADMIN';
+  // }, [userInfo]);
+  const is_admin = true;
+  const date = dateTransform(item.created_at);
   return (
-    <List fixed={item.fix === 'FIX'}>
-      <img src={item.fix === 'FIX' ? fixed : unFixed} />
+    <List fixed={item.is_pinned}>
+      <img src={item.is_pinned ? fixed : unFixed} alt="fixed?" />
       <h1>{item.title}</h1>
       <Date>{date}</Date>
-      <Views>
-        <img src={view} />
-        <span>{viewDivideby1000}천</span>
-      </Views>
-      <Hearts>
-        <img src={heart} />
-        <span>{item.heart}</span>
-      </Hearts>
-      <SeeMore onClick={() => setSeeMoreModal(true)}>
-        <img src={seeMore} />
-        {seeMoreModal && (
-          <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModal} />
-        )}
-      </SeeMore>
+      {is_admin && (
+        <SeeMore onClick={() => setSeeMoreModal(true)}>
+          <img src={seeMore} alt="더보기" />
+          {seeMoreModal && (
+            <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModal} />
+          )}
+        </SeeMore>
+      )}
     </List>
   );
 };
@@ -70,36 +65,10 @@ const Date = styled.em`
   text-align: right;
   color: #999999;
   margin-left: auto;
-  :after {
-    width: 1px;
-    height: 100%;
-    content: '';
-    border-right: 1px solid #e0e0e0;
-    margin: 0 30px;
-  }
-`;
-const Views = styled.em`
-  display: flex;
-  align-items: center;
-  > span {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #555555;
-    margin-left: 6px;
-  }
-`;
-const Hearts = styled(Views)`
-  margin-left: 34px;
-  cursor: pointer;
-  > span {
-    margin-left: 7px;
-  }
 `;
 const SeeMore = styled.button`
   display: flex;
-  margin-left: 37px;
+  margin-left: 30px;
   position: relative;
   cursor: pointer;
   > div > .seeMoreModal {

@@ -1,10 +1,12 @@
+export interface INoticeResponse {
+  id: number;
+  title: string;
+  created_at: string;
+  is_pinned: boolean;
+}
 export interface INoticeListResponse {
-  notice_list: Array<{
-    id: number;
-    title: string;
-    created_at: string;
-    is_pinned: boolean;
-  }>;
+  total_count: number;
+  notice_list: INoticeResponse[];
 }
 export interface INoticeDetailsResponse {
   title: string;

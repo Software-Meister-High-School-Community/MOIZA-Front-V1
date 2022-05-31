@@ -1,5 +1,9 @@
 import instance from '../../axios';
-import { INoticeDetailsResponse, INoticeListResponse } from '../../../models/notice/response';
+import {
+  INoticeDetailsResponse,
+  INoticeListResponse,
+  INoticeResponse,
+} from '../../../models/notice/response';
 import { IPatchNoticeRequest } from '../../../models/notice/request';
 
 export const getNoticeList = async (): Promise<INoticeListResponse> => {
