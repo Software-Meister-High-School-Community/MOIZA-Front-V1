@@ -11,17 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code.
-        uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.17.0
+          node-version: 14.x
       - name: Check Node v
         run: node -v
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
       - name : Formatting code
         run : yarn format:fix
       - name: Build
-        run: npm run build
+        run: yarn build
