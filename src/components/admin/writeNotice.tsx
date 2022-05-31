@@ -5,7 +5,7 @@ import { writeNoticePathArr } from './constant';
 import Switch from '../common/toggle/switch';
 import UploadFiles from '../common/upload/files';
 import { UploadDataType } from '../../utils/interface/common';
-import Index from '../common/button/submitButton';
+import SubmitButton from '../common/button/submitButton';
 
 const WriteNotice: React.FC = () => {
   const FD = new FormData();
@@ -62,7 +62,7 @@ const WriteNotice: React.FC = () => {
       </InputContentBox>
       <UploadFiles state={noticeContent} setStateFunction={setNoticeContent} />
       <SubmitBtn>
-        <Index
+        <SubmitButton
           big={false}
           text="작성완료"
           handleClick={onSubmitNotification}

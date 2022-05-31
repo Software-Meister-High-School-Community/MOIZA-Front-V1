@@ -4,7 +4,7 @@ import Path from '../../common/path';
 import { noticeListPathArr } from '../constant';
 import Dropdown from '../../common/select/dropdown';
 import Index from '../noticePost';
-import PagiNation from '../../common/pagination';
+import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
 
 const NoticeList: React.FC = () => {

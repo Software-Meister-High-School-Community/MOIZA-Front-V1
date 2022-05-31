@@ -3,7 +3,7 @@ import * as S from './style';
 import LeftArrow from '../../../assets/img/common/prevBtnIcon.svg';
 import RightArrow from '../../../assets/img/common/nextBtnIcon.svg';
 import { IPaginationProps } from '../../../utils/interface/common';
-const Pagination: React.FC<IPaginationProps> = ({ total, limit, page, setPage }) => {
+const Pageination: React.FC<IPaginationProps> = ({ total, limit, page, setPage }) => {
   const totalPages = Math.ceil(total / limit);
   return (
     <>
@@ -30,4 +30,4 @@ const Pagination: React.FC<IPaginationProps> = ({ total, limit, page, setPage })
   );
 };
 
-export default Pagination;
+export default Pageination;

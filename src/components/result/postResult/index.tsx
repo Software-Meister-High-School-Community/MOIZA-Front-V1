@@ -1,5 +1,5 @@
 import React from 'react';
-import PostForm from '../../common/postform';
+import PostForm from '../../common/form/postForm';
 import * as S from './style';
 const PostResult: React.FC = () => {
   return (

@@ -3,7 +3,7 @@ import * as S from './style';
 import closeEye from '../../../../assets/img/common/closeEye.svg';
 import openEye from '../../../../assets/img/common/openEye.svg';
 
-const Index: React.FC<IEyeButtonProps> = ({ isShow, onClick, left }) => {
+const EyeButton: React.FC<IEyeButtonProps> = ({ isShow, onClick, left }) => {
   return (
     <S.EyeButtonBox onClick={() => (onClick ? onClick(!isShow) : null)} left={left}>
       <S.EyeButtonImg src={isShow ? closeEye : openEye} />
@@ -11,4 +11,4 @@ const Index: React.FC<IEyeButtonProps> = ({ isShow, onClick, left }) => {
   );
 };
 
-export default Index;
+export default EyeButton;

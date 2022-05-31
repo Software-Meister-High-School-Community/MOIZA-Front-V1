@@ -1,27 +1,73 @@
-import React, { useMemo } from 'react';
+import React, { ChangeEvent, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import ManageReport from './manageReport';
 import Notification from './noticeList';
 import { useQuery } from '../../hooks/useQuery';
 import { AUTHORITY, ManagementType, MANAGE_REPORT, NOTIFICATION } from './constant';
-import CertifyGraduation from './certifiGraduation';
 import WithAuthorization from '../../hoc/withAuthorization';
+import CertifyGraduation from './certifiGraduation';
+import Pagenation from '../common/pagenation';
+
+export interface IFilterState {
+  keyword: string;
+  page: number;
+}
 
 const AdminMain: React.FC = () => {
-  const [type, setType] = useState<ManagementType>(MANAGE_REPORT);
+  const [managementType, setManagementType] = useState<ManagementType>(MANAGE_REPORT);
   const pageType = useQuery().get('page-type');
+  const [totalElementCount, setTotalElementsCount] = useState(1);
+  const [filterState, setFilterState] = useState<IFilterState>({
+    keyword: '',
+    page: 1,
+  });
+  const onChangeSearchKeyword = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setFilterState({ ...filterState, keyword: e.target.value });
+    },
+    [filterState, setFilterState],
+  );
   useEffect(() => {
-    pageType === 'notification' ? setType(NOTIFICATION) : setType(MANAGE_REPORT);
+    pageType === 'notification'
+      ? setManagementType(NOTIFICATION)
+      : setManagementType(MANAGE_REPORT);
   }, [pageType]);
-  const changeType = (id: ManagementType) => {
-    setType(id);
+  const changeManagementType = (id: ManagementType) => {
+    setManagementType(id);
   };
   const posts = useMemo(() => {
-    if (type === 'REPORT') return <ManageReport />;
-    else if (type === 'NOTIFICATION') return <Notification />;
-    else return <CertifyGraduation />;
-  }, [type]);
+    if (managementType === 'REPORT')
+      return (
+        <ManageReport
+          filterState={filterState}
+          setTotalElementsCount={setTotalElementsCount}
+          onChangeSearchKeyword={onChangeSearchKeyword}
+        />
+      );
+    else if (managementType === 'NOTIFICATION')
+      return <Notification page={filterState.page} setTotalElementsCount={setTotalElementsCount} />;
+    else
+      return (
+        <CertifyGraduation
+          filterState={filterState}
+          onChangeSearchKeyword={onChangeSearchKeyword}
+          setTotalElementsCount={setTotalElementsCount}
+        />
+      );
+  }, [managementType, filterState, setFilterState]);
+  useEffect(() => {
+    setFilterState({
+      keyword: '',
+      page: 1,
+    });
+  }, [managementType]);
+  const onChangePage = useCallback(
+    (page: number) => {
+      setFilterState({ ...filterState, page: page });
+    },
+    [filterState, setFilterState],
+  );
   return (
     <Wrapper>
       <Title>어드민 페이지</Title>
@@ -29,28 +75,34 @@ const AdminMain: React.FC = () => {
         <Types>
           <Type
             id={MANAGE_REPORT}
-            onClick={() => changeType(MANAGE_REPORT)}
-            isSelected={type === MANAGE_REPORT}
+            onClick={() => changeManagementType(MANAGE_REPORT)}
+            isSelected={managementType === MANAGE_REPORT}
           >
             신고관리
           </Type>
           <Type
             id={NOTIFICATION}
-            onClick={() => changeType(NOTIFICATION)}
-            isSelected={type === NOTIFICATION}
+            onClick={() => changeManagementType(NOTIFICATION)}
+            isSelected={managementType === NOTIFICATION}
           >
             공지사항
           </Type>
           <Type
             id={AUTHORITY}
-            onClick={() => changeType(AUTHORITY)}
-            isSelected={type === AUTHORITY}
+            onClick={() => changeManagementType(AUTHORITY)}
+            isSelected={managementType === AUTHORITY}
           >
             졸업생 인증
           </Type>
         </Types>
       </TypeWrapper>
       {posts}
+      <Pagenation
+        total={totalElementCount}
+        limit={5}
+        page={filterState.page}
+        setPage={onChangePage}
+      />
     </Wrapper>
   );
 };

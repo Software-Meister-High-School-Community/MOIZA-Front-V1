@@ -30,9 +30,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/intro" element={<IntroducePage />} />
-        <Route path="/notice" element={<NoticeList />} />
+        {/*<Route path="/notice" element={<NoticeList />} />*/}
         <Route path="/shownotice" element={<ShowNotice />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="admin" element={<Admin />} />
         {/*<Route path="/write-notice" element={<WriteNotice />} />*/}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />

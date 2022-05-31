@@ -1,14 +1,16 @@
 import { TFeed, TSchool, TUser } from '../common';
 
+export interface IGraduateResponse {
+  user_id: number;
+  name: string;
+  school: TSchool;
+  type: TUser;
+  verifying_image_url: string;
+}
+
 export interface IGraduateListResponse {
   total_count: number;
-  user_list: Array<{
-    user_id: number;
-    name: string;
-    school: TSchool;
-    type: TUser;
-    verifying_image_url: string;
-  }>;
+  user_list: IGraduateResponse[];
 }
 export interface ICommentReportResponse {
   total_count: number;

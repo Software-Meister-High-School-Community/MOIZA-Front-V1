@@ -3,7 +3,7 @@ import onHeart from '../../../../assets/img/common/onHeart.svg';
 import offHeart from '../../../../assets/img/common/offHeart.svg';
 import * as S from './style';
 
-export const Index: React.FC = () => {
+export const HeartButton: React.FC = () => {
   const [liked, setLiked] = useState(false);
 
   const onClickHeart = () => {
@@ -18,4 +18,4 @@ export const Index: React.FC = () => {
   return <S.PostHeart src={liked ? onHeart : offHeart} alt="" onClick={onClickHeart} />;
 };
 
-export default Index;
+export default HeartButton;

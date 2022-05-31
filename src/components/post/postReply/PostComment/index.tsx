@@ -2,7 +2,7 @@ import { ICommnet } from '../../../../utils/interface/Post';
 import * as S from './style';
 import menuCircle from '../../../../assets/img/common/seeMoreBtnIcon.svg';
 import commentIcon from '../../../../assets/img/common/comment.svg';
-import Index from '../../../common/ImgSplit';
+import ImgSplit from '../../../common/ImgSplit';
 import { useState } from 'react';
 import PostReplyCommentOfComment from '../PostReplyCommentOfComment';
 import { seeMoreOption } from '../../constant';
@@ -65,7 +65,7 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
           <S.PostReplyCommentContentText withPicture={commentData.picture.length ? true : false}>
             {commentData.text}
           </S.PostReplyCommentContentText>
-          <Index width={380} imgs={commentData.picture} gap={10} />
+          <ImgSplit width={380} imgs={commentData.picture} gap={10} />
         </S.PostReplyCommentMiddleWrap>
         <S.PostReplyCommentBottomWrap>
           <S.PostReplyCommentCommentWrap onClick={() => setFold(!fold)}>

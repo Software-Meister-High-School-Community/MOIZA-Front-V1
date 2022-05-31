@@ -1,59 +1,72 @@
-import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { approveGraduate, rejectGraduate } from '../../utils/api/admin';
+import { getGraduateList } from '../../utils/api/admin';
 import SearchInPage from '../common/search/searchInPage';
 import RadioButton from '../common/select/radioButton';
-
-type certifyType = 'request' | 'allow' | 'refuse';
+import { TGraduateStatus } from '../../models/common';
+import { IFilterState } from './index';
+import GraduationBox from './graduationBox';
+import { IGraduateListResponse } from '../../models/admin/response';
 
 interface radioTypeInterface {
-  id: certifyType;
+  id: TGraduateStatus;
   summary: '인증요청' | '승인목록' | '거절목록';
 }
 
 const CertifyTypeRadioArray: radioTypeInterface[] = [
   {
-    id: 'request',
+    id: 'REQUESTED',
     summary: '인증요청',
   },
   {
-    id: 'allow',
+    id: 'APPROVED',
     summary: '승인목록',
   },
   {
-    id: 'refuse',
+    id: 'REJECTED',
     summary: '거절목록',
   },
 ];
 
-const CertifyGraduation: React.FC = () => {
-  const [selectedType, setSelectedType] = useState<certifyType>('request');
-  const [keyword, setKeyword] = useState('');
+interface IProps {
+  filterState: IFilterState;
+  onChangeSearchKeyword: (e: ChangeEvent<HTMLInputElement>) => void;
+  setTotalElementsCount: (page: number) => void;
+}
+
+const CertifyGraduation: React.FC<IProps> = ({
+  filterState,
+  onChangeSearchKeyword,
+  setTotalElementsCount,
+}) => {
+  const [graduateStatus, setGraduateStatus] = useState<TGraduateStatus>('REQUESTED');
+  const [graduateList, setGraduateList] = useState<IGraduateListResponse>();
+  useEffect(() => {
+    getGraduateList(graduateStatus, filterState.keyword, filterState.page).then(res => {
+      setGraduateList(res);
+      setTotalElementsCount(res.total_count);
+    });
+  }, [graduateStatus, filterState]);
   const onChangeSelectedValue = useCallback(
-    (selectedId: string) => {
-      const id = selectedId as certifyType;
-      setSelectedType(id);
+    (status: string) => {
+      const graduateStatus = status as TGraduateStatus;
+      setGraduateStatus(graduateStatus);
     },
-    [selectedType, setSelectedType],
+    [graduateStatus, setGraduateStatus],
   );
-  const onChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
-    setKeyword(e.target.value);
-  };
-  const onKeyPressSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-  const accept = () => {
-    approveGraduate(1);
-  };
-  const reject = () => {
-    rejectGraduate(1);
-  };
+  const onKeyPressSearch = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const res = getGraduateList(graduateStatus, filterState.keyword, filterState.page);
+    },
+    [filterState],
+  );
   return (
     <Wrapper>
       <Options>
         <RadioButton
           name="certifyType"
-          selected={selectedType}
+          selected={graduateStatus}
           radioArray={CertifyTypeRadioArray}
           setSelected={onChangeSelectedValue}
         />
@@ -62,30 +75,16 @@ const CertifyGraduation: React.FC = () => {
           fontsize="16"
           onSubmit={onKeyPressSearch}
           onChange={onChangeSearchKeyword}
-          value={keyword}
+          value={filterState.keyword}
           placeholder="유저 이름 입력"
           width="205"
         />
       </Options>
       <RequestLists>
-        <List>
-          <UserSummary>
-            <p className="userInfo">짱정원</p>
-            <p className="userInfo">미림마이스터고</p>
-            <p className="userInfo">졸업생</p>
-          </UserSummary>
-          <PatchFile>
-            <button className="patchFile">파일 확인</button>
-          </PatchFile>
-          <ApproveDenyButton>
-            <button className="approve" onClick={accept}>
-              승인
-            </button>
-            <button className="deny" onClick={reject}>
-              거절
-            </button>
-          </ApproveDenyButton>
-        </List>
+        {graduateList &&
+          graduateList.user_list.map((item, index) => (
+            <GraduationBox item={item} key={item.user_id} />
+          ))}
       </RequestLists>
     </Wrapper>
   );
@@ -100,80 +99,4 @@ const Options = styled.div`
 const RequestLists = styled.ul`
   width: 100%;
   margin-top: 20px;
-`;
-const List = styled.li`
-  width: 100%;
-  height: 60px;
-  background-color: #ffffff;
-  border: 1px solid ${({ theme }) => theme.color.gray_color3};
-  border-radius: 5px;
-  display: flex;
-  padding: 0 40px 0 26px;
-  box-sizing: border-box;
-`;
-const UserSummary = styled.em`
-  display: flex;
-  width: 455px;
-  border-right: 1px solid ${({ theme }) => theme.color.gray_color3};
-  > .userInfo {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: ${({ theme }) => theme.color.gray_color6};
-    display: flex;
-    align-items: center;
-    ::after {
-      content: '';
-      width: 3px;
-      height: 3px;
-      background-color: ${({ theme }) => theme.color.gray_color5};
-      border-radius: 50%;
-      margin: 0 14px 0 13px;
-    }
-    :last-child {
-      ::after {
-        content: '';
-        width: 0;
-        height: 0;
-      }
-    }
-  }
-`;
-const PatchFile = styled.div`
-  width: 503px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px solid ${({ theme }) => theme.color.gray_color3};
-  > .patchFile {
-    width: 123px;
-    height: 40px;
-    border: 1px solid ${({ theme }) => theme.color.gray_color3};
-    background-color: #ffffff;
-    border-radius: 5px;
-  }
-`;
-const ApproveDenyButton = styled.div`
-  display: flex;
-  align-items: center;
-  > button {
-    width: 70px;
-    height: 40px;
-    border: 1px solid ${({ theme }) => theme.color.gray_color3};
-    background-color: #ffffff;
-    border-radius: 5px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-  }
-  > .approve {
-    color: ${({ theme }) => theme.color.gray_color6};
-    margin-left: 40px;
-  }
-  > .deny {
-    color: #eb4d3d;
-    margin-left: 22px;
-  }
 `;

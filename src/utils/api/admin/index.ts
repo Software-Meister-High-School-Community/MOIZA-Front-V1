@@ -8,11 +8,11 @@ import {
 } from '../../../models/admin/response';
 import { TGraduateStatus } from '../../../models/common';
 
-export const getGraduateLists = async (
+export const getGraduateList = async (
   status: TGraduateStatus,
   keyword: string | null,
   page: number,
-): Promise<IUserReportResponse> => {
+): Promise<IGraduateListResponse> => {
   try {
     return await instance.get(
       `/admins/graduate/lists?status=${status}&keyword=${keyword}&page=${page}`,
@@ -79,7 +79,7 @@ export const getFeedReports = async (
 export const getUserReports = async (
   page: number,
   keyword: string | null,
-): Promise<IGraduateListResponse> => {
+): Promise<IUserReportResponse> => {
   try {
     return await instance.get(`/reports/users?keyword=${keyword}&page=${page}`);
   } catch (err) {

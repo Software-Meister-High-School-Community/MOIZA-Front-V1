@@ -7,8 +7,8 @@ import { postListPathArr } from '../constant';
 import Dropdown from '../../common/select/dropdown';
 import RadioButton from '../../common/select/radioButton';
 import { typeArr } from '../constant';
-import PostForm from '../../common/postform';
-import PagiNation from '../../common/pagination';
+import PostForm from '../../common/form/postForm';
+import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
 
 const PostList: React.FC = () => {

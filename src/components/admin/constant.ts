@@ -1,7 +1,6 @@
-import {
-  PathType,
-  SeeMoreOptionInterface,
-} from '../../utils/interface/common';
+import { PathType, SeeMoreOptionInterface } from '../../utils/interface/common';
+import { TReport } from './manageReport';
+import { INoticeListResponse } from '../../models/notice/response';
 
 export type ManagementType = 'REPORT' | 'NOTIFICATION' | 'AUTHORITY';
 
@@ -10,20 +9,20 @@ export const NOTIFICATION: ManagementType = 'NOTIFICATION';
 export const AUTHORITY: ManagementType = 'AUTHORITY';
 
 interface RadioTypeInterface {
-  id: string;
+  id: TReport;
   summary: string;
 }
 export const typeArr: RadioTypeInterface[] = [
   {
-    id: 'users',
+    id: 'USERS',
     summary: '사용자',
   },
   {
-    id: 'posts',
+    id: 'FEEDS',
     summary: '게시물',
   },
   {
-    id: 'comments',
+    id: 'COMMENTS',
     summary: '답변',
   },
 ];
@@ -64,49 +63,30 @@ export const writeNoticePathArr: PathType[] = [
     link: '/write-notification',
   },
 ];
+export const noticeListTestArray: INoticeListResponse = {
+  total_count: 10,
+  notice_list: [
+    {
+      is_pinned: true,
+      title: '모이자에 오신 여러분 환영합니다!',
+      id: 0,
+      created_at: '2022-05-01`T`02:17:00',
+    },
+    {
+      is_pinned: true,
+      title: '모이자와 함께하기 위해서는',
+      id: 1,
+      created_at: '2022-05-01`T`02:17:00',
+    },
+    {
+      is_pinned: false,
+      title: '모이자에 오신 여러분 환영합니다!',
+      id: 2,
+      created_at: '2022-05-01`T`02:17:00',
+    },
+  ],
+};
 
-type UserType = '재학생' | '졸업생';
-type PostType = 'question' | 'common';
-type NoticeType = 'FIX' | 'UNFIX';
-
-export interface NoticePropsType {
-  fix: NoticeType;
-  title: string;
-  view: number;
-  heart: number;
-  postDate: string;
-}
-export const noticeListTestArray: NoticePropsType[] = [
-  {
-    fix: 'FIX',
-    title: '모이자에 오신 여러분 환영합니다!',
-    view: 1200,
-    heart: 599,
-    postDate: '2022-05-01`T`02:17:00',
-  },
-  {
-    fix: 'FIX',
-    title: '모이자와 함께하기 위해서는',
-    view: 1210,
-    heart: 599,
-    postDate: '2022-05-01`T`02:17:00',
-  },
-  {
-    fix: 'UNFIX',
-    title: '모이자에 오신 여러분 환영합니다!',
-    view: 1350,
-    heart: 599,
-    postDate: '2022-05-01`T`02:17:00',
-  },
-];
-
-export interface NoticeListResponseType {
-  fix: NoticeType;
-  title: string;
-  date: string;
-  view: number;
-  heart: number;
-}
 export const seeMoreOptionList: SeeMoreOptionInterface[] = [
   {
     option: '수정',
