@@ -25,4 +25,4 @@ jobs:
       - name: Formatting code
         run: yarn format:fix
       - name: Build
-        run: yarn build
+        run: yarn run build
