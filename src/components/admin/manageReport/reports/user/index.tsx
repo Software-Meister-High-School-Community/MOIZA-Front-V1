@@ -1,52 +1,50 @@
-import React, { ChangeEvent, ChangeEventHandler } from "react";
-import * as S from "./styles";
-import Arrow from "../../../../../assets/img/common/arrow.svg";
-import { useState } from "react";
-import UseReplaceKeyword from '../../../../common/search/replaceKeyword'
-import { userSuspension } from "../../../../../utils/api/admin";
-import { IUserReportResponse } from "../../../../../models/admin/response";
-
+import React, { ChangeEvent, ChangeEventHandler } from 'react';
+import * as S from './styles';
+import Arrow from '../../../../../assets/img/common/arrow.svg';
+import { useState } from 'react';
+import UseReplaceKeyword from '../../../../common/search/replaceKeyword';
+import { userSuspension } from '../../../../../utils/api/admin';
+import { IUserReportResponse } from '../../../../../models/admin/response';
 
 const ReportOfUser: React.FC = () => {
   const [showDetail, setShowDetail] = useState(false);
-  const [userReports, setUserReports] = useState<IUserReportResponse>()
+  const [userReports, setUserReports] = useState<IUserReportResponse>();
   return (
     <>
-      {userReports?.user_list.map((i, index) => (
-        <S.Wrapper isOpen={showDetail} key={index}>
-          <S.Summary>
-            <S.UserInfo>
-              <S.Name>
-                <UseReplaceKeyword
-                  string={"asd"}
-                  keyword={"asd"}
-                  fontColor="#0048FF"
+      {userReports &&
+        userReports.user_list.map((i, index) => (
+          <S.Wrapper isOpen={showDetail} key={index}>
+            <S.Summary>
+              <S.UserInfo>
+                <S.Name>
+                  <UseReplaceKeyword string={'asd'} keyword={'asd'} fontColor="#0048FF" />
+                </S.Name>
+                <S.Name>{i.school}</S.Name>
+                <S.Type>{i.type}</S.Type>
+              </S.UserInfo>
+              <S.History>
+                <S.Progress>
+                  정지 <p>{i.suspension_created_at}</p>일 / <p>{i.suspension_expired_at}</p>일 경과
+                </S.Progress>
+                <S.Count>
+                  누적 <p>{i.user_reported_count}</p>회
+                </S.Count>
+                <S.Arrow
+                  isFold={showDetail}
+                  src={Arrow}
+                  onClick={() => setShowDetail(!showDetail)}
                 />
-              </S.Name>
-              <S.Name>{i.school}</S.Name>
-              <S.Type>{i.type}</S.Type>
-            </S.UserInfo>
-            <S.History>
-              <S.Progress>
-                정지 <p>{i.suspension_created_at}</p>일 / <p>{i.suspension_expired_at}</p>일 경과
-              </S.Progress>
-              <S.Count>
-                누적 <p>{i.user_reported_count}</p>회
-              </S.Count>
-              <S.Arrow
-                isFold={showDetail}
-                src={Arrow}
-                onClick={() => setShowDetail(!showDetail)}
+              </S.History>
+            </S.Summary>
+            {showDetail && (
+              <Detail
+                user_reported_count={i.user_reported_count}
+                feed_reported_count={i.feed_reported_count}
+                comment_reported_count={i.comment_reported_count}
               />
-            </S.History>
-          </S.Summary>
-          {showDetail && <Detail
-            user_reported_count={i.user_reported_count}
-            feed_reported_count={i.feed_reported_count}
-            comment_reported_count={i.comment_reported_count} />}
-        </S.Wrapper>
-          )
-      )}
+            )}
+          </S.Wrapper>
+        ))}
     </>
   );
 };
@@ -57,14 +55,18 @@ interface ReportDetailPropsType {
   comment_reported_count: number;
 }
 
-const Detail: React.FC<ReportDetailPropsType> = ({ user_reported_count, feed_reported_count, comment_reported_count }) => {
-  const [suspension, setSuspension] = useState<null | number>(null)
+const Detail: React.FC<ReportDetailPropsType> = ({
+  user_reported_count,
+  feed_reported_count,
+  comment_reported_count,
+}) => {
+  const [suspension, setSuspension] = useState<null | number>(null);
   const onChangeSuspension = (e: ChangeEvent<HTMLInputElement>) => {
     setSuspension(Number(e.target.value));
-  }
+  };
   const onClickSuspension = () => {
-    userSuspension(1)
-  }
+    userSuspension(1);
+  };
   return (
     <S.DetailWrapper>
       <S.Line />
