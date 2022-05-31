@@ -19,7 +19,5 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install
-      - name : Formatting code
-        run : yarn format:fix
       - name: Build
         run: yarn build
