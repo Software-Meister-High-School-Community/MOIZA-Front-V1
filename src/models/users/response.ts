@@ -31,5 +31,5 @@ export interface IGetUserProfileResponse {
 }
 
 export interface IGetMyPageResponse extends IGetUserProfileResponse {
-  id: number | null;
+  user_id: number | null;
 }

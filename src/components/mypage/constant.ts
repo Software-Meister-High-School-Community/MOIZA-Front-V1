@@ -7,6 +7,10 @@ interface TypeArrType {
 
 export const mypageOptionArray: TypeArrType[] = [
   {
+    id: 'ALL',
+    summary: '전체',
+  },
+  {
     id: 'question',
     summary: '질문',
   },
