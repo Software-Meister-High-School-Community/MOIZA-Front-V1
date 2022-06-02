@@ -41,9 +41,7 @@ const PostList: React.FC = () => {
             </S.RadioBtnDiv>
             <Dropdown value={value} onChangeValue={setValue} options={sortOptions} />
           </S.SelectDiv>
-          <S.PosFormtDiv>
-            <PostForm />
-          </S.PosFormtDiv>
+          <S.PosFormtDiv>{/*<PostForm />*/}</S.PosFormtDiv>
         </S.PostDiv>
         <nav className="pagenation">
           <PagiNation total={5} limit={1} page={pagenation} setPage={setPagenation} />

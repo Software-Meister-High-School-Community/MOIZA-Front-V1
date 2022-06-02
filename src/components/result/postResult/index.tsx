@@ -5,9 +5,7 @@ const PostResult: React.FC = () => {
   return (
     <S.Wapper>
       <S.Title>게시물</S.Title>
-      <S.Container>
-        <PostForm />
-      </S.Container>
+      <S.Container>{/*<PostForm />*/}</S.Container>
     </S.Wapper>
   );
 };

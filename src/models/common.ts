@@ -3,15 +3,16 @@ export type TSchool = 'DSM' | 'GSM' | 'DGSW' | 'BSSM' | 'NCMM';
 export type TSex = 'MALE' | 'FEMALE';
 export type TFeed = 'ALL' | 'QUESTION' | 'COMMON';
 export type TCategory =
-  | 'FRONTEND'
-  | 'BACKEND'
+  | 'FRONT-END'
+  | 'BACK-END'
   | 'IOS'
-  | 'ANDROID'
+  | 'AOS'
   | 'DESIGN'
   | 'GAME'
   | 'SECURITY'
   | 'EMBEDDED'
-  | 'AI';
+  | 'AI'
+  | 'ALL';
 export type TSort = 'LATEST' | 'OLDEST' | 'VIEW_COUNT' | 'LIKE_COUNT';
 export type TBackGroundColor =
   | '#932C16'

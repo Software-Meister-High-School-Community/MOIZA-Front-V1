@@ -1,6 +1,11 @@
-import { OptionArrType } from '../../../../utils/interface/common';
+import { TCategory, TSort } from '../../../../models/common';
 
-export const departmentOptions: OptionArrType[] = [
+interface IDepartmentOption {
+  option: string;
+  value: TCategory;
+}
+
+export const departmentOptions: IDepartmentOption[] = [
   { option: '모든 분야', value: 'ALL' },
   { option: 'Front-End', value: 'FRONT-END' },
   { option: 'Back-End', value: 'BACK-END' },
@@ -12,9 +17,15 @@ export const departmentOptions: OptionArrType[] = [
   { option: 'Embedded', value: 'EMBEDDED' },
   { option: 'AI', value: 'AI' },
 ];
-export const sortOptions: OptionArrType[] = [
-  { option: '최신 순', value: 'NEW' },
-  { option: '오래된 순', value: 'OLD' },
-  { option: '조회수 순', value: 'VIEW' },
-  { option: '좋아요 순', value: 'LIKE' },
+
+interface ISortOption {
+  option: string;
+  value: TSort;
+}
+
+export const sortOptions: ISortOption[] = [
+  { option: '최신 순', value: 'LATEST' },
+  { option: '오래된 순', value: 'OLDEST' },
+  { option: '조회수 순', value: 'VIEW_COUNT' },
+  { option: '좋아요 순', value: 'LIKE_COUNT' },
 ];

@@ -5,15 +5,21 @@ import styled from 'styled-components';
 import view from '../../../assets/img/common/openEye.svg';
 import heart from '../../../assets/img/common/onHeart.svg';
 import Comment from '../../../assets/img/common/comment.svg';
+import { IFeedResponse } from '../../../models/feeds/response';
+import { dateTransform } from '../../../utils/function/dateTransform';
 
-const PostForm: React.FC = () => {
+interface Props {
+  item: IFeedResponse;
+}
+
+const PostForm: React.FC<Props> = ({ item }) => {
   return (
     <Wrapper>
       <List fixed={true}>
         <img src={BookRead} alt="BookRed 이미지" />
-        <h1>모이자에 오신 여러분 환영합니다!</h1>
+        <h1>{item.title}</h1>
         <Date>
-          <span>22/01/21 8:29</span>
+          <span>{dateTransform(item.created_at)}</span>
           <Line />
         </Date>
         <Views>
@@ -22,11 +28,11 @@ const PostForm: React.FC = () => {
         </Views>
         <CommentCount>
           <img src={Comment} />
-          <span>12</span>
+          <span>{item.comment_count}</span>
         </CommentCount>
         <Hearts>
           <img src={heart} />
-          <span>599</span>
+          <span>{item.like_count}</span>
         </Hearts>
       </List>
     </Wrapper>
