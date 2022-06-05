@@ -1,10 +1,9 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { backgroundColorListArray } from './constant';
 import { TBackGroundColor } from '../../models/common';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { profileElementState } from '../../store/editProfile/profileElement';
-import e from 'express';
 
 const BackgroundColor: React.FC = () => {
   const [backgroundColor, setBackgroundColor] = useRecoilState(profileElementState);
