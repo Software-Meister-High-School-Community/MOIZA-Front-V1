@@ -7,6 +7,8 @@ import { TGraduateStatus } from '../../models/common';
 import { IFilterState } from './index';
 import GraduationBox from './graduationBox';
 import { IGraduateListResponse } from '../../models/admin/response';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { adminPageNationState } from '../../store/admin';
 
 interface radioTypeInterface {
   id: TGraduateStatus;
@@ -29,24 +31,20 @@ const CertifyTypeRadioArray: radioTypeInterface[] = [
 ];
 
 interface IProps {
-  filterState: IFilterState;
+  keyword: string;
   onChangeSearchKeyword: (e: ChangeEvent<HTMLInputElement>) => void;
-  setTotalElementsCount: (page: number) => void;
 }
 
-const CertifyGraduation: React.FC<IProps> = ({
-  filterState,
-  onChangeSearchKeyword,
-  setTotalElementsCount,
-}) => {
+const CertifyGraduation: React.FC<IProps> = ({ keyword, onChangeSearchKeyword }) => {
   const [graduateStatus, setGraduateStatus] = useState<TGraduateStatus>('REQUESTED');
   const [graduateList, setGraduateList] = useState<IGraduateListResponse>();
+  const [adminPageNation, setAdminPageNation] = useRecoilState(adminPageNationState);
   useEffect(() => {
-    getGraduateList(graduateStatus, filterState.keyword, filterState.page).then(res => {
+    getGraduateList(graduateStatus, keyword, adminPageNation.page - 1).then(res => {
       setGraduateList(res);
-      setTotalElementsCount(res.total_count);
+      setAdminPageNation({ ...adminPageNation, totalElement: res.total_count });
     });
-  }, [graduateStatus, filterState]);
+  }, [graduateStatus, keyword, adminPageNation]);
   const onChangeSelectedValue = useCallback(
     (status: string) => {
       const graduateStatus = status as TGraduateStatus;
@@ -57,9 +55,9 @@ const CertifyGraduation: React.FC<IProps> = ({
   const onKeyPressSearch = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const res = getGraduateList(graduateStatus, filterState.keyword, filterState.page);
+      const res = getGraduateList(graduateStatus, keyword, adminPageNation.page);
     },
-    [filterState],
+    [keyword, adminPageNation],
   );
   return (
     <Wrapper>
@@ -75,7 +73,7 @@ const CertifyGraduation: React.FC<IProps> = ({
           fontsize="16"
           onSubmit={onKeyPressSearch}
           onChange={onChangeSearchKeyword}
-          value={filterState.keyword}
+          value={keyword}
           placeholder="유저 이름 입력"
           width="205"
         />

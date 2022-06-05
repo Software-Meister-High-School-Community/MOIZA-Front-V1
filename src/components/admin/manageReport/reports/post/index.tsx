@@ -2,18 +2,20 @@ import * as S from './styles';
 import Type from '../../../../../assets/img/common/questionPostIcon.svg';
 import UseReplaceKeyword from '../../../../common/search/replaceKeyword';
 import { deleteFeed } from '../../../../../utils/api/feeds';
-import { useState } from 'react';
-import { IFeedReportResponse } from '../../../../../models/admin/response';
+import { IReportedFeed } from '../../../../../models/admin/response';
 
-const ReportOfPost: React.FC = () => {
-  const [postReports, setPostReports] = useState<IFeedReportResponse>();
+interface IProps {
+  item: IReportedFeed[];
+}
+
+const ReportOfPost: React.FC<IProps> = ({ item }) => {
   const onClickRemovePost = () => {
     deleteFeed(1);
   };
   return (
     <>
-      {postReports?.post_list.map((i, index) => (
-        <S.Wrapper>
+      {item.map(i => (
+        <S.Wrapper key={i.id}>
           <section className="summary">
             <S.Title>
               <img src={Type} />
