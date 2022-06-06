@@ -8,28 +8,25 @@ interface IProps {
 
 const FollowCard: React.FC<IProps> = ({ followInfo: item }) => {
   return (
-    <Wrapper>
-      <UserInfoBox>
-        <img className="profile" alt="profile" />
-        <Names>
-          <p className="username">{item.name}</p>
-          <p className="schoolname">
-            {item.school} {item.user_scope}
-          </p>
-        </Names>
-        <Buttons>
-          <button className="f4f">맞팔로우</button>
-          <button className="removefollowing">삭제</button>
-          <button className="following">팔로잉</button>
-        </Buttons>
-      </UserInfoBox>
-    </Wrapper>
+    <UserInfoBox>
+      <img className="profile" alt="profile" />
+      <Names>
+        <p className="username">{item.name}</p>
+        <p className="schoolname">
+          {item.school} {item.user_scope}
+        </p>
+      </Names>
+      <Buttons>
+        <button className="f4f">맞팔로우</button>
+        <button className="removefollowing">삭제</button>
+        <button className="following">팔로잉</button>
+      </Buttons>
+    </UserInfoBox>
   );
 };
 
 export default FollowCard;
 
-export const Wrapper = styled.ul``;
 export const UserInfoBox = styled.li`
   width: 100%;
   height: 98px;

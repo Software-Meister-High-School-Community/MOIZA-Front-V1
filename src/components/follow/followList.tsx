@@ -40,10 +40,10 @@ const UserList: React.FC = () => {
       return followList.follower.map(item => <FollowCard followInfo={item} key={item.user_id} />);
   }, [followList, followType]);
   return (
-    <ul>
+    <div>
       <FollowListType followCount={followCount} />
-      {list}
-    </ul>
+      <ul>{list}</ul>
+    </div>
   );
 };
 export default UserList;
