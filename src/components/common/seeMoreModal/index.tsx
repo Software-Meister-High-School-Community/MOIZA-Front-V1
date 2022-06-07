@@ -4,13 +4,13 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { SeeMoreOptionInterface } from '../../../utils/interface/common';
 
 interface PropsType {
-  setModalStatus: (status: boolean) => void;
+  closeModal: () => void;
   optionList: SeeMoreOptionInterface[];
 }
 
-const SeeMoreModal: React.FC<PropsType> = ({ setModalStatus, optionList }) => {
+const SeeMoreModal: React.FC<PropsType> = ({ closeModal, optionList }) => {
   return (
-    <OutsideClickHandler onOutsideClick={() => setModalStatus(false)}>
+    <OutsideClickHandler onOutsideClick={closeModal}>
       <Wrapper className="seeMoreModal">
         {optionList.map((item, index) => (
           <Option key={index} onClick={item.onClickFunction}>
