@@ -105,7 +105,7 @@ export const Follow = styled.em`
   margin: 53px 52px 0 auto;
   height: 36px;
 `;
-export const SeeMoreBtn = styled.button`
+export const SeeMoreButton = styled.button`
   margin-left: 40.5px;
   cursor: pointer;
   position: relative;

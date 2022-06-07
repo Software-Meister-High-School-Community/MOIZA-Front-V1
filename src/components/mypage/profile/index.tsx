@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import * as S from './styles';
 import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
 import { WindowOpenUtil } from '../../../utils/function/openWindow';
@@ -10,6 +10,7 @@ import { useUserInfo } from '../../../hooks/user/useUserInfo';
 import { useNavigate } from 'react-router';
 import { TShowFollow } from '../../follow';
 import { isValidUrl } from '../../../utils/function/isValidUrl';
+import { startFollowing } from '../../../utils/api/follow';
 
 interface PropsType {
   isMine: boolean;
@@ -25,8 +26,17 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
     if (link === '') return defaultProfile;
     return link;
   }, [userInfo.profile_image_url]);
+  const openModal = () => {
+    setSeeMoreModalStatus(true);
+  };
+  const closeModal = () => {
+    setSeeMoreModalStatus(false);
+  };
   const moveToFollowPage = (type: TShowFollow) => {
     navigate(`/profile/${id}/${type}`);
+  };
+  const onClickFollow = () => {
+    startFollowing(id);
   };
   return (
     <>
@@ -64,20 +74,17 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
             <SubmitButton
               big={false}
               text="팔로우"
-              handleClick={() => console.log('asd')}
+              handleClick={onClickFollow}
               disable={false}
               yellow={false}
               blue={true}
             />
-            <S.SeeMoreBtn onClick={() => setSeeMoreModalStatus(true)}>
+            <S.SeeMoreButton onClick={openModal}>
               <img src={seeMore} alt="이미지" />
               {seeMoreModalStatus && (
-                <SeeMoreModal
-                  optionList={seeMoreOptionList}
-                  setModalStatus={setSeeMoreModalStatus}
-                />
+                <SeeMoreModal optionList={seeMoreOptionList} closeModal={closeModal} />
               )}
-            </S.SeeMoreBtn>
+            </S.SeeMoreButton>
           </S.Follow>
         )}
       </S.Wrapper>
