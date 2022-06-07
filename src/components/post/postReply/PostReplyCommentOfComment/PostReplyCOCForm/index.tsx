@@ -12,9 +12,7 @@ interface IPostReplyCOCFormProps {
 
 const PostReplyCOCForm: React.FC<IPostReplyCOCFormProps> = ({ commentOfComment }) => {
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState<boolean>(false);
-  const closeModal = () => {
-    setSeeMoreModalStatus(false);
-  };
+
   return (
     <S.PostReplyCOCFormWrap>
       <S.PostReplyCOCFormHeaderWrap>
@@ -32,7 +30,7 @@ const PostReplyCOCForm: React.FC<IPostReplyCOCFormProps> = ({ commentOfComment }
           <S.PostReplyMenuButton onClick={() => setSeeMoreModalStatus(true)}>
             <img src={menuCircle} alt="menu" />
             {seeMoreModalStatus && (
-              <SeeMoreModal optionList={seeMoreOption} closeModal={closeModal} />
+              <SeeMoreModal optionList={seeMoreOption} setModalStatus={setSeeMoreModalStatus} />
             )}
           </S.PostReplyMenuButton>
         </S.miniWrap>

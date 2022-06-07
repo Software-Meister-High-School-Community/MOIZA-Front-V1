@@ -1,10 +1,8 @@
-import ProfileComponent from '../../components/mypage';
-import { useUserInfo } from '../../hooks/user/useUserInfo';
+import MyPageComponent from '../../components/mypage';
+import WithAuthorization from '../../hoc/withAuthorization';
 
-const Mypage = () => {
-  const { userInfo } = useUserInfo();
-  const id = Number(userInfo.user_id);
-  if (id) return <ProfileComponent id={id} />;
-  return <></>;
+const MyPage = () => {
+  return <MyPageComponent />;
 };
-export default Mypage;
+// export default WithAuthorization(MyPage);
+export default MyPage;

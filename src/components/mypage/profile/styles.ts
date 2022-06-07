@@ -13,13 +13,6 @@ export const Wrapper = styled.section`
   padding-bottom: 60px;
   border-bottom: 1px solid #dcdcdc;
 `;
-export const UserColorBox = styled.div<{
-  color: string;
-}>`
-  width: 100%;
-  height: 348px;
-  background-color: ${props => props.color};
-`;
 export const UserInfo = styled.section`
   margin: 30px 0 0 42px;
 `;
@@ -41,20 +34,20 @@ export const PersonInfo = styled.strong`
 `;
 export const ActiveInfo = styled.em`
   display: flex;
+
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   color: #000000;
   margin-top: 23px;
-  > label {
-    display: flex;
+  > .postCount,
+  .followerCount,
+  .followingCount {
+    font-weight: bold;
+    margin: 0 42px 0 10px;
+    cursor: pointer;
   }
-`;
-export const Count = styled.p`
-  font-weight: bold;
-  margin: 0 42px 0 10px;
-  cursor: pointer;
 `;
 export const Introduce = styled.em`
   font-style: normal;
@@ -105,7 +98,7 @@ export const Follow = styled.em`
   margin: 53px 52px 0 auto;
   height: 36px;
 `;
-export const SeeMoreButton = styled.button`
+export const SeeMoreBtn = styled.button`
   margin-left: 40.5px;
   cursor: pointer;
   position: relative;
