@@ -28,7 +28,7 @@ export const getFollowingList = async (user_id: number): Promise<IGetFollowingLi
   }
 };
 
-export const following = async (user_id: number) => {
+export const startFollowing = async (user_id: number) => {
   try {
     await instance.post(`/follow/${user_id}`);
   } catch (err) {

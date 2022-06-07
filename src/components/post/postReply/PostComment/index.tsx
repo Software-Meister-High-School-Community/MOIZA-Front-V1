@@ -19,7 +19,9 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
   const [fixState, setFixState] = useState(true);
   const [writerState, setWriterState] = useState(true);
-
+  const closeModal = () => {
+    setSeeMoreModalStatus(false);
+  };
   return (
     <>
       {fixState ? (
@@ -57,7 +59,7 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
           >
             <img src={menuCircle} alt="menu" />
             {seeMoreModalStatus && (
-              <SeeMoreModal optionList={seeMoreOption} setModalStatus={setSeeMoreModalStatus} />
+              <SeeMoreModal optionList={seeMoreOption} closeModal={closeModal} />
             )}
           </S.PostReplyCommentMenuButton>
         </S.PostReplyCommentHeaderWrap>
