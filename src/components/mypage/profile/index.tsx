@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import * as S from './styles';
 import defaultProfile from '../../../assets/img/common/userDefaultIcon.svg';
 import { WindowOpenUtil } from '../../../utils/function/openWindow';
@@ -9,6 +9,7 @@ import { seeMoreOptionList } from '../constant';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
 import { useNavigate } from 'react-router';
 import { TShowFollow } from '../../follow';
+import { isValidUrl } from '../../../utils/function/isValidUrl';
 
 interface PropsType {
   isMine: boolean;
@@ -19,18 +20,19 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
   const navigate = useNavigate();
   const { userInfo } = useUserInfo();
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
-  const onClickMoveToFollow = (type: TShowFollow) => {
+  const profileLink = useMemo(() => {
+    const link = isValidUrl(userInfo.profile_image_url);
+    if (link === '') return defaultProfile;
+    return link;
+  }, [userInfo.profile_image_url]);
+  const moveToFollowPage = (type: TShowFollow) => {
     navigate(`/profile/${id}/${type}`);
   };
   return (
     <>
       <S.UserColorBox color={userInfo.profile_background_color} />
       <S.Wrapper>
-        <img
-          className="userProfile"
-          src={userInfo.profile_image_url || defaultProfile}
-          alt="프로필"
-        />
+        <img className="userProfile" src={profileLink} alt="프로필" />
         <S.UserInfo>
           <S.PersonInfo>
             <p className="name">{userInfo.name}</p>
@@ -39,11 +41,11 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
           <S.ActiveInfo>
             게시물
             <S.Count>{userInfo.feed_count}</S.Count>
-            <label onClick={() => onClickMoveToFollow('follower')}>
+            <label onClick={() => moveToFollowPage('follower')}>
               팔로워
               <S.Count>{userInfo.follower_count}</S.Count>
             </label>
-            <label onClick={() => onClickMoveToFollow('following')}>
+            <label onClick={() => moveToFollowPage('following')}>
               팔로잉
               <S.Count>{userInfo.following_count}</S.Count>
             </label>
