@@ -15,6 +15,9 @@ const NoticeForm: React.FC<{ item: INoticeResponse }> = ({ item }) => {
   // const is_admin = useMemo(() => {
   //   return userInfo.user_scope === 'ADMIN';
   // }, [userInfo]);
+  const closeModal = () => {
+    setSeeMoreModal(false);
+  };
   const is_admin = true;
   const date = dateTransform(item.created_at);
   return (
@@ -25,9 +28,7 @@ const NoticeForm: React.FC<{ item: INoticeResponse }> = ({ item }) => {
       {is_admin && (
         <SeeMore onClick={() => setSeeMoreModal(true)}>
           <img src={seeMore} alt="더보기" />
-          {seeMoreModal && (
-            <SeeMoreModal optionList={seeMoreOptionList} setModalStatus={setSeeMoreModal} />
-          )}
+          {seeMoreModal && <SeeMoreModal optionList={seeMoreOptionList} closeModal={closeModal} />}
         </SeeMore>
       )}
     </List>
