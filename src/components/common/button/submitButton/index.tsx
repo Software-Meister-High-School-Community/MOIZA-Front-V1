@@ -13,7 +13,6 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({
 }) => {
   return (
     <S.SubmitButtonBox
-      className="submitButtonBox"
       big={big}
       disabled={disable}
       onClick={handleClick}
