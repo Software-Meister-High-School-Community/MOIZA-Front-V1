@@ -40,9 +40,9 @@ const UserList: React.FC = () => {
       return followList.follower.map(item => <FollowCard followInfo={item} key={item.user_id} />);
   }, [followList, followType]);
   return (
-    <div>
+    <div className="followListWrapper">
       <FollowListType followCount={followCount} />
-      <ul>{list}</ul>
+      <ul className="followList">{list}</ul>
     </div>
   );
 };

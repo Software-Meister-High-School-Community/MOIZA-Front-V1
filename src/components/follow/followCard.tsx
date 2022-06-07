@@ -8,26 +8,26 @@ interface IProps {
 
 const FollowCard: React.FC<IProps> = ({ followInfo: item }) => {
   return (
-    <UserInfoBox>
-      <img className="profile" alt="profile" />
+    <UserInfoBox className="followCard">
+      <img className="profile" alt="profile" src={item.profile_image_url} />
       <Names>
-        <p className="username">{item.name}</p>
-        <p className="schoolname">
+        <p className="user-name">{item.name}</p>
+        <p className="school-name">
           {item.school} {item.user_scope}
         </p>
       </Names>
-      <Buttons>
+      <ButtonWrapper>
         <button className="f4f">맞팔로우</button>
-        <button className="removefollowing">삭제</button>
+        <button className="remove-following">삭제</button>
         <button className="following">팔로잉</button>
-      </Buttons>
+      </ButtonWrapper>
     </UserInfoBox>
   );
 };
 
 export default FollowCard;
 
-export const UserInfoBox = styled.li`
+const UserInfoBox = styled.li`
   width: 100%;
   height: 98px;
   box-sizing: border-box;
@@ -42,21 +42,21 @@ export const UserInfoBox = styled.li`
     background-color: #c4c4c4;
   }
 `;
-export const Names = styled.strong`
+const Names = styled.strong`
   margin: 11px 0 0 23px;
   color: #000000;
   font-style: normal;
   font-weight: normal;
-  > .username {
+  > .user-name {
     font-size: 16px;
     line-height: 19px;
   }
-  > .schoolname {
+  > .school-name {
     font-size: 12px;
     line-height: 14px;
   }
 `;
-export const Buttons = styled.section`
+const ButtonWrapper = styled.section`
   display: flex;
   margin-left: auto;
   align-items: center;
@@ -76,7 +76,7 @@ export const Buttons = styled.section`
     background-color: #0048ff;
     color: #ffffff;
   }
-  > .removefollowing {
+  > .remove-following {
     background-color: #ffffff;
     color: #999999;
     border: 1px solid #e0e0e0;
