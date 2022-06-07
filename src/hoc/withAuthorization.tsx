@@ -2,12 +2,11 @@ import React, { Component, useEffect } from 'react';
 import { TUser } from '../models/common';
 import { useUserInfo } from '../hooks/user/useUserInfo';
 import { useNavigate } from 'react-router-dom';
-import Comment from '../components/admin/manageReport/reports/comment';
 
 const AllAccessAuthorization: TUser[] = ['STUDENT', 'USER', 'ADMIN', 'GRADUATE'];
 
 function WithAuthorization<T>(
-  component: React.ComponentType<T>,
+  Component: React.ComponentType<T>,
   accessedUserScope: TUser[] = AllAccessAuthorization,
 ) {
   const CheckingAuthorization = (props: T) => {
@@ -22,7 +21,7 @@ function WithAuthorization<T>(
         navigate(-1);
       }
     }, []);
-    return <Comment {...props} />;
+    return <Component {...props} />;
   };
   return CheckingAuthorization;
 }

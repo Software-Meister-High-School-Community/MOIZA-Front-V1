@@ -10,12 +10,12 @@ interface Props {
 
 const GraduationBox: React.FC<Props> = ({ item }) => {
   const [attachment, setAttachment] = useState<boolean>(false);
-  const accept = useCallback((userId: number) => {
-    approveGraduate(userId);
-  }, []);
-  const reject = useCallback((userId: number) => {
-    rejectGraduate(userId);
-  }, []);
+  const accept = useCallback(() => {
+    approveGraduate(item.user_id);
+  }, [item.user_id]);
+  const reject = useCallback(() => {
+    rejectGraduate(item.user_id);
+  }, [item.user_id]);
   const onClickCheckGraduateAttachment = () => {
     setAttachment(!attachment);
   };
@@ -33,10 +33,10 @@ const GraduationBox: React.FC<Props> = ({ item }) => {
         </button>
       </PatchFile>
       <ApproveDenyButton>
-        <button className="approve" onClick={() => accept(item.user_id)}>
+        <button className="approve" onClick={accept}>
           승인
         </button>
-        <button className="deny" onClick={() => reject(item.user_id)}>
+        <button className="deny" onClick={reject}>
           거절
         </button>
       </ApproveDenyButton>

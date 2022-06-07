@@ -2,11 +2,11 @@ import { PathType, SeeMoreOptionInterface } from '../../utils/interface/common';
 import { TReport } from './manageReport';
 import { INoticeListResponse } from '../../models/notice/response';
 
-export type ManagementType = 'REPORT' | 'NOTIFICATION' | 'AUTHORITY';
+export type TManageMent = 'report' | 'notice' | 'graduate';
 
-export const MANAGE_REPORT: ManagementType = 'REPORT';
-export const NOTIFICATION: ManagementType = 'NOTIFICATION';
-export const AUTHORITY: ManagementType = 'AUTHORITY';
+export const REPORT: TManageMent = 'report';
+export const NOTICE: TManageMent = 'notice';
+export const GRADUATE: TManageMent = 'graduate';
 
 interface RadioTypeInterface {
   id: TReport;
