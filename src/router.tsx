@@ -22,6 +22,7 @@ import Follow from './pages/follow';
 import TempList from './components/post/temporary';
 import EditProfile from './components/editProfile';
 import MyPage from './pages/mypage';
+import NotFoundPage from './pages/404';
 
 const Router = () => {
   return (
@@ -51,6 +52,7 @@ const Router = () => {
         <Route path="/profile/:userid" element={<MyPage />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/templist/:tempfield" element={<TempList />} />
+        <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
