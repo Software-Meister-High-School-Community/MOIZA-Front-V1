@@ -121,7 +121,9 @@ const PostReply: React.FC = () => {
     setPostData(exampleData);
     setIsLoading(false);
   }, [setPostData, setIsLoading, postid]);
-
+  const closeModal = () => {
+    setSeeMoreModalStatus(false);
+  };
   return (
     <S.PostReplyBox>
       {isLoading ? (
@@ -155,10 +157,7 @@ const PostReply: React.FC = () => {
                       <S.PostReplyMenuButton onClick={() => setSeeMoreModalStatus(true)}>
                         <img src={menuCircle} alt="menu" />
                         {seeMoreModalStatus && (
-                          <SeeMoreModal
-                            optionList={seeMoreOption}
-                            setModalStatus={setSeeMoreModalStatus}
-                          />
+                          <SeeMoreModal optionList={seeMoreOption} closeModal={closeModal} />
                         )}
                       </S.PostReplyMenuButton>
                     </S.PostReplyWriterWrap>
