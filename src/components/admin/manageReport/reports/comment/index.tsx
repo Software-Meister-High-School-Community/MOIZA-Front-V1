@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from './styles';
 import UseReplaceKeyword from '../../../../common/search/replaceKeyword/index';
 import { removeComment } from '../../../../../utils/api/comments';
-import { ICommentReportResponse } from '../../../../../models/admin/response';
+import { IReportedComment } from '../../../../../models/admin/response';
 
-const ReportsofComment = () => {
-  const [commentReports, setCommentReports] = useState<ICommentReportResponse>();
+interface IProps {
+  item: IReportedComment[];
+}
+
+const ReportsOfComment: React.FC<IProps> = ({ item }) => {
   const onClickRemoveComment = () => {
     removeComment(1);
   };
   return (
     <>
-      {commentReports?.comment_list.map((i, index) => (
+      {item.map((i, index) => (
         <S.Wrapper>
           <div style={{ display: 'flex' }}>
             <S.UserInfo>
@@ -43,4 +46,4 @@ const ReportsofComment = () => {
     </>
   );
 };
-export default ReportsofComment;
+export default ReportsOfComment;

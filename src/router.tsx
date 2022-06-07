@@ -34,7 +34,10 @@ const Router = () => {
         <Route path="/intro" element={<IntroducePage />} />
         {/*<Route path="/notice" element={<NoticeList />} />*/}
         <Route path="/shownotice" element={<ShowNotice />} />
-        <Route path="admin" element={<Admin />} />
+        <Route path="/admin">
+          <Route index element={<Admin />} />
+          <Route path=":managementType" element={<Admin />} />
+        </Route>
         {/*<Route path="/write-notice" element={<WriteNotice />} />*/}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />

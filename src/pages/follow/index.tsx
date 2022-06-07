@@ -9,8 +9,13 @@ const FollowPage = () => {
   const setProfileOwnerState = useSetRecoilState(followOwnerState);
   const id = Number(userId);
   const type = followType as TShowFollow;
-  setProfileOwnerState({ id, followType: type });
-  if (id && type) return <Follow />;
-  return <></>;
+  const navigate = useNavigate();
+  useEffect(() => {
+    setProfileOwnerState({ id, followType: type });
+    if (isNaN(id) || !type) {
+      navigate('/404');
+    }
+  }, [userId, followType]);
+  return <Follow />;
 };
 export default FollowPage;
