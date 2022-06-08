@@ -24,6 +24,7 @@ import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
 import Mypage from './pages/mypage';
 import SelectManagementType from './components/admin/selectManagementType';
+import MyPage from './pages/mypage';
 
 const Router = () => {
   return (
