@@ -10,7 +10,6 @@ interface IProps {
   id: number;
 }
 
-
 interface IProfileContent extends IGetUserProfileResponse {
   user_id?: number;
 }
@@ -29,6 +28,7 @@ const ProfileComponent: React.FC<IProps> = ({ id }) => {
     </Wrapper>
   );
 };
+export default ProfileComponent;
 
 const Wrapper = styled.section`
   width: 1200px;
@@ -37,4 +37,3 @@ const Wrapper = styled.section`
     margin: 134px 0 375px 0;
   }
 `;
-

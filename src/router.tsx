@@ -22,7 +22,7 @@ import Follow from './pages/follow';
 import TempList from './components/post/temporary';
 import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
-import Mypage from './pages/mypage';
+import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
 
 const Router = () => {
@@ -50,7 +50,7 @@ const Router = () => {
         <Route path="/result/:title" element={<ResultPage />} />
         <Route path="/list/:listname" element={<PostList />} />
         <Route path="/list/:listname/:postid" element={<PostReplyPage />} />
-        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypage" element={<MyPage />} />
         <Route path="/postwrite/:writefield" element={<PostWrite />} />
         <Route path="/profile">
           <Route path=":userId" element={<ProfilePage />} />
