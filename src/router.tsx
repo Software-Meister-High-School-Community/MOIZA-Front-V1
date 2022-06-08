@@ -24,7 +24,6 @@ import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
 import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
-import MyPage from './pages/mypage';
 
 const Router = () => {
   return (
