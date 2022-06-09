@@ -4,12 +4,9 @@ import Gwangju from '../banner/Gwangju';
 import Mirim from '../banner/Mirim';
 import Busan from '../banner/Busan';
 import Slider from 'react-slick';
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 
 const Slide = () => {
   const settings = {
-    dots: true,
     infinite: true,
     arrows: false,
     speed: 1000,

@@ -75,7 +75,7 @@ export const NoticeTextDiv = styled.div`
 export const NoticeText = styled.p<{
   fixed: boolean;
 }>`
-  width: 240px;
+  width: 250px;
   height: 19px;
   margin: 17px 26px 16px 14px;
   cursor: pointer;
