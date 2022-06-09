@@ -17,14 +17,14 @@ interface PropsType {
 
 const PostList: React.FC<PropsType> = ({ isMine, page }) => {
   const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
-  const onChangeFeedType = (feed: string) => {
-    const feedValue = feed as TFeed;
-    setSelectedOption(feedValue);
-  };
   const [field, setField] = useState(departmentOptions[0].value);
   const [sort, setSort] = useState(sortOptions[0].value);
   const [feedList, setFeedList] = useState<IGetFeedListResponse>();
   const { userInfo } = useUserInfo();
+  const onChangeFeedType = (feed: string) => {
+    const feedValue = feed as TFeed;
+    setSelectedOption(feedValue);
+  };
   const onChangeFiled = (field: string) => {
     const fieldValue = field as TCategory;
     setField(fieldValue);

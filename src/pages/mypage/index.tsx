@@ -9,5 +9,4 @@ const MyPage = () => {
   if (isNaN(id)) navigate('/404');
   return <ProfileComponent id={id} />;
 };
-// export default WithAuthorization(MyPage);
 export default MyPage;

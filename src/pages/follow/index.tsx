@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Follow, { TShowFollow } from '../../components/follow/index';
 import { useNavigate, useParams } from 'react-router';
 import { useSetRecoilState } from 'recoil';
 import { followOwnerState } from '../../store/follow/followOwner';
+import { useEffect } from 'react';
 
 const FollowPage = () => {
   const { userId, followType } = useParams();

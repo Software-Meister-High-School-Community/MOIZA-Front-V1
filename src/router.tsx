@@ -22,9 +22,8 @@ import Follow from './pages/follow';
 import TempList from './components/post/temporary';
 import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
-import Mypage from './pages/mypage';
-import SelectManagementType from './components/admin/selectManagementType';
 import MyPage from './pages/mypage';
+import NotFoundPage from './pages/404';
 
 const Router = () => {
   return (
@@ -53,10 +52,13 @@ const Router = () => {
         <Route path="/list/:listname/:postid" element={<PostReplyPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/postwrite/:writefield" element={<PostWrite />} />
-        <Route path="/follow/:userid" element={<Follow />} />
-        <Route path="/profile/:userid" element={<MyPage />} />
+        <Route path="/profile">
+          <Route path=":userId" element={<ProfilePage />} />
+          <Route path=":userId/:followType" element={<Follow />} />
+        </Route>
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/templist/:tempfield" element={<TempList />} />
+        <Route path="404" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
