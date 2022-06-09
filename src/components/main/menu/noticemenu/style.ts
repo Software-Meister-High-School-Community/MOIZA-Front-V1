@@ -78,6 +78,9 @@ export const NoticeText = styled.p<{
   width: 250px;
   height: 19px;
   margin: 17px 26px 16px 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
   color: ${props => (props.fixed ? '#FFB500' : '#555555')};
   font-size: ${({ theme }) => theme.fontSize.body_medium};
