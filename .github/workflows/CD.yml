@@ -23,7 +23,7 @@ jobs:
         run: yarn install
 
       - name: Build                   # React Build
-        run: yarn build
+        run: DISABLE_ESLINT_PLUGIN=true yarn build
 
       - name: Deploy                  
         env:
