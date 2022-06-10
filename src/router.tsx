@@ -56,7 +56,7 @@ const Router = () => {
           <Route path=":userId" element={<ProfilePage />} />
           <Route path=":userId/:followType" element={<Follow />} />
         </Route>
-        <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/templist/:tempfield" element={<TempList />} />
         <Route path="404" element={<NotFoundPage />} />
       </Routes>
