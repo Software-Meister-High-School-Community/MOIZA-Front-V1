@@ -6,6 +6,7 @@ import headerLogo from '../../assets/img/MOIZALogo/englishHorizontalType.svg';
 import searchIcon from '../../assets/img/common/searchIcon.svg';
 import profileIcon from '../../assets/img/header/profileIcon.svg';
 import noticeIcon from '../../assets/img/header/noticeIcon.svg';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const loginCheck = localStorage.getItem('Token');
@@ -32,7 +33,10 @@ const Header: React.FC = () => {
           <S.StyleLink to="/search">
             <S.ItemImg src={searchIcon} color="#000" />
           </S.StyleLink>
-          <S.ItemImg src={profileIcon} />
+
+          <Link to="/mypage">
+            <S.ItemImg src={profileIcon} />
+          </Link>
 
           <S.ItemImg src={noticeIcon} onClick={() => setNoticeState(!noticeState)} />
         </S.ItemContainer>

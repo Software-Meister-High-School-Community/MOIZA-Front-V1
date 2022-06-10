@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import * as S from './styles';
 import RadioButton from '../../common/select/radioButton';
 import { mypageOptionArray } from '../constant';
@@ -11,11 +11,12 @@ import { TCategory, TFeed, TSort } from '../../../models/common';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
 
 interface PropsType {
-  isMine: boolean;
   page: number;
+  userId: number;
+  name?: string;
 }
 
-const PostList: React.FC<PropsType> = ({ isMine, page }) => {
+const PostList: React.FC<PropsType> = ({ page, userId, name }) => {
   const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
   const [field, setField] = useState(departmentOptions[0].value);
   const [sort, setSort] = useState(sortOptions[0].value);
@@ -34,21 +35,20 @@ const PostList: React.FC<PropsType> = ({ isMine, page }) => {
     setSort(sortValue);
   };
   useEffect(() => {
-    getFeedList(1, field, selectedOption, sort, page).then(res => setFeedList(res));
+    getFeedList(userId, field, selectedOption, sort, page).then(res => setFeedList(res));
   }, [field, selectedOption, sort, page]);
+  const profileTitle = useMemo(() => {
+    if (name === undefined) return '나';
+    return (
+      <>
+        <p>{name}</p>님
+      </>
+    );
+  }, []);
   return (
     <S.Wrapper>
       <S.Options>
-        <S.Title>
-          {isMine ? (
-            '나'
-          ) : (
-            <>
-              <p>{userInfo.name}</p>님
-            </>
-          )}
-          의 게시글
-        </S.Title>
+        <S.Title>{profileTitle}의 게시글</S.Title>
         <RadioButton
           name="mypageOption"
           selected={selectedOption}

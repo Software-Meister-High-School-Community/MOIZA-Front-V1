@@ -6,26 +6,22 @@ import SubmitButton from '../../common/button/submitButton';
 import seeMore from '../../../assets/img/common/seeMoreBtnIcon.svg';
 import SeeMoreModal from '../../common/seeMoreModal';
 import { seeMoreOptionList } from '../constant';
-import { useUserInfo } from '../../../hooks/user/useUserInfo';
 import { useNavigate } from 'react-router';
 import { TShowFollow } from '../../follow';
 import { isValidUrl } from '../../../utils/function/isValidUrl';
 import { startFollowing } from '../../../utils/api/follow';
+import { IGetUserProfileResponse } from '../../../models/users/response';
+import { Link } from 'react-router-dom';
 
 interface PropsType {
   isMine: boolean;
-  id: number;
+  userInfo: IGetUserProfileResponse;
+  userId: number;
 }
 
-const Profile: React.FC<PropsType> = ({ isMine, id }) => {
+const Profile: React.FC<PropsType> = ({ isMine, userInfo, userId }) => {
   const navigate = useNavigate();
-  const { userInfo } = useUserInfo();
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
-  const profileLink = useMemo(() => {
-    const link = isValidUrl(userInfo.profile_image_url);
-    if (link === '') return defaultProfile;
-    return link;
-  }, [userInfo.profile_image_url]);
   const openModal = () => {
     setSeeMoreModalStatus(true);
   };
@@ -33,11 +29,43 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
     setSeeMoreModalStatus(false);
   };
   const moveToFollowPage = (type: TShowFollow) => {
-    navigate(`/profile/${id}/${type}`);
+    navigate(`/profile/${userId}/${type}`);
   };
   const onClickFollow = () => {
-    startFollowing(id);
+    startFollowing(userId);
   };
+  const profileLink = useMemo(() => {
+    const link = isValidUrl(userInfo.profile_image_url);
+    if (link === '') return defaultProfile;
+    return link;
+  }, [userInfo.profile_image_url]);
+  const profileEditOrFollow = useMemo(() => {
+    if (isMine)
+      return (
+        <Link to="/editProfile">
+          <S.modifyProfile>프로필 편집</S.modifyProfile>
+        </Link>
+      );
+    else
+      return (
+        <S.Follow>
+          <SubmitButton
+            big={false}
+            text="팔로우"
+            handleClick={onClickFollow}
+            disable={false}
+            yellow={false}
+            blue={true}
+          />
+          <S.SeeMoreButton onClick={openModal}>
+            <img src={seeMore} alt="이미지" />
+            {seeMoreModalStatus && (
+              <SeeMoreModal optionList={seeMoreOptionList} closeModal={closeModal} />
+            )}
+          </S.SeeMoreButton>
+        </S.Follow>
+      );
+  }, [isMine]);
   return (
     <>
       <S.UserColorBox color={userInfo.profile_background_color} />
@@ -67,26 +95,7 @@ const Profile: React.FC<PropsType> = ({ isMine, id }) => {
             ))}
           </S.UserLinkList>
         </S.UserInfo>
-        {isMine ? (
-          <S.modifyProfile>프로필 편집</S.modifyProfile>
-        ) : (
-          <S.Follow>
-            <SubmitButton
-              big={false}
-              text="팔로우"
-              handleClick={onClickFollow}
-              disable={false}
-              yellow={false}
-              blue={true}
-            />
-            <S.SeeMoreButton onClick={openModal}>
-              <img src={seeMore} alt="이미지" />
-              {seeMoreModalStatus && (
-                <SeeMoreModal optionList={seeMoreOptionList} closeModal={closeModal} />
-              )}
-            </S.SeeMoreButton>
-          </S.Follow>
-        )}
+        {profileEditOrFollow}
       </S.Wrapper>
     </>
   );
