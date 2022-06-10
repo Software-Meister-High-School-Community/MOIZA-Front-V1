@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent, useEffect, useMemo } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useMemo } from 'react';
 import styled from 'styled-components';
 import SearchInPage from '../common/search/searchInPage';
 import UserList from './followList';
@@ -6,15 +6,16 @@ import Path from '../common/path';
 import { PathType } from '../../utils/interface/common';
 import { useRecoilValue } from 'recoil';
 import { followOwnerState } from '../../store/follow/followOwner';
-import { getUserProfile } from '../../utils/api/users';
-import { IGetUserProfileResponse } from '../../models/users/response';
 
 export type TShowFollow = 'following' | 'follower';
 
-const Follow: React.FC = () => {
+interface IProps {
+  name: string;
+}
+
+const Follow: React.FC<IProps> = ({ name }) => {
   const { id } = useRecoilValue(followOwnerState);
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [ownerInfo, setOwnerInfo] = useState<IGetUserProfileResponse>();
   const pathArray: PathType[] = useMemo(() => {
     return [
       {
@@ -27,9 +28,6 @@ const Follow: React.FC = () => {
       },
     ];
   }, [id]);
-  useEffect(() => {
-    getUserProfile(id).then(res => setOwnerInfo(res));
-  }, [id]);
   const onChangeSearchKeyword = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
   };
@@ -39,21 +37,19 @@ const Follow: React.FC = () => {
   return (
     <Wrapper>
       <Path pathArray={pathArray} />
-      {ownerInfo && (
-        <>
-          <UserName>{ownerInfo.name}</UserName>
-          <SearchInPage
-            width="175"
-            value={searchKeyword}
-            placeholder=""
-            fontsize="14"
-            heigth="35"
-            onChange={onChangeSearchKeyword}
-            onSubmit={onSubmitSearchKeyword}
-          />
-          <UserList />
-        </>
-      )}
+      <>
+        <UserName>{name}</UserName>
+        <SearchInPage
+          width="175"
+          value={searchKeyword}
+          placeholder=""
+          fontsize="14"
+          heigth="35"
+          onChange={onChangeSearchKeyword}
+          onSubmit={onSubmitSearchKeyword}
+        />
+        <UserList />
+      </>
     </Wrapper>
   );
 };
