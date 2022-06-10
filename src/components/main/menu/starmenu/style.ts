@@ -34,7 +34,7 @@ export const HR = styled.hr<{
 /* starmenu */
 export const PostList = styled.div`
   width: 760px;
-  height: 1250px;
+  height: 1200px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -43,6 +43,8 @@ export const PostList = styled.div`
 export const StarPost = styled.div`
   width: 366px;
   height: 212px;
+  padding: 27px 30px 24px 30px;
+  box-sizing: border-box;
   background-color: white;
   cursor: pointer;
   margin-right: 28px;
@@ -53,6 +55,7 @@ export const StarPost = styled.div`
 export const PostHead = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 17px;
 `;
 
 export const UserDiv = styled.div`
@@ -63,20 +66,18 @@ export const UserDiv = styled.div`
 export const PostIcon = styled.img`
   width: 25px;
   height: 25px;
-  margin: 30px 13px 16px 30px;
+  margin-right: 13px;
 `;
 
 export const PostUser = styled.p`
   width: 150px;
   height: 16px;
-  margin-top: 20px;
   font-size: ${({ theme }) => theme.fontSize.body_small};
   font-weight: 400;
   font-style: normal;
 `;
 
 export const PostField = styled.p`
-  margin: 35px 30px 0 0;
   font-size: ${({ theme }) => theme.fontSize.body_small};
   font-weight: 400;
   font-style: normal;
@@ -85,7 +86,7 @@ export const PostField = styled.p`
 export const PostText = styled.p`
   width: 306px;
   height: 82px;
-  margin: 0 30px 10px 30px;
+  margin-bottom: 10px;
   line-height: 25px;
   font-size: ${({ theme }) => theme.fontSize.body_large};
   font-weight: 400;
@@ -97,11 +98,12 @@ export const PostFooter = styled.div`
   justify-content: start;
 `;
 
-export const PostHeart = styled.img`
-  width: 16px;
-  height: 15px;
-  margin: 0 6px 31px 30px;
-  cursor: pointer;
+export const HeartDiv = styled.div`
+  display: flexl;
+  > img {
+    margin-left: 4px;
+    margin-right: 5px;
+  }
 `;
 
 export const HeartCount = styled.p`

@@ -13,7 +13,7 @@ const StarMenu: React.FC = () => {
   return (
     <S.Wrapper>
       <div>
-        <S.StarName width="220px" height="35px" margin="0 542px 21px 0">
+        <S.StarName width="230px" height="35px" margin="0 542px 21px 0">
           일일 인기게시물
         </S.StarName>
         <S.HR width="760px" height="3px" background="#99B6FF" />

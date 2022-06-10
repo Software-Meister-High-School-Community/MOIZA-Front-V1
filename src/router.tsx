@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Header from './components/header';
 import MainPage from './pages/mainpage/mainpage';
 import IntroducePage from './pages/introduce';
-import NoticeList from './components/admin/noticeList';
+import NoticeList from './components/notice/noticelist/index';
 import ShowNotice from './components/notice/shownotice';
 import Admin from './components/admin';
 import LoginPage from './pages/login/LoginPage';
@@ -32,7 +32,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/intro" element={<IntroducePage />} />
-        {/*<Route path="/notice" element={<NoticeList />} />*/}
+        <Route path="/notice" element={<NoticeList />} />
         <Route path="/shownotice" element={<ShowNotice />} />
         <Route path="/admin">
           <Route index element={<Admin />} />
