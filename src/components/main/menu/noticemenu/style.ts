@@ -70,6 +70,8 @@ export const NoticeDiv = styled.div`
 export const NoticeTextDiv = styled.div`
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray_color3};
 `;
 
 export const NoticeText = styled.p<{
@@ -95,12 +97,4 @@ export const NoticeDate = styled.p`
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
-`;
-
-export const NoticeHr = styled.hr`
-  width: 364px;
-  height: 1px;
-  margin: 0;
-  border: none;
-  background-color: ${({ theme }) => theme.color.gray_color3};
 `;
