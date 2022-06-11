@@ -1,14 +1,12 @@
 import React from 'react';
 import * as S from './style';
-import HeartBtn from '../../../../assets/img/common/offHeart.svg';
+import OnHeartBtn from '../../../../assets/img/common/onHeart.svg';
+import OFFHeartBtn from '../../../../assets/img/common/offHeart.svg';
 import BookRead from '../../../../assets/img/common/normalPostIcon.svg';
 import Question from '../../../../assets/img/common/questionPostIcon.svg';
+import { IGetIPopularFeedListResponse } from '../../../../models/feeds/response';
 
-interface PostType {
-  menu: string;
-}
-
-const StarPost: React.FC<PostType> = menu => {
+const StarPost: React.FC = () => {
   return (
     <>
       <S.StarPost>
@@ -19,10 +17,10 @@ const StarPost: React.FC<PostType> = menu => {
           </S.UserDiv>
           <S.PostField>Design</S.PostField>
         </S.PostHead>
-        <S.PostText>{menu.menu}</S.PostText>
+        <S.PostText>내용</S.PostText>
         <S.PostFooter>
           <S.HeartDiv>
-            <img src={HeartBtn} alt="Heart" />
+            <img src={OFFHeartBtn} alt="Heart" />
             <S.HeartCount>123</S.HeartCount>
           </S.HeartDiv>
           <S.PostDate>01/21 8:29</S.PostDate>
