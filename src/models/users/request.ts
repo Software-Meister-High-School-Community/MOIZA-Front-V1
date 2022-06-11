@@ -22,6 +22,6 @@ export interface IVerifyGraduateRequest {
 export interface IPatchUserRequest {
   profile_image_url: string;
   profile_background_color: TBackGroundColor;
-  introduce: string;
-  introduce_link_url: string[];
+  introduce: string | null;
+  introduce_link_url: string[] | null;
 }

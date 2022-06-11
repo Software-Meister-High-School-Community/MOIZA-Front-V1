@@ -1,3 +1,3 @@
 export interface IPostImageRequest {
-  images: FormData[];
+  images: FormData;
 }
