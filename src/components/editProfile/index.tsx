@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import SubmitButton from '../common/button/submitButton';
 import ChangeUserProfile from './changeUserProfile';
@@ -6,29 +6,62 @@ import BackgroundColor from './backgroundColor';
 import Introduction from './introduction';
 import LinkList from './link';
 import ChangeUserType from './changeUserType';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { profileElementState } from '../../store/editProfile/profileElement';
 import { TBackGroundColor } from '../../models/common';
-import WithAuthorization from '../../hoc/withAuthorization';
+import { useUserInfo } from '../../hooks/user/useUserInfo';
+import { patchUser } from '../../utils/api/users';
+import { postImages } from '../../utils/api/default';
 
 const EditProfile: React.FC = () => {
-  const profileContent = useRecoilValue(profileElementState);
-  const userInfo = useMemo(
+  const [profileContent, setProfileContent] = useRecoilState(profileElementState);
+  const [profile, setProfile] = useState<File | null>(null);
+  const { userInfo } = useUserInfo();
+  useEffect(() => {
+    const { profile_background_color, link_url, profile_image_url, introduce } = userInfo;
+    setProfileContent({
+      profile_background_color,
+      introduce_link_url: link_url,
+      profile_image_url,
+      introduce,
+    });
+  }, [userInfo]);
+  const obj = { ...profileContent };
+  const onChangeProfileImage = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+    setProfile(files[0]);
+  };
+  const userBasicInfo = useMemo(
     () => (
       <PersonInfo>
-        <p className="name">장정원</p>
-        <p className="school">미림마이스터고 재학생</p>
+        <p className="name">{userInfo.name}</p>
+        <p className="school">
+          {userInfo.school} {userInfo.user_scope}
+        </p>
       </PersonInfo>
     ),
-    [],
+    [userInfo],
   );
+  const onClickEditProfile = async () => {
+    if (!profile) return;
+    const fd = new FormData();
+    fd.append('images', profile);
+    const image = await postImages({
+      images: fd,
+    });
+    await patchUser({
+      ...profileContent,
+      profile_image_url: image.image_urls[0],
+    });
+  };
   return (
     <Wrapper color={profileContent.profile_background_color}>
       <div className="colorBox" />
       <ProfileSection>
-        <ChangeUserProfile />
+        <ChangeUserProfile profile={profile} onChangeProfileImage={onChangeProfileImage} />
         <EditSection>
-          {userInfo}
+          {userBasicInfo}
           <BackgroundColor />
           <Introduction />
           <LinkList />
@@ -37,10 +70,9 @@ const EditProfile: React.FC = () => {
             <SubmitButton
               big={false}
               text="저장"
-              handleClick={() => console.log('sd')}
+              handleClick={onClickEditProfile}
               blue={true}
-              yellow={false}
-              disable={true}
+              disable={false}
             />
           </section>
         </EditSection>
@@ -48,7 +80,7 @@ const EditProfile: React.FC = () => {
     </Wrapper>
   );
 };
-export default WithAuthorization(EditProfile);
+export default EditProfile;
 
 const Wrapper = styled.section<{
   color: TBackGroundColor;
