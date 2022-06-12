@@ -8,7 +8,6 @@ import { IGetFeedListResponse } from '../../../models/feeds/response';
 import { getFeedList } from '../../../utils/api/feeds';
 import PostForm from '../../common/form/postForm';
 import { TCategory, TFeed, TSort } from '../../../models/common';
-import { useUserInfo } from '../../../hooks/user/useUserInfo';
 
 interface PropsType {
   page: number;
@@ -21,7 +20,6 @@ const PostList: React.FC<PropsType> = ({ page, userId, name }) => {
   const [field, setField] = useState(departmentOptions[0].value);
   const [sort, setSort] = useState(sortOptions[0].value);
   const [feedList, setFeedList] = useState<IGetFeedListResponse>();
-  const { userInfo } = useUserInfo();
   const onChangeFeedType = (feed: string) => {
     const feedValue = feed as TFeed;
     setSelectedOption(feedValue);
