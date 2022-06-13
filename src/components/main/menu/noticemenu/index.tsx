@@ -29,7 +29,7 @@ const NoticeMenu: React.FC = () => {
         </S.NoticeHead>
         <S.HR width="380px" height="3px" background="#FFE199" />
         <S.NoticeList>
-          {/*noticeItem && noticeItem.notice_list.map((item, index) => <NoticeItem />)*/}
+          {/*noticeItem && noticeItem.notice_list.map((item, index) => <NoticeItem title={} created_at={} />)*/}
         </S.NoticeList>
       </div>
     </S.Wrapper>
