@@ -26,9 +26,9 @@ const NoticeList: React.FC = () => {
           <Dropdown value={value} onChangeValue={setValue} options={sortOptions} />
         </S.SelectDiv>
         <S.Post>
-          {/*noticeList?.notice_list.map((item, index) => (
+          {noticeList?.notice_list.map((item, index) => (
             <NoticeForm item={item} key={index} />
-          ))*/}
+          ))}
         </S.Post>
         <nav className="pagenation">
           <PagiNation total={5} limit={1} page={pagenation} setPage={setPagenation} />
