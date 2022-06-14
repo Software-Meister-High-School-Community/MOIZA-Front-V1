@@ -1,12 +1,24 @@
-import React from "react";
+import React, { ChangeEvent, ChangeEventHandler, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import defaultImg from "../../assets/img/common/userDefaultIcon.svg";
+import defaultImg from '../../assets/img/common/userDefaultIcon.svg';
 
-const ChangeUserProfile: React.FC = () => {
+interface IProps {
+  profile: File | null;
+  onChangeProfileImage: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ChangeUserProfile: React.FC<IProps> = ({ profile, onChangeProfileImage }) => {
+  const profileImage = useMemo(() => {
+    if (!profile) return defaultImg;
+    return URL.createObjectURL(profile);
+  }, [profile]);
   return (
     <ProfileImg>
-      <img className="profileImg" src={defaultImg} />
-      <button className="changeProfileButton">프로필 사진 바꾸기</button>
+      <img className="profileImg" src={profileImage} alt="프로필" />
+      <label className="changeProfileLabel">
+        프로필 사진 바꾸기
+        <input type="file" onChange={onChangeProfileImage} />
+      </label>
     </ProfileImg>
   );
 };
@@ -25,10 +37,11 @@ const ProfileImg = styled.div`
     margin-top: -44px;
     background-color: #ffffff;
   }
-  .changeProfileButton {
+  .changeProfileLabel {
+    box-sizing: border-box;
     width: 158px;
     height: 40px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #e0e0e0;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 10.5px 0;
@@ -38,5 +51,9 @@ const ProfileImg = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    > input[type='file'] {
+      width: 0;
+      height: 0;
+    }
   }
-`
+`;
