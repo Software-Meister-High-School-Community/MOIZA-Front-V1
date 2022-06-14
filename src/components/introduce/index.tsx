@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Index from '../common/button/submitButton';
 import Puzzle from '../../assets/img/introduce/puzzle.svg';
 import DownArrow from '../../assets/img/introduce/downArrow.svg';
-import LOGO from '../../assets/img/MOIZALogo/koreanHorizontalType.svg';
+import LOGO from '../../assets/img/MOIZALogo/koreanHorizontalType';
 import { content } from './constant';
 import * as S from './style';
 
@@ -55,7 +55,7 @@ const Introduce: FC = () => {
           모이자는 후에 더 알찬 서비스를 위해서 발전을 거듭하여 찾아올 예정이에요
           <br /> 여러분의 많은 의견과 관심 부탁드립니다
         </p>
-        <img src={LOGO} alt="logo" />
+        <LOGO />
       </S.FooterDiv>
     </>
   );
