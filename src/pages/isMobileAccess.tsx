@@ -5,6 +5,7 @@ import heart from '../assets/img/default/emptyHeart.svg';
 import seeMoreButton from '../assets/img/common/seeMoreBtnIcon.svg';
 import SubmitButton from '../components/common/button/submitButton';
 import CommentIcon from '../assets/img/common/comment.svg';
+import moizaBlack from '../assets/img/MOIZALogo/moizaBlack.svg';
 import { isAndroid, isIOS } from 'react-device-detect';
 
 const IsMobileAccess = () => {
@@ -54,6 +55,15 @@ const IsMobileAccess = () => {
           <p className="count">0</p>
         </CommentIconWrapper>
       </QnABox>
+      <Footer>
+        <img src={moizaBlack} alt="모이자" />
+        <p className="email">sofmoiza@gmail.com</p>
+        <div className="policyWrapper">
+          <p className="policy">이용약관</p>
+          <p className="policy">개인정보처리방침 </p>
+        </div>
+        <p className="copyRigth">©2022. Team Connect. All rights reserved</p>
+      </Footer>
     </Wrapper>
   );
 };
@@ -187,5 +197,38 @@ const CommentIconWrapper = styled.div`
   > .comment {
     width: 20px;
     height: 20px;
+  }
+`;
+const Footer = styled.footer`
+  background-color: #f9f9f9;
+  margin-top: 79px;
+  box-sizing: border-box;
+  padding: 28px 0 25px 16px;
+  > .email,
+  .copyRigth {
+    font-size: 10px;
+    font-weight: 400;
+    color: #999999;
+    line-height: 12px;
+    margin-top: 8px;
+  }
+  > .policyWrapper {
+    display: flex;
+    margin-top: 8px;
+    > .policy {
+      font-size: 10px;
+      ::after {
+        content: '';
+        float: right;
+        margin: 0 11px;
+        height: 9px;
+        border-right: 1px solid #555555;
+      }
+      :last-child {
+        ::after {
+          content: none;
+        }
+      }
+    }
   }
 `;
