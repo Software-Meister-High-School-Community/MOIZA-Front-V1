@@ -5,7 +5,7 @@ import { getPopularFeeds } from '../../../../utils/api/feeds';
 import { IGetIPopularFeedListResponse } from '../../../../models/feeds/response';
 
 const StarMenu: React.FC = () => {
-  const [popularFeed, setPopularFeed] = useState<IGetIPopularFeedListResponse[]>([]);
+  const [popularFeed, setPopularFeed] = useState<IGetIPopularFeedListResponse>();
 
   useEffect(() => {
     getPopularFeeds()
@@ -23,9 +23,8 @@ const StarMenu: React.FC = () => {
         </S.StarName>
         <S.HR width="760px" height="3px" background="#99B6FF" />
         <S.PostList>
-          <StarPost />
-          {/*popularFeed &&
-            popularFeed.feed_list.map((item, index) => <StarPost feed_list={item} key={index} />)*/}
+          {popularFeed &&
+            popularFeed.feed_list.map((item, index) => <StarPost item={item} key={index} />)}
         </S.PostList>
       </div>
     </S.Wrapper>

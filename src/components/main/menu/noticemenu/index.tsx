@@ -6,7 +6,7 @@ import { INoticeListResponse } from '../../../../models/notice/response';
 import { getNoticeList } from '../../../../utils/api/notice/index';
 
 const NoticeMenu: React.FC = () => {
-  const [noticeItem, setNoticeItem] = useState<INoticeListResponse[]>([]);
+  const [noticeItem, setNoticeItem] = useState<INoticeListResponse>();
 
   useEffect(() => {
     getNoticeList()
@@ -29,7 +29,8 @@ const NoticeMenu: React.FC = () => {
         </S.NoticeHead>
         <S.HR width="380px" height="3px" background="#FFE199" />
         <S.NoticeList>
-          {/*noticeItem && noticeItem.notice_list.map((item, index) => <NoticeItem title={} created_at={} />)*/}
+          {noticeItem &&
+            noticeItem.notice_list.map((item, index) => <NoticeItem item={item} key={index} />)}
         </S.NoticeList>
       </div>
     </S.Wrapper>
