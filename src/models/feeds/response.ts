@@ -15,6 +15,7 @@ export interface IFeedResponse {
   title: string;
   type: TFeed;
   created_at: string;
+  author_name: string;
   is_like: boolean;
   view_count: number;
   like_count: number;
