@@ -58,7 +58,6 @@ export const NoticeList = styled.div`
   border: 1px solid ${({ theme }) => theme.color.gray_color3};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `;
 

@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './style';
-import { noticePostCount } from '../constant';
 import { Link } from 'react-router-dom';
+import NoticeItem from './NoticeItem';
+import { INoticeListResponse } from '../../../../models/notice/response';
+import { getNoticeList } from '../../../../utils/api/notice/index';
 
 const NoticeMenu: React.FC = () => {
-  const menuList = noticePostCount.map((menu, index) => {
-    return (
-      <S.NoticeDiv>
-        <S.NoticeTextDiv>
-          <S.NoticeText fixed={true}>{menu}</S.NoticeText>
-          <S.NoticeDate>22/01/21 8:29</S.NoticeDate>
-        </S.NoticeTextDiv>
-      </S.NoticeDiv>
-    );
-  });
+  const [noticeItem, setNoticeItem] = useState<INoticeListResponse>();
+
+  useEffect(() => {
+    getNoticeList()
+      .then(res => {
+        //setNoticeItem(res);
+      })
+      .catch();
+  }, []);
+
   return (
     <S.Wrapper>
       <div>
@@ -26,7 +28,10 @@ const NoticeMenu: React.FC = () => {
           </Link>
         </S.NoticeHead>
         <S.HR width="380px" height="3px" background="#FFE199" />
-        <S.NoticeList>{menuList}</S.NoticeList>
+        <S.NoticeList>
+          {noticeItem &&
+            noticeItem.notice_list.map((item, index) => <NoticeItem item={item} key={index} />)}
+        </S.NoticeList>
       </div>
     </S.Wrapper>
   );
