@@ -20,8 +20,8 @@ const IsMobileAccess = () => {
         <MoizaLogo width={152} height={31} />
       </Moiza>
       <QnABox>
-        <h1 className="title">모이자 모바일로 접속하는 법</h1>
-        <p className="questionInfo">작성일 22/06/14 17:08 | 조회수 507회</p>
+        <Title>모이자 모바일로 접속하는 법</Title>
+        <QuestionInfo>작성일 22/06/14 17:08 | 조회수 507회</QuestionInfo>
         <UserInfo>
           <div className="profile">
             <img src={profileImage} alt="프로필" />
@@ -47,9 +47,9 @@ const IsMobileAccess = () => {
           <MoizaLogo width={91} height={20} />
           <img src={seeMoreButton} alt="더보기" />
         </Header>
-        <div className="button">
+        <ButtonWrapper>
           <SubmitButton text="앱 다운로드" blue={true} big={true} handleClick={moveToStore} />
-        </div>
+        </ButtonWrapper>
         <CommentIconWrapper>
           <img className="comment" src={CommentIcon} alt="" />
           <p className="count">0</p>
@@ -58,11 +58,11 @@ const IsMobileAccess = () => {
       <Footer>
         <img src={moizaBlack} alt="모이자" />
         <p className="email">sofmoiza@gmail.com</p>
-        <div className="policyWrapper">
+        <PolicyWrapper>
           <p className="policy">이용약관</p>
           <p className="policy">개인정보처리방침 </p>
-        </div>
-        <p className="copyRigth">©2022. Team Connect. All rights reserved</p>
+        </PolicyWrapper>
+        <p className="copyRight">©2022. Team Connect. All rights reserved</p>
       </Footer>
     </Wrapper>
   );
@@ -89,22 +89,22 @@ const QnABox = styled.div`
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
-  > .button {
-    margin: 46px auto 0 auto;
-  }
-  > .title {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21px;
-  }
-  > .questionInfo {
-    margin-top: 8px;
-    font-size: 10px;
-    line-height: 12px;
-    font-weight: 400;
-    color: #cacaca;
-  }
+`;
+const QuestionInfo = styled.p`
+  margin-top: 8px;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #cacaca;
+`;
+const Title = styled.h1`
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+`;
+const ButtonWrapper = styled.div`
+  margin: 46px auto 0 auto;
 `;
 const UserInfo = styled.div`
   display: flex;
@@ -205,29 +205,29 @@ const Footer = styled.footer`
   box-sizing: border-box;
   padding: 28px 0 25px 16px;
   > .email,
-  .copyRigth {
+  .copyRight {
     font-size: 10px;
     font-weight: 400;
     color: #999999;
     line-height: 12px;
     margin-top: 8px;
   }
-  > .policyWrapper {
-    display: flex;
-    margin-top: 8px;
-    > .policy {
-      font-size: 10px;
+`;
+const PolicyWrapper = styled.div`
+  display: flex;
+  margin-top: 8px;
+  > .policy {
+    font-size: 10px;
+    ::after {
+      content: '';
+      float: right;
+      margin: 0 11px;
+      height: 9px;
+      border-right: 1px solid #555555;
+    }
+    :last-child {
       ::after {
-        content: '';
-        float: right;
-        margin: 0 11px;
-        height: 9px;
-        border-right: 1px solid #555555;
-      }
-      :last-child {
-        ::after {
-          content: none;
-        }
+        content: none;
       }
     }
   }
