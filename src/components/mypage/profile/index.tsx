@@ -12,6 +12,8 @@ import { isValidUrl } from '../../../utils/function/isValidUrl';
 import { startFollowing } from '../../../utils/api/follow';
 import { IGetUserProfileResponse } from '../../../models/users/response';
 import { Link } from 'react-router-dom';
+import {translateSchool} from "../../../utils/function/translate/school";
+import {translateUserScope} from "../../../utils/function/translate/user_scope";
 
 interface PropsType {
   isMine: boolean;
@@ -74,7 +76,7 @@ const Profile: React.FC<PropsType> = ({ isMine, userInfo, userId }) => {
         <S.UserInfo>
           <S.PersonInfo>
             <p className="name">{userInfo.name}</p>
-            <p className="school">{userInfo.school}</p>
+            <p className="school userScope">{translateSchool(userInfo.school)} {translateUserScope(userInfo.user_scope)}</p>
           </S.PersonInfo>
           <S.ActiveInfo>
             게시물

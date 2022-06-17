@@ -10,7 +10,7 @@ const ProfilePage = () => {
   const [profileContent, setProfileContent] = useState<IGetUserProfileResponse>({
     name: '다른유저',
     school: 'DSM',
-    user_scope: 'USER',
+    user_scope: 'GRADUATE',
     profile_image_url: '',
     profile_background_color: '#FFB500',
     introduce: '안녕',
