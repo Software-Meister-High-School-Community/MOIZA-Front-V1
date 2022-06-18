@@ -5,6 +5,8 @@ import { useState } from 'react';
 import UseReplaceKeyword from '../../../../common/search/replaceKeyword';
 import { userSuspension } from '../../../../../utils/api/admin';
 import { IReportedUser } from '../../../../../models/admin/response';
+import {translateSchool} from "../../../../../utils/function/translate/school";
+import {translateUserScope} from "../../../../../utils/function/translate/user_scope";
 
 interface IProps {
   item: IReportedUser[];
@@ -21,8 +23,8 @@ const ReportOfUser: React.FC<IProps> = ({ item }) => {
               <S.Name>
                 <UseReplaceKeyword string={'asd'} keyword={'asd'} fontColor="#0048FF" />
               </S.Name>
-              <S.Name>{i.school}</S.Name>
-              <S.Type>{i.type}</S.Type>
+              <S.Name>{translateSchool(i.school)}</S.Name>
+              <S.Type>{translateUserScope(i.type)}</S.Type>
             </S.UserInfo>
             <S.History>
               <S.Progress>
