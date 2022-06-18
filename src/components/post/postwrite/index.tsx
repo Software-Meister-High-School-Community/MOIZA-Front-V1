@@ -8,7 +8,7 @@ import RadioButton from '../../common/select/radioButton';
 import { radioTypeArr } from '../constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
-import { patchTemporaries } from '../../../utils/api/feeds';
+import { saveTemporaries } from '../../../utils/api/feeds';
 
 const TITLE = 'title';
 const CONTENT = 'content';
@@ -38,7 +38,7 @@ const PostWrite: React.FC = () => {
   );
 
   const onPatchSavePost = () => {
-    //patchTemporaries(feed_id,body);
+    //saveTemporaries(feed_id,body);
   };
 
   const onSubmitPost = useCallback(() => {
