@@ -8,6 +8,7 @@ import RadioButton from '../../common/select/radioButton';
 import { radioTypeArr } from '../constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
+import { patchTemporaries } from '../../../utils/api/feeds';
 
 const TITLE = 'title';
 const CONTENT = 'content';
@@ -35,6 +36,10 @@ const PostWrite: React.FC = () => {
     },
     [postContent, setPostContent],
   );
+
+  const onPatchSavePost = () => {
+    //patchTemporaries();
+  };
 
   const onSubmitPost = useCallback(() => {
     FD.append('title', postContent.title);
@@ -74,7 +79,7 @@ const PostWrite: React.FC = () => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onSubmitPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onPatchSavePost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}
