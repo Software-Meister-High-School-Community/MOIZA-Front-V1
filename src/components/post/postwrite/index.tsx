@@ -38,7 +38,7 @@ const PostWrite: React.FC = () => {
   );
 
   const onPatchSavePost = () => {
-    //patchTemporaries();
+    //patchTemporaries(feed_id,body);
   };
 
   const onSubmitPost = useCallback(() => {
