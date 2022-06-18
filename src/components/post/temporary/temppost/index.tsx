@@ -2,10 +2,15 @@ import React from 'react';
 import * as S from './style';
 import TempPen from '../../../../assets/img/post/TempPen.svg';
 import { IGetTemporariesFeedListResponse } from '../../../../models/feeds/response';
+import { deleteTemporaries } from '../../../../utils/api/feeds';
 
 const TempPost: React.FC<{
   /* item: IGetTemporariesFeedListResponse*/
 }> = ({}) => {
+  const temporariesDelete = () => {
+    //deleteTemporaries();
+  };
+
   return (
     <S.Wrapper>
       <S.List>
@@ -21,7 +26,7 @@ const TempPost: React.FC<{
           <S.FetchState>
             <p>수정</p>
           </S.FetchState>
-          <S.DeleteState>
+          <S.DeleteState onClick={temporariesDelete}>
             <p>삭제</p>
           </S.DeleteState>
         </S.StateDiv>
