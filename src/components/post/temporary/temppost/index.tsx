@@ -1,8 +1,11 @@
 import React from 'react';
 import * as S from './style';
 import TempPen from '../../../../assets/img/post/TempPen.svg';
+import { IGetTemporariesFeedListResponse } from '../../../../models/feeds/response';
 
-const TempPost: React.FC = () => {
+const TempPost: React.FC<{
+  /* item: IGetTemporariesFeedListResponse*/
+}> = ({}) => {
   return (
     <S.Wrapper>
       <S.List>
