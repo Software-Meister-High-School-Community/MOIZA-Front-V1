@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Header from './components/header';
 import MainPage from './pages/mainpage/mainpage';
@@ -27,6 +27,12 @@ import NotFoundPage from './pages/404';
 import SEOMetaTage from './SEOMetaTage';
 
 const Router = () => {
+  useEffect(() => {
+    if (!localStorage.getItem('auto_login')) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+    }
+  }, []);
   return (
     <BrowserRouter>
       <SEOMetaTage
