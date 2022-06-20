@@ -47,9 +47,7 @@ const useSignupInfo = () => {
       email: userInfo.email + schoolEmailTransform(userInfo.school),
       auth_code: verifyCode,
       type: 'SIGN_UP',
-    });
-    // .then(() => setCertification({ ...certification, check: true }));
-    setCertification({ ...certification, check: true });
+    }).then(() => setCertification({ ...certification, check: true }));
   };
   const goToSetPw = () => {
     if (userInfo.user_type !== 'GRADUATE') {

@@ -5,27 +5,29 @@ import Index from '../../common/button/submitButton';
 import { signupIdPwFormDataNullCheck } from '../../../utils/data/signupDataNullCheck';
 import TextInput from '../../common/Input/TextInput';
 import useSignupInfo from '../../../hooks/signup/useSignupInfo';
-import { useNavigate } from 'react-router';
 import { checkIdOverWrap } from '../../../utils/api/auth';
 
 const SignupIdPwForm: React.FC = () => {
   const { userInfo, onChangeInputValue, goToLogin } = useSignupInfo();
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const [checkPassword, setCheckPassword] = useState('');
+  const [useAbleAccountId, setUseAbleAccountId] = useState(false);
   const isNull = useMemo(
     () =>
-      signupIdPwFormDataNullCheck({
+      !signupIdPwFormDataNullCheck({
         account_id: userInfo.account_id,
         password: userInfo.password,
         checkPassword,
-      }),
-    [userInfo, checkPassword],
+      }) &&
+      userInfo.password == checkPassword &&
+      useAbleAccountId,
+    [userInfo, checkPassword, useAbleAccountId],
   );
   const onChangeCheckPassword = (e: ChangeEvent<HTMLInputElement>) => {
     setCheckPassword(e.target.value);
   };
   const onClickOverWrapId = () => {
-    checkIdOverWrap(userInfo.account_id);
+    checkIdOverWrap(userInfo.account_id).then(() => setUseAbleAccountId(true));
   };
   return (
     <SignupFormsWrap>
@@ -72,7 +74,7 @@ const SignupIdPwForm: React.FC = () => {
         />
       </S.SignupIdPwFormBox>
       <SignupFooterWrap>
-        <Index text={'다음 단계'} blue big disable={isNull} handleClick={goToLogin} />
+        <Index text={'다음 단계'} blue big disable={!isNull} handleClick={goToLogin} />
       </SignupFooterWrap>
     </SignupFormsWrap>
   );
