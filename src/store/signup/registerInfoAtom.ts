@@ -4,31 +4,19 @@ import {
   ISignupIdPwFormDataProps,
   ISignupTermsFormDataProps,
 } from '../../utils/interface/Signup';
+import { ISignUpRequest } from '../../models/users/request';
 
-export const signUpFormData = atom<ISignupFormDataProps>({
+export const signUpFormData = atom<ISignUpRequest>({
   key: 'registerInfo',
   default: {
-    studentStatus: '',
+    account_id: '',
+    password: '',
+    user_type: 'STUDENT',
     name: '',
-    birth: '',
-    schoolSelect: '광주소프트웨어마이스터고등학교',
-    sex: '',
+    birthday: '',
+    school: 'GSM',
+    sex: 'MALE',
     email: '',
-    certificationNumber: '',
-  },
-});
-
-export const signUpTermsFormData = atom<ISignupTermsFormDataProps>({
-  key: 'SignupTermsFormData',
-  default: {},
-});
-
-export const signUpIdPwFormData = atom<ISignupIdPwFormDataProps>({
-  key: 'SignupIdPwFormDatta',
-  default: {
-    id: '',
-    pw: '',
-    checkPw: '',
   },
 });
 

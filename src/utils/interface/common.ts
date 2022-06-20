@@ -13,7 +13,8 @@ export interface ISubmitButtonProps {
 export interface IOptionButtonProps {
   text: string;
   isSelected: boolean;
-  onClick?: Dispatch<SetStateAction<string>>;
+  onClick: (option: string) => void;
+  optionId: string;
 }
 
 export interface IRadioButtonProps {

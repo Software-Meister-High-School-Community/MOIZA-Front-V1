@@ -1,27 +1,23 @@
-export const schoolEmailTransform = (mail: string): string => {
-  let schoolMail = "";
-  switch (mail) {
-    case "광주소프트웨어마이스터고등학교":
-      schoolMail = "@gsm.hs.kr";
-      break;
-    case "대구소프트웨어마이스터고등학교":
-      schoolMail = "@dgsw.hs.kr";
-      break;
-    case "대덕소프트웨어마이스터고등학교":
-      schoolMail = "@dsm.hs.kr";
-      break;
+import { TSchool } from '../../models/common';
 
-    case "미림마이스터고등학교":
-      schoolMail = "@e-mirim.hs.kr";
-      break;
+export const schoolEmailTransform = (school: TSchool): string => {
+  switch (school) {
+    case 'GSM':
+      return '@gsm.hs.kr';
 
-    case "부산소프트웨어마이스터고등학교":
-      schoolMail = "@bssm.hs.kr";
-      break;
+    case 'DGSW':
+      return '@dgsw.hs.kr';
+
+    case 'DSM':
+      return '@dsm.hs.kr';
+
+    case 'NCMM':
+      return '@e-mirim.hs.kr';
+
+    case 'BSSM':
+      return '@bssm.hs.kr';
 
     default:
-      schoolMail = "@gsm.hs.kr";
-      break;
+      return '@gsm.hs.kr';
   }
-  return schoolMail;
 };
