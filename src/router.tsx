@@ -24,10 +24,17 @@ import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
 import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
+import SEOMetaTage from './SEOMetaTage';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <SEOMetaTage
+        title="모이자"
+        description="소프트웨어마이스터고 커뮤니티"
+        url="https://www.mo1za.com/"
+        keyword="소마고,소프트웨어마이스터고,커뮤니티,모이자,개발자,디자인,대덕 소프트웨어마이스터고,광주 소프트웨어마이스터고,대구 소프트웨어마이스터고,미림 정보여자고,부산 소프트웨어마이스터고,프론트엔드,백엔드,iOS,안드로이드,AOS,정보보안,임베디드,인공지능,AI,FrontEnd,BackEnd,고등학생,소프트웨어,마이스터고"
+      />
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />

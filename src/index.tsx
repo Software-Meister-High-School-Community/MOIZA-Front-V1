@@ -7,6 +7,7 @@ import { GlobalStyle } from './style/global';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './style/theme';
 import { RecoilRoot } from 'recoil';
+import {HelmetProvider} from 'react-helmet-async'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -14,7 +15,9 @@ root.render(
     <RecoilRoot>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
       </ThemeProvider>
     </RecoilRoot>
   </React.StrictMode>,
