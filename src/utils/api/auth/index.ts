@@ -2,7 +2,6 @@ import instance from '../../axios';
 import {
   IChangePasswordRequest,
   ICheckEmailAuthCodeRequest,
-  ICheckIdOverWrapRequest,
   ILoginRequest,
   IPostAuthCodeRequest,
   TFindId,
@@ -59,7 +58,7 @@ export const findId = async (user_email: TFindId): Promise<IFindIdResponse> => {
   }
 };
 
-export const checkIdOverWrap = async (account_id: ICheckIdOverWrapRequest) => {
+export const checkIdOverWrap = async (account_id: string) => {
   try {
     await instance.head('/auth/id-validations', { data: account_id });
   } catch (err) {
