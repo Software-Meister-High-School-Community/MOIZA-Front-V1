@@ -3,25 +3,14 @@ import {
   ISignupIdPwFormDataProps,
   ISignupTermsFormDataProps,
 } from '../interface/Signup';
+import { ISignUpRequest } from '../../models/users/request';
 
-export const signupFormDataNullcheck = (data: ISignupFormDataProps) => {
-  let isNull: boolean = true;
-  if (data?.name === '') return true;
-  if (data?.email === '') return true;
-  if (data?.birth === '') return true;
-  if (data?.certificationNumber === '') return true;
+export const signupFormDataNullcheck = (data: ISignUpRequest): boolean => {
+  // if (data?.certificationNumber === '') return true;
 
-  isNull = false;
-
-  return isNull;
+  return data.name === '' || data.email === '' || data.birthday === '';
 };
 
-export const signupIdPwFormDataNullCheck = (data: ISignupIdPwFormDataProps) => {
-  let isNull: boolean = true;
-  if (data.id === '') return true;
-  if (data.pw === '') return true;
-  if (data.checkPw === '') return true;
-  isNull = false;
-
-  return isNull;
+export const signupIdPwFormDataNullCheck = (data: ISignupIdPwFormDataProps): boolean => {
+  return data.password === '' || data.checkPassword === '' || data.account_id === '';
 };
