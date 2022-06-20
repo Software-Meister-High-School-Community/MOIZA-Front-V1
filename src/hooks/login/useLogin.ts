@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { login } from '../../utils/api/auth';
 import { ILoginProps } from '../../utils/interface/Login';
@@ -16,7 +16,7 @@ const useLogin = () => {
     app_device_token: null,
     web_device_token: '',
   });
-
+  const [isCheckLoginSave, setIsCheckLoginSave] = useState<boolean>(false);
   const handleLoginData = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
@@ -24,10 +24,7 @@ const useLogin = () => {
     },
     [setLoginData],
   );
-
   const submitLoginData = useCallback(async () => {
-    console.log(loginData);
-
     if (loginData.account_id === '' || loginData.password === '') {
       return;
     }
@@ -35,6 +32,7 @@ const useLogin = () => {
       await login(loginData).then(res => {
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('refresh_token', res.refresh_token);
+        if (isCheckLoginSave) localStorage.setItem('auto_login', 'true');
       });
       await getMyPage().then(res => setUserInfo(res));
       window.alert('로그인 성공');
@@ -45,6 +43,8 @@ const useLogin = () => {
   }, [navigate, loginData]);
 
   return {
+    isCheckLoginSave,
+    setIsCheckLoginSave,
     loginData,
     handleLoginData,
     submitLoginData,

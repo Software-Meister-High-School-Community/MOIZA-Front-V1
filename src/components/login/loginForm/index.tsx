@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import * as S from './style';
 import { Link } from 'react-router-dom';
 import TextInput from '../../common/Input/TextInput';
@@ -7,10 +7,16 @@ import { ILoginProps } from '../../../utils/interface/Login';
 type Props = {
   loginData: ILoginProps;
   handleLoginData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  isCheckLoginSave: boolean;
+  setIsCheckLoginSave: Dispatch<SetStateAction<boolean>>;
 };
 
-const LoginForm: React.FC<Props> = ({ loginData, handleLoginData }) => {
-  const [isCheck, setIsCheck] = useState<boolean>(false);
+const LoginForm: React.FC<Props> = ({
+  loginData,
+  handleLoginData,
+  isCheckLoginSave,
+  setIsCheckLoginSave,
+}) => {
   const [isShow, setIsShow] = useState<boolean>(false);
 
   return (
@@ -38,8 +44,8 @@ const LoginForm: React.FC<Props> = ({ loginData, handleLoginData }) => {
             placeholder="비밀번호"
           />
         </S.LoginFormTextInputWrap>
-        <S.LoginFormSaveInputWrap>
-          <S.LoginFormSaveCheckButton checked={isCheck} onClick={() => setIsCheck(prev => !prev)}>
+        <S.LoginFormSaveInputWrap onClick={() => setIsCheckLoginSave(prev => !prev)}>
+          <S.LoginFormSaveCheckButton checked={isCheckLoginSave}>
             <S.LoginFormSaveCheckButtonRect />
           </S.LoginFormSaveCheckButton>
           로그인 저장
