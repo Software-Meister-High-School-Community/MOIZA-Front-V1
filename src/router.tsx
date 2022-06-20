@@ -25,6 +25,7 @@ import ProfilePage from './pages/profile';
 import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
 import SEOMetaTage from './SEOMetaTage';
+import CommunityCategoryPage from './pages/category/communityCategoryPage';
 
 const Router = () => {
   return (
@@ -52,11 +53,13 @@ const Router = () => {
         <Route path="/graduatecheck" element={<GraduateCheckPage />} />
         <Route path="/graduatechecksuccess" element={<GraduateCheckSuccess />} />
         <Route path="/findauthdata" element={<FindAuthDataPage />} />
-        <Route path="/category" element={<CategoryPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/result/:title" element={<ResultPage />} />
-        <Route path="/list/:listname" element={<PostList />} />
-        <Route path="/list/:listname/:postid" element={<PostReplyPage />} />
+        <Route path="/category">
+          <Route index element={<CategoryPage />} />
+          <Route path=":categoryType" element={<CommunityCategoryPage />} />
+          <Route path=":categoryType/:feedId" element={<PostReplyPage />} />
+        </Route>
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/postwrite/:writefield" element={<PostWrite />} />
         <Route path="/profile">
