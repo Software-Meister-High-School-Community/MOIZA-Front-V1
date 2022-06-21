@@ -56,7 +56,7 @@ export const writeNoticePathArr: PathType[] = [
   },
   {
     path: '공지사항',
-    link: '/admin?page-type=notification',
+    link: '/admin/notice',
   },
   {
     path: '공지사항 작성',
