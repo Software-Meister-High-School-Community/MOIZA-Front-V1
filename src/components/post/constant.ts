@@ -49,6 +49,10 @@ export const categoryList: ICategory[] = [
   },
 ];
 
+export const categoryIdList = categoryList.map(item => {
+  return item.id;
+});
+
 interface TypeArrType {
   id: string;
   summary: string;

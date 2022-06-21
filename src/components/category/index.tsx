@@ -19,11 +19,9 @@ const Category: React.FC = () => {
         {categoryList.map((item, index) => {
           if (index === 2 || index === 7 || index === 11)
             return (
-              <Link to={`/category/${item.toUpperCase()}`}>
-                <S.Item>
-                  <S.ItemImg src={item} />
-                </S.Item>
-              </Link>
+              <S.Item>
+                <S.ItemImg src={item} />
+              </S.Item>
             );
           return (
             <Link to={`/category/${item.toUpperCase()}`}>

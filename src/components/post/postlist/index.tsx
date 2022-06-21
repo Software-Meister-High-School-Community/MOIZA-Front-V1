@@ -3,7 +3,6 @@ import * as S from './style';
 import Vector from '../../../assets/img/post/vector.svg';
 import Write from '../../../assets/img/common/writePen.svg';
 import Path from '../../common/path';
-import { categoryList } from '../constant';
 import Dropdown from '../../common/select/dropdown';
 import RadioButton from '../../common/select/radioButton';
 import { typeArr } from '../constant';
@@ -15,16 +14,13 @@ import { PathType } from '../../../utils/interface/common';
 
 interface IProps {
   categoryType: TCategory;
+  categoryName: string;
 }
 
-const PostList: React.FC<IProps> = ({ categoryType }) => {
+const PostList: React.FC<IProps> = ({ categoryType, categoryName }) => {
   const [value, setValue] = useState(sortOptions[0].option);
   const [seleted, setSeleted] = useState('all');
   const [pagenation, setPagenation] = useState(1);
-  const categoryName = useMemo(() => {
-    const index = categoryList.findIndex(item => item.id === categoryType);
-    return categoryList[index].summary;
-  }, [categoryType]);
   const pathArray: PathType[] = useMemo(() => {
     return [
       {
