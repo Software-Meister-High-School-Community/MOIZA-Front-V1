@@ -10,7 +10,7 @@ export const departmentOptions: IDepartmentOption[] = [
   { option: 'Front-End', value: 'FRONT-END' },
   { option: 'Back-End', value: 'BACK-END' },
   { option: 'IOS', value: 'IOS' },
-  { option: 'Android', value: 'AOS' },
+  { option: 'Android', value: 'ANDROID' },
   { option: 'Design', value: 'DESIGN' },
   { option: 'Game', value: 'GAME' },
   { option: 'Security', value: 'SECURITY' },
