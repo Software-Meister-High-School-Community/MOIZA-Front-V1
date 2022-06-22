@@ -21,10 +21,10 @@ export const PostNameDiv = styled.div`
   margin-top: 60px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 `;
 
 export const PostName = styled.p`
-  width: 220px;
   height: 38px;
   font-size: ${({ theme }) => theme.fontSize.head_small};
   font-style: normal;
@@ -36,6 +36,7 @@ export const PostVector = styled.img`
   height: 26px;
   margin-top: 2px;
   cursor: pointer;
+  margin-left: 12px;
 `;
 
 export const PostDiv = styled.div`
