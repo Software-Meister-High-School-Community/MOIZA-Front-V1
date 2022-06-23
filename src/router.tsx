@@ -54,8 +54,10 @@ const Router = () => {
         <Route path="/graduatecheck" element={<GraduateCheckPage />} />
         <Route path="/graduatechecksuccess" element={<GraduateCheckSuccess />} />
         <Route path="/findauthdata" element={<FindAuthDataPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/result/:title" element={<ResultPage />} />
+        <Route path="/search">
+          <Route index element={<SearchPage />} />
+          <Route path=":keyword" element={<ResultPage />} />
+        </Route>
         <Route path="/category">
           <Route index element={<CategoryPage />} />
           <Route path=":categoryType" element={<CommunityCategoryPage />} />

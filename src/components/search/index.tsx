@@ -4,6 +4,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import SearchRecord from './searchRecord';
 import useSearch from '../../hooks/search/useSearch';
 import searchIcon from '../../assets/img/common/searchIcon.svg';
+import { useParams } from 'react-router';
 const Search: React.FC = () => {
   const {
     handleDelteSearchRecord,
@@ -18,6 +19,10 @@ const Search: React.FC = () => {
     setDisabled,
     searchRecords,
   } = useSearch();
+  const { keyword } = useParams();
+  useEffect(() => {
+    if (keyword) setCurrentSearch(keyword);
+  }, [keyword]);
   return (
     <S.Wrapper>
       <S.Title>검색</S.Title>
@@ -56,7 +61,6 @@ const Search: React.FC = () => {
           <SearchRecord
             onReset={handleResetSearchRecords}
             visible={visible}
-            currentSearch={setCurrentSearch}
             searchRecords={searchRecords}
             onDelete={handleDelteSearchRecord}
           />
