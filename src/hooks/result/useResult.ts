@@ -3,6 +3,8 @@ import { TCategory, TFeed, TSort } from '../../models/common';
 import { searchFeed } from '../../utils/api/feeds';
 import { useRecoilValue } from 'recoil';
 import { SearchKeywordState } from '../../store/search/keyword';
+import { IGetSearchFeedResponse } from '../../models/feeds/response';
+import { searchUser } from '../../utils/api/users';
 
 interface IRadio {
   id: TFeed;
@@ -19,6 +21,7 @@ const useResult = () => {
   const [selectedRadio, setSelectedRadio] = useState<TFeed>('ALL');
   const [categoryOption, setCategoryOption] = useState<TCategory>('ALL');
   const [sortOption, setSortOption] = useState<TSort>('LATEST');
+  const [searchResults, setSearchResults] = useState<IGetSearchFeedResponse>();
   const onChangeRadioValue = (value: string) => {
     const radioValue = value as TFeed;
     setSelectedRadio(radioValue);
@@ -35,6 +38,9 @@ const useResult = () => {
   useEffect(() => {
     searchFeed(searchKeyword, categoryOption, selectedRadio, sortOption, 0);
   }, [selectedRadio, categoryOption, sortOption, searchKeyword]);
+  useEffect(() => {
+    searchUser(searchKeyword, 0);
+  }, [searchKeyword]);
   return {
     selectedRadio,
     onChangeRadioValue,
