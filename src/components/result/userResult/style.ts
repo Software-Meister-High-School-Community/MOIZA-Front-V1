@@ -12,11 +12,12 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   font-size: 20px;
   font-weight: 400;
+  margin-top: 6px;
 `;
 export const Container = styled(Slider)`
   display: flex;
   width: 1200px;
-  margin-top: 20px;
+  margin: 20px 0 25px 0;
 `;
 export const ItemBox = styled.div`
   position: relative;

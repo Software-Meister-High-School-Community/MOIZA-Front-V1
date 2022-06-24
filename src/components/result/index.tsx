@@ -22,27 +22,30 @@ const Result = () => {
   } = useResult();
   return (
     <>
-      <UserResult userResult={userResults as IUserSearchResponse} />
       <S.Container>
-        <S.RadioBtnBox>
+        <S.SearchResult>
+          <p className="keyword">정원</p>에 대한 검색결과는 총&nbsp;<p className="totalCount">2</p>
+          건 입니다.
+        </S.SearchResult>
+        <UserResult userResult={userResults as IUserSearchResponse} />
+        <S.Options>
           <RadioButton
             radioArray={radios}
             name="result"
             selected={selectedRadio}
             setSelected={onChangeRadioValue}
           />
-        </S.RadioBtnBox>
-
-        <S.DropdownBox>
-          <Dropdown
-            options={departmentOptions}
-            value={categoryOption}
-            onChangeValue={onChangeCategoryOption}
-          />
-          <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
-        </S.DropdownBox>
+          <S.DropdownBox>
+            <Dropdown
+              options={departmentOptions}
+              value={categoryOption}
+              onChangeValue={onChangeCategoryOption}
+            />
+            <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
+          </S.DropdownBox>
+        </S.Options>
+        <PostResult />
       </S.Container>
-      <PostResult />
     </>
   );
 };
