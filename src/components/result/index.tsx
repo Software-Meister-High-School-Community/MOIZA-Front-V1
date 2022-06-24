@@ -23,13 +23,15 @@ const Result = () => {
     feedResults,
     page,
     onChangePage,
+    searchKeyword,
   } = useResult();
   return (
     <>
       <S.Container>
         <S.SearchResult>
-          <p className="keyword">정원</p>에 대한 검색결과는 총&nbsp;<p className="totalCount">2</p>
-          건 입니다.
+          <p className="keyword">{searchKeyword}</p>에 대한 검색결과는 총&nbsp;
+          <p className="totalCount">{feedResults.total_page + userResults.user_list.length}</p>건
+          입니다.
         </S.SearchResult>
         <UserResult userResult={userResults as IUserSearchResponse} />
         <S.Options>

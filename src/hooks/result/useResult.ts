@@ -121,6 +121,7 @@ const useResult = () => {
     feedResults,
     page,
     onChangePage,
+    searchKeyword,
   };
 };
 
