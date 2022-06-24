@@ -19,6 +19,7 @@ const Result = () => {
   } = useResult();
   return (
     <>
+      <UserResult />
       <S.Container>
         <S.RadioBtnBox>
           <RadioButton
@@ -38,7 +39,6 @@ const Result = () => {
           <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
         </S.DropdownBox>
       </S.Container>
-      <UserResult />
       <PostResult />
     </>
   );
