@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState, createRef } from 'react';
+import React, { useState, createRef, useEffect } from 'react';
 import { SearchRecord } from '../../utils/interface/Search';
+import { useRecoilValue } from 'recoil';
+import { SearchKeywordState } from '../../store/search/keyword';
 const useSearch = () => {
   const searchEl = createRef<HTMLInputElement>();
   const [disabled, setDisabled] = useState<boolean>(false);
@@ -8,6 +10,11 @@ const useSearch = () => {
   const [currentSearch, setCurrentSearch] = useState<string>('');
   const [searchRecords, setSearchRecords] = useState<SearchRecord[]>([]);
   const navigate = useNavigate();
+  const keyword = useRecoilValue(SearchKeywordState);
+
+  useEffect(() => {
+    setCurrentSearch(keyword);
+  }, [keyword]);
 
   const handleDelteSearchRecord = (searchRecordId: number): void => {
     const seacrhRecords = searchRecords.filter(item => {
