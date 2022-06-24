@@ -1,26 +1,51 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { TCategory, TFeed, TSort } from '../../models/common';
+import { searchFeed } from '../../utils/api/feeds';
+import { useRecoilValue } from 'recoil';
+import { SearchKeywordState } from '../../store/search/keyword';
 
-const useResult = () => {
-    const [selectedRadio, setSelectedRadio] = useState<string>("1");
-    const [departmentOption, setdepartmentOption] = useState("모든분야");
-    const [sortOption, setSortOption] = useState("최신 순");
-    useEffect(() => {
-        // api 통신P
-    }, [selectedRadio, departmentOption, sortOption])
-    const radios = [
-        { id: "1", summary: "전체" },
-        { id: "2", summary: "질문" },
-        { id: "3", summary: "일반" },
-    ];
-    return {
-        selectedRadio,
-        setSelectedRadio,
-        departmentOption,
-        setdepartmentOption,
-        sortOption,
-        setSortOption,
-        radios,
-    }
+interface IRadio {
+  id: TFeed;
+  summary: string;
 }
 
-export default useResult
+const radios: IRadio[] = [
+  { id: 'ALL', summary: '전체' },
+  { id: 'QUESTION', summary: '질문' },
+  { id: 'COMMON', summary: '일반' },
+];
+
+const useResult = () => {
+  const [selectedRadio, setSelectedRadio] = useState<TFeed>('ALL');
+  const [categoryOption, setCategoryOption] = useState<TCategory>('ALL');
+  const [sortOption, setSortOption] = useState<TSort>('LATEST');
+  const onChangeRadioValue = (value: string) => {
+    const radioValue = value as TFeed;
+    setSelectedRadio(radioValue);
+  };
+  const onChangeCategoryOption = (option: string) => {
+    const category = option as TCategory;
+    setCategoryOption(category);
+  };
+  const onChangeSortOption = (option: string) => {
+    const sortOption = option as TSort;
+    setSortOption(sortOption);
+  };
+  const searchKeyword = useRecoilValue(SearchKeywordState);
+  useEffect(() => {
+    searchFeed(searchKeyword, categoryOption, selectedRadio, sortOption, 0);
+  }, [selectedRadio, categoryOption, sortOption, searchKeyword]);
+  return {
+    selectedRadio,
+    onChangeRadioValue,
+    categoryOption,
+    setCategoryOption,
+    sortOption,
+    setSortOption,
+    radios,
+    onChangeCategoryOption,
+    onChangeSortOption,
+  };
+};
+
+export default useResult;

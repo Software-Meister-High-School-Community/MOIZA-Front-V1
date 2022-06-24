@@ -6,15 +6,16 @@ import UserResult from './userResult';
 import useResult from '../../hooks/result/useResult';
 import RadioButton from '../common/select/radioButton';
 import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
-const Result: React.FC = () => {
+
+const Result = () => {
   const {
     selectedRadio,
-    setSelectedRadio,
-    departmentOption,
-    setdepartmentOption,
+    onChangeRadioValue,
+    categoryOption,
     sortOption,
-    setSortOption,
     radios,
+    onChangeCategoryOption,
+    onChangeSortOption,
   } = useResult();
   return (
     <>
@@ -24,17 +25,17 @@ const Result: React.FC = () => {
             radioArray={radios}
             name="result"
             selected={selectedRadio}
-            setSelected={setSelectedRadio}
+            setSelected={onChangeRadioValue}
           />
         </S.RadioBtnBox>
 
         <S.DropdownBox>
           <Dropdown
             options={departmentOptions}
-            value={departmentOption}
-            onChangeValue={setdepartmentOption}
+            value={categoryOption}
+            onChangeValue={onChangeCategoryOption}
           />
-          <Dropdown options={sortOptions} value={sortOption} onChangeValue={setSortOption} />
+          <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
         </S.DropdownBox>
       </S.Container>
       <UserResult />
