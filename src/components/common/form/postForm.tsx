@@ -7,6 +7,7 @@ import heart from '../../../assets/img/common/onHeart.svg';
 import Comment from '../../../assets/img/common/comment.svg';
 import { IFeedResponse } from '../../../models/feeds/response';
 import { dateTransform } from '../../../utils/function/dateTransform';
+import { divideViewCount } from '../../../utils/function/translate/viewCount';
 
 interface Props {
   item: IFeedResponse;
@@ -24,7 +25,7 @@ const PostForm: React.FC<Props> = ({ item }) => {
         </Date>
         <Views>
           <img src={view} />
-          <span>1.2천</span>
+          <span>{divideViewCount(item.view_count)}천</span>
         </Views>
         <CommentCount>
           <img src={Comment} />
@@ -96,9 +97,10 @@ const Date = styled.div`
 `;
 
 const Views = styled.em`
-  margin-left: 45px;
+  margin-left: 30px;
   display: flex;
   align-items: center;
+  width: 72px;
   > span {
     font-style: normal;
     font-weight: normal;
