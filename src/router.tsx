@@ -25,6 +25,7 @@ import ProfilePage from './pages/profile';
 import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
 import SEOMetaTage from './SEOMetaTage';
+import WriteNotice from './components/admin/writeNotice';
 import CommunityCategoryPage from './pages/category/communityCategoryPage';
 
 const Router = () => {
@@ -47,7 +48,7 @@ const Router = () => {
           <Route index element={<Admin />} />
           <Route path=":managementType" element={<Admin />} />
         </Route>
-        {/*<Route path="/write-notice" element={<WriteNotice />} />*/}
+        <Route path="/writeNotice" element={<WriteNotice />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signupsuccess" element={<SignupSuccess />} />

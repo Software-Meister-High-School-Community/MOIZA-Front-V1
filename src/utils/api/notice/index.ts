@@ -6,6 +6,14 @@ import {
 } from '../../../models/notice/response';
 import { IPatchNoticeRequest } from '../../../models/notice/request';
 
+export const writeNotice = async (body: IPatchNoticeRequest) => {
+  try {
+    await instance.post('/notices', body);
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const getNoticeList = async (): Promise<INoticeListResponse> => {
   try {
     return await instance.get('/notices/lists');
@@ -13,6 +21,7 @@ export const getNoticeList = async (): Promise<INoticeListResponse> => {
     throw err;
   }
 };
+
 export const getNoticeDetails = async (id: number): Promise<INoticeDetailsResponse> => {
   try {
     return await instance.get(`/notices/${id}`);
