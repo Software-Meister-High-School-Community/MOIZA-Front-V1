@@ -7,6 +7,7 @@ import useResult from '../../hooks/result/useResult';
 import RadioButton from '../common/select/radioButton';
 import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
 import { IUserSearchResponse } from '../../models/users/response';
+import { IGetSearchFeedResponse } from '../../models/feeds/response';
 
 const Result = () => {
   const {
@@ -44,7 +45,7 @@ const Result = () => {
             <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
           </S.DropdownBox>
         </S.Options>
-        <PostResult />
+        <PostResult feedResults={feedResults as IGetSearchFeedResponse} />
       </S.Container>
     </>
   );
