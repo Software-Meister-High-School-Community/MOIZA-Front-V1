@@ -8,6 +8,7 @@ import Comment from '../../../assets/img/common/comment.svg';
 import { IFeedResponse } from '../../../models/feeds/response';
 import { dateTransform } from '../../../utils/function/dateTransform';
 import { divideViewCount } from '../../../utils/function/translate/viewCount';
+import { Link } from 'react-router-dom';
 
 interface Props {
   item: IFeedResponse;
@@ -15,8 +16,8 @@ interface Props {
 
 const PostForm: React.FC<Props> = ({ item }) => {
   return (
-    <Wrapper>
-      <List fixed={true}>
+    <Link to={`/category/FRONT-END/${item.id}`}>
+      <Wrapper fixed={true}>
         <img src={BookRead} alt="BookRed 이미지" />
         <h1>{item.title}</h1>
         <Date>
@@ -35,14 +36,14 @@ const PostForm: React.FC<Props> = ({ item }) => {
           <img src={heart} />
           <span>{item.like_count}</span>
         </Hearts>
-      </List>
-    </Wrapper>
+      </Wrapper>
+    </Link>
   );
 };
 
 export default PostForm;
 
-const List = styled.li<{ fixed: boolean }>`
+const Wrapper = styled.li<{ fixed: boolean }>`
   width: 1200px;
   height: 65px;
   box-sizing: border-box;
@@ -66,12 +67,6 @@ const List = styled.li<{ fixed: boolean }>`
     line-height: 21px;
     color: ${props => (props.fixed ? '#FFB500' : '#555555')};
   }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Line = styled.div`
