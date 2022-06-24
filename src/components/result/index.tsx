@@ -8,6 +8,7 @@ import RadioButton from '../common/select/radioButton';
 import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
 import { IUserSearchResponse } from '../../models/users/response';
 import { IGetSearchFeedResponse } from '../../models/feeds/response';
+import Pageination from '../common/pagenation';
 
 const Result = () => {
   const {
@@ -20,6 +21,8 @@ const Result = () => {
     onChangeSortOption,
     userResults,
     feedResults,
+    page,
+    onChangePage,
   } = useResult();
   return (
     <>
@@ -46,6 +49,7 @@ const Result = () => {
           </S.DropdownBox>
         </S.Options>
         <PostResult feedResults={feedResults as IGetSearchFeedResponse} />
+        <Pageination total={10} limit={5} page={page} setPage={onChangePage} />
       </S.Container>
     </>
   );

@@ -22,6 +22,7 @@ const useResult = () => {
   const [selectedRadio, setSelectedRadio] = useState<TFeed>('ALL');
   const [categoryOption, setCategoryOption] = useState<TCategory>('ALL');
   const [sortOption, setSortOption] = useState<TSort>('LATEST');
+  const [page, setPage] = useState(1);
   const [feedResults, setFeedResults] = useState<IGetSearchFeedResponse>({
     total_page: 5,
     feed_list: [
@@ -82,6 +83,9 @@ const useResult = () => {
       { user_id: 7, name: '임세현', profile_image_url: '', user_scope: 'USER', school: 'DSM' },
     ],
   });
+  const onChangePage = (page: number) => {
+    setPage(page);
+  };
   const onChangeRadioValue = (value: string) => {
     const radioValue = value as TFeed;
     setSelectedRadio(radioValue);
@@ -96,10 +100,10 @@ const useResult = () => {
   };
   const searchKeyword = useRecoilValue(SearchKeywordState);
   // useEffect(() => {
-  //   searchFeed(searchKeyword, categoryOption, selectedRadio, sortOption, 0).then(res =>
+  //   searchFeed(searchKeyword, categoryOption, selectedRadio, sortOption, page).then(res =>
   //     setFeedResults(res),
   //   );
-  // }, [selectedRadio, categoryOption, sortOption, searchKeyword]);
+  // }, [selectedRadio, categoryOption, sortOption, searchKeyword,page]);
   // useEffect(() => {
   //   searchUser(searchKeyword, 0).then(res => setUserResults(res));
   // }, [searchKeyword]);
@@ -115,6 +119,8 @@ const useResult = () => {
     onChangeSortOption,
     userResults,
     feedResults,
+    page,
+    onChangePage,
   };
 };
 

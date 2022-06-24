@@ -14,12 +14,14 @@ export const SearchResult = styled.strong`
 `;
 
 export const Container = styled.div`
-  position: relative;
   z-index: 1;
-  /* display:flex; */
   width: 1200px;
   height: 34px;
-  margin: 0 auto 72px auto;
+  margin: 0 auto;
+  > .pagenationWrapper {
+    margin-top: 130px;
+    padding-bottom: 100px;
+  }
 `;
 
 export const Options = styled.div`
