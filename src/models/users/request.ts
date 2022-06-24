@@ -11,10 +11,6 @@ export interface ISignUpRequest {
   school: TSchool;
 }
 
-export interface ISearchUserRequest {
-  name: string;
-  page: number;
-}
 export interface IVerifyGraduateRequest {
   verifying_file_url: string;
 }
