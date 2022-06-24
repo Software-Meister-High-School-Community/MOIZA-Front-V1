@@ -6,6 +6,7 @@ import UserResult from './userResult';
 import useResult from '../../hooks/result/useResult';
 import RadioButton from '../common/select/radioButton';
 import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
+import { IUserSearchResponse } from '../../models/users/response';
 
 const Result = () => {
   const {
@@ -16,10 +17,12 @@ const Result = () => {
     radios,
     onChangeCategoryOption,
     onChangeSortOption,
+    userResults,
+    feedResults,
   } = useResult();
   return (
     <>
-      <UserResult />
+      <UserResult userResult={userResults as IUserSearchResponse} />
       <S.Container>
         <S.RadioBtnBox>
           <RadioButton
