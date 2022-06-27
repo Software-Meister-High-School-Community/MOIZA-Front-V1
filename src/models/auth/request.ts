@@ -19,10 +19,6 @@ export interface IPostAuthCodeRequest {
   value: string;
 }
 
-export interface ICheckIdOverWrapRequest {
-  account_id: string;
-}
-
 export interface ILoginRequest {
   account_id: string;
   password: string;

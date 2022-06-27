@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Path from '../common/path';
 import { writeNoticePathArr } from './constant';
@@ -6,6 +6,8 @@ import Switch from '../common/toggle/switch';
 import UploadFiles from '../common/upload/files';
 import { UploadDataType } from '../../utils/interface/common';
 import SubmitButton from '../common/button/submitButton';
+import { postImages } from '../../utils/api/default';
+import { writeNotice } from '../../utils/api/notice';
 
 const WriteNotice: React.FC = () => {
   const FD = new FormData();
@@ -33,10 +35,15 @@ const WriteNotice: React.FC = () => {
     [noticeContent, setNoticeContent],
   );
 
-  const onSubmitNotification = useCallback(() => {
-    FD.append('title', noticeContent.title);
-    FD.append('content', noticeContent.content);
-    noticeContent.files.forEach(eachFile => FD.append('files', eachFile));
+  const onSubmitNotification = useCallback(async () => {
+    await noticeContent.files.forEach(eachFile => FD.append('files', eachFile));
+    const images = await postImages({ images: FD });
+    await writeNotice({
+      title: noticeContent.title,
+      content: noticeContent.content,
+      is_pinned: isFix,
+      attachment_file_urls: images.image_urls,
+    });
   }, [noticeContent]);
   return (
     <Wrapper>

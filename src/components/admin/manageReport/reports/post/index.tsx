@@ -3,6 +3,8 @@ import Type from '../../../../../assets/img/common/questionPostIcon.svg';
 import UseReplaceKeyword from '../../../../common/search/replaceKeyword';
 import { deleteFeed } from '../../../../../utils/api/feeds';
 import { IReportedFeed } from '../../../../../models/admin/response';
+import {translateUserScope} from "../../../../../utils/function/translate/user_scope";
+import {translateSchool} from "../../../../../utils/function/translate/school";
 
 interface IProps {
   item: IReportedFeed[];
@@ -27,8 +29,8 @@ const ReportOfPost: React.FC<IProps> = ({ item }) => {
               <S.Name>
                 <UseReplaceKeyword keyword={''} string={i.author.name} fontColor="#0048FF" />
               </S.Name>
-              <S.Name>{i.author.name}</S.Name>
-              <S.UserType>{i.author.type}</S.UserType>
+              <S.Name className="school">{translateSchool(i.author.school)}</S.Name>
+              <S.UserType>{translateUserScope(i.author.type)}</S.UserType>
             </S.Info>
           </section>
           <S.Details>

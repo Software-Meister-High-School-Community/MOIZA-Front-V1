@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { approveGraduate, rejectGraduate } from '../../utils/api/admin';
 import BigImage from '../common/bigImage';
 import { IGraduateResponse } from '../../models/admin/response';
+import {translateSchool} from "../../utils/function/translate/school";
+import {translateUserScope} from "../../utils/function/translate/user_scope";
 
 interface Props {
   item: IGraduateResponse;
@@ -24,8 +26,8 @@ const GraduationBox: React.FC<Props> = ({ item }) => {
       {attachment && <BigImage imgs={[item.verifying_image_url]} handleDisplay={setAttachment} />}
       <UserSummary>
         <p className="userInfo">{item.name}</p>
-        <p className="userInfo">{item.school}</p>
-        <p className="userInfo">{item.type}</p>
+        <p className="userInfo">{translateSchool(item.school)}</p>
+        <p className="userInfo">{translateUserScope(item.type)}</p>
       </UserSummary>
       <PatchFile>
         <button className="patchFile" onClick={onClickCheckGraduateAttachment}>

@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { registerSchoolSelect, signUpFormData } from '../../../store/signup/registerInfoAtom';
 import { schoolEmailTransform } from '../../../utils/function/schoolEmailTransform';
 import Index from '../../common/button/submitButton';
 import OptionButton from '../../common/select/optionButton';
@@ -10,41 +7,30 @@ import * as S from './style';
 import * as CONST from '../constant';
 import useSignupInfo from '../../../hooks/signup/useSignupInfo';
 import TextInput from '../../common/Input/TextInput';
+import { ChangeEvent, useState } from 'react';
 
 const SignupForm: React.FC = () => {
-  const [schoolSelect, setSchoolSelect] = useRecoilState(registerSchoolSelect);
-  const [userInfo, setUserInfo] = useRecoilState(signUpFormData);
-
   const {
-    sexSelect,
-    setSexSelect,
-    studentStatus,
-    setStudentStatus,
-    sendCertificationNumber,
-    isInfoComplete,
-    handleInfo,
+    userInfo,
+    onChangeSchoolType,
+    onChangeSexType,
+    onChangeInputValue,
+    onChangeUserType,
+    certification,
     onSendCertificationNumber,
     checkCertification,
     goToSetPw,
+    onChangeVerifyCode,
+    verifyCode,
   } = useSignupInfo();
-
-  useEffect(() => {
-    setUserInfo(prev => ({
-      ...prev,
-      sex: sexSelect,
-      schoolSelect: schoolSelect,
-      studentStatus: studentStatus,
-    }));
-  }, [sexSelect, schoolSelect, studentStatus, setUserInfo]);
-
   return (
     <SignupFormsWrap>
       <S.SignupFormBox>
         <S.SignupFormTitle marginBottom={36}>구분</S.SignupFormTitle>
         <S.SignupFormFlexWrap>
           <RadioButton
-            selected={studentStatus}
-            setSelected={setStudentStatus}
+            selected={userInfo.user_type}
+            setSelected={onChangeUserType}
             radioArray={CONST.studentStatusList}
             name="studentStatusSelect"
           />
@@ -54,7 +40,7 @@ const SignupForm: React.FC = () => {
         <TextInput
           width="250"
           value={userInfo.name}
-          setValue={handleInfo}
+          setValue={onChangeInputValue}
           type="text"
           name="name"
           margin={'0px 0px 70px 0px'}
@@ -65,17 +51,17 @@ const SignupForm: React.FC = () => {
         </S.SignupFormBirthTitleWrap>
         <TextInput
           width="250"
-          value={userInfo.birth}
-          setValue={handleInfo}
-          type="text"
-          name="birth"
+          value={userInfo.birthday}
+          setValue={onChangeInputValue}
+          type="number"
+          name="birthday"
           margin={'0px 0px 70px 0px'}
         />
         <S.SignupFormTitle marginBottom={36}>성별</S.SignupFormTitle>
         <S.SignupFormFlexWrap>
           <RadioButton
-            selected={sexSelect}
-            setSelected={setSexSelect}
+            selected={userInfo.sex}
+            setSelected={onChangeSexType}
             radioArray={CONST.sexList}
             name="sexSelect"
           />
@@ -84,11 +70,12 @@ const SignupForm: React.FC = () => {
         <S.SignupFormSchoolWrap>
           {CONST.schoolList.map(item => {
             return (
-              <S.SignupFormSchoolButton name={item} key={item}>
+              <S.SignupFormSchoolButton name={item.id} key={item.id}>
                 <OptionButton
-                  isSelected={schoolSelect === item}
-                  text={item}
-                  onClick={setSchoolSelect}
+                  isSelected={userInfo.school === item.id}
+                  text={item.summary}
+                  optionId={item.id}
+                  onClick={onChangeSchoolType}
                 />
               </S.SignupFormSchoolButton>
             );
@@ -96,14 +83,19 @@ const SignupForm: React.FC = () => {
         </S.SignupFormSchoolWrap>
         <S.SignupFormTitle marginBottom={13}>학교 이메일</S.SignupFormTitle>
         <S.SignupFormFlexWrap>
-          <TextInput value={userInfo.email} name="email" setValue={handleInfo} type="text" />
-          {studentStatus === '재학생' && (
+          <TextInput
+            value={userInfo.email}
+            name="email"
+            setValue={onChangeInputValue}
+            type="text"
+          />
+          {userInfo.user_type === 'STUDENT' && (
             <S.SignupFormSchoolMailText>
-              {schoolEmailTransform(schoolSelect)}
+              {schoolEmailTransform(userInfo.school)}
             </S.SignupFormSchoolMailText>
           )}
           <S.SignupFormSubmitButton
-            isGraduate={studentStatus === '졸업생'}
+            isGraduate={userInfo.user_type === 'GRADUATE'}
             onClick={onSendCertificationNumber}
           >
             인증번호 보내기
@@ -113,23 +105,23 @@ const SignupForm: React.FC = () => {
         <S.SignupFormFlexWrap>
           <TextInput
             type="text"
-            value={userInfo.certificationNumber}
-            setValue={handleInfo}
+            value={verifyCode}
+            setValue={onChangeVerifyCode}
             name="certificationNumber"
-            disabled={!sendCertificationNumber}
+            disabled={!certification.send}
           />
           <S.SignupFormSubmitButton isGraduate onClick={checkCertification}>
             인증하기
           </S.SignupFormSubmitButton>
         </S.SignupFormFlexWrap>
-        {studentStatus === '졸업생' && (
+        {userInfo.user_type === 'GRADUATE' && (
           <S.SignupFormAlertText>
             ※ 가입 후 졸업 인증을 하시면 모이자 이용이 가능합니다.
           </S.SignupFormAlertText>
         )}
       </S.SignupFormBox>
       <SignupFooterWrap>
-        <Index text={'다음 단계'} blue big disable={isInfoComplete} handleClick={goToSetPw} />
+        <Index text={'다음 단계'} blue big disable={!certification.check} handleClick={goToSetPw} />
       </SignupFooterWrap>
     </SignupFormsWrap>
   );

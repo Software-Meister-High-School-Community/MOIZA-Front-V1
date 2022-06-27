@@ -3,6 +3,8 @@ import * as S from './styles';
 import UseReplaceKeyword from '../../../../common/search/replaceKeyword/index';
 import { removeComment } from '../../../../../utils/api/comments';
 import { IReportedComment } from '../../../../../models/admin/response';
+import {translateSchool} from "../../../../../utils/function/translate/school";
+import {translateUserScope} from "../../../../../utils/function/translate/user_scope";
 
 interface IProps {
   item: IReportedComment[];
@@ -22,8 +24,8 @@ const ReportsOfComment: React.FC<IProps> = ({ item }) => {
               <S.Name>
                 <UseReplaceKeyword fontColor="#0048FF" keyword={''} string={i.author.name} />
               </S.Name>
-              <S.School>{i.author.school}</S.School>
-              <S.UserType>{i.author.type}</S.UserType>
+              <S.School>{translateSchool(i.author.school)}</S.School>
+              <S.UserType>{translateUserScope(i.author.type)}</S.UserType>
             </S.UserInfo>
             <S.ReportInfo>
               <S.ReportCount>

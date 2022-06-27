@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 223px;
+  margin-top: 120px;
 `;
 
 export const MenuDiv = styled.div`

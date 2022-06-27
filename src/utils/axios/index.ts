@@ -46,6 +46,7 @@ instance.interceptors.response.use(
           if (err.response.data.status === 401 || err.response.data.status === 404) {
             localStorage.removeItem('access_token');
             localStorage.removeItem('refresh_token');
+            localStorage.removeItem('auto_login');
           }
         }
       }

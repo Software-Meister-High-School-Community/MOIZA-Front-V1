@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Header from './components/header';
 import MainPage from './pages/mainpage/mainpage';
@@ -24,10 +24,20 @@ import EditProfile from './components/editProfile';
 import ProfilePage from './pages/profile';
 import MyPage from './pages/mypage';
 import NotFoundPage from './pages/404';
+import SEOMetaTage from './SEOMetaTage';
+import WriteNotice from './components/admin/writeNotice';
+import CommunityCategoryPage from './pages/category/communityCategoryPage';
 
 const Router = () => {
+  useEffect(() => {
+    if (!localStorage.getItem('auto_login')) {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+    }
+  }, []);
   return (
     <BrowserRouter>
+      <SEOMetaTage />
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -38,18 +48,20 @@ const Router = () => {
           <Route index element={<Admin />} />
           <Route path=":managementType" element={<Admin />} />
         </Route>
-        {/*<Route path="/write-notice" element={<WriteNotice />} />*/}
+        <Route path="/writeNotice" element={<WriteNotice />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signupsuccess" element={<SignupSuccess />} />
         <Route path="/graduatecheck" element={<GraduateCheckPage />} />
         <Route path="/graduatechecksuccess" element={<GraduateCheckSuccess />} />
         <Route path="/findauthdata" element={<FindAuthDataPage />} />
-        <Route path="/category" element={<CategoryPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/result/:title" element={<ResultPage />} />
-        <Route path="/list/:listname" element={<PostList />} />
-        <Route path="/list/:listname/:postid" element={<PostReplyPage />} />
+        <Route path="/category">
+          <Route index element={<CategoryPage />} />
+          <Route path=":categoryType" element={<CommunityCategoryPage />} />
+          <Route path=":categoryType/:feedId" element={<PostReplyPage />} />
+        </Route>
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/postwrite/:writefield" element={<PostWrite />} />
         <Route path="/profile">

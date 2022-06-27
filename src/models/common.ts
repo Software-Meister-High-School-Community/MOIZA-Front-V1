@@ -6,7 +6,7 @@ export type TCategory =
   | 'FRONT-END'
   | 'BACK-END'
   | 'IOS'
-  | 'AOS'
+  | 'ANDROID'
   | 'DESIGN'
   | 'GAME'
   | 'SECURITY'

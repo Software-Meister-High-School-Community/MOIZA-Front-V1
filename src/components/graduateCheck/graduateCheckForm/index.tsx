@@ -8,7 +8,6 @@ import deleteIcon from '../../../assets/img/common/X.svg';
 
 const GraduateCheckForm: React.FC = () => {
   const { file, setFile, onChangeFile, handleUploadFile } = useGraduateCheck();
-
   return (
     <>
       <S.GraduateCheckFormBox>
@@ -42,13 +41,7 @@ const GraduateCheckForm: React.FC = () => {
         </S.GruduateCheckFormGuideText>
       </S.GraduateCheckFormBox>
       <GraduateCheckFooterWrap>
-        <Index
-          big
-          blue
-          disable={file === null}
-          text="인증 신청"
-          handleClick={() => handleUploadFile()}
-        />
+        <Index big blue disable={file === null} text="인증 신청" handleClick={handleUploadFile} />
       </GraduateCheckFooterWrap>
     </>
   );

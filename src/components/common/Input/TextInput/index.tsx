@@ -19,7 +19,9 @@ const TextInput: React.FC<ITextInputProps> = ({
   return (
     <S.TextInputWrap margin={margin} width={width}>
       <S.TextInputInput
-        type={type === 'text' ? 'text' : isShow ? 'text' : 'password'}
+        type={
+          type === 'text' ? 'text' : type === 'number' ? 'number' : isShow ? 'text' : 'password'
+        }
         name={name}
         placeholder={placeholder}
         value={value}

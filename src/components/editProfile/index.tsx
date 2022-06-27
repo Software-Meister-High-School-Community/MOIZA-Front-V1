@@ -12,6 +12,8 @@ import { TBackGroundColor } from '../../models/common';
 import { useUserInfo } from '../../hooks/user/useUserInfo';
 import { patchUser } from '../../utils/api/users';
 import { postImages } from '../../utils/api/default';
+import {translateSchool} from "../../utils/function/translate/school";
+import {translateUserScope} from "../../utils/function/translate/user_scope";
 
 const EditProfile: React.FC = () => {
   const [profileContent, setProfileContent] = useRecoilState(profileElementState);
@@ -37,7 +39,7 @@ const EditProfile: React.FC = () => {
       <PersonInfo>
         <p className="name">{userInfo.name}</p>
         <p className="school">
-          {userInfo.school} {userInfo.user_scope}
+          {translateSchool(userInfo.school)} {translateUserScope(userInfo.user_scope)}
         </p>
       </PersonInfo>
     ),

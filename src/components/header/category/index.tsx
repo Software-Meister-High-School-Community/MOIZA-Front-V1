@@ -1,6 +1,19 @@
 import React from 'react';
 import * as S from './style';
 import categoryIcon from '../../../assets/img/category/categoryIcon.svg';
+import { Link } from 'react-router-dom';
+
+const categoryList = [
+  'Front-End',
+  'Back-End',
+  'iOS',
+  'Android',
+  'Design',
+  'Game',
+  'Security',
+  'Embedded',
+  'AI',
+];
 
 const CategoryDropdown: React.FC = () => {
   return (
@@ -11,15 +24,11 @@ const CategoryDropdown: React.FC = () => {
       </S.Container>
 
       <S.ItemContainer>
-        <S.Item>Front-End</S.Item>
-        <S.Item>Back-End</S.Item>
-        <S.Item>IOS</S.Item>
-        <S.Item>Android</S.Item>
-        <S.Item>Deign</S.Item>
-        <S.Item>Game</S.Item>
-        <S.Item>Security</S.Item>
-        <S.Item>Embedded</S.Item>
-        <S.Item>AI</S.Item>
+        {categoryList.map(item => (
+          <Link to={`/category/${item.toUpperCase()}`}>
+            <S.Item>{item}</S.Item>
+          </Link>
+        ))}
       </S.ItemContainer>
 
       <S.Line />

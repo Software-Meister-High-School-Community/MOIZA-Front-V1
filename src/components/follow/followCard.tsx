@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
 import { IFollow } from '../../models/follow/response';
+import {translateSchool} from "../../utils/function/translate/school";
+import {translateUserScope} from "../../utils/function/translate/user_scope";
 
 interface IProps {
   followInfo: IFollow;
@@ -13,7 +15,7 @@ const FollowCard: React.FC<IProps> = ({ followInfo: item }) => {
       <Names>
         <p className="user-name">{item.name}</p>
         <p className="school-name">
-          {item.school} {item.user_scope}
+          {translateSchool(item.school)} {translateUserScope(item.user_scope)}
         </p>
       </Names>
       <ButtonWrapper>

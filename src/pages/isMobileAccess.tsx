@@ -7,6 +7,7 @@ import SubmitButton from '../components/common/button/submitButton';
 import CommentIcon from '../assets/img/common/comment.svg';
 import moizaBlack from '../assets/img/MOIZALogo/moizaBlack.svg';
 import { isAndroid, isIOS } from 'react-device-detect';
+import SEOMetaTage from '../SEOMetaTage';
 
 const IsMobileAccess = () => {
   const moveToStore = () => {
@@ -15,56 +16,59 @@ const IsMobileAccess = () => {
     else alert('지원하지 않는 운영체제입니다.');
   };
   return (
-    <Wrapper>
-      <Moiza>
-        <MoizaLogo width={152} height={31} />
-      </Moiza>
-      <QnABox>
-        <Title>모이자 모바일로 접속하는 법</Title>
-        <QuestionInfo>작성일 22/06/14 17:08 | 조회수 507회</QuestionInfo>
-        <UserInfo>
-          <div className="profile">
-            <img src={profileImage} alt="프로필" />
-          </div>
-          <p className="name">모여바</p>
-          <p className="school">마이스터고</p>
-          <p className="userType">재학생</p>
-        </UserInfo>
-        <Content>
-          소프트웨어 마이스터 고등학교 간의 교류를 활발히 하기위해 학생들이 직접 기획하고 만든
-          모이자.. 정말 가입하고 싶은데 모바일로는 어떻게 들어가죠?? ㅠㅠ
-        </Content>
-        <Heart>
-          <img src={heart} alt="좋아요" />
-          <p className="count">999+</p>
-        </Heart>
-      </QnABox>
-      <Comment>
-        답글<p className="count">1</p>
-      </Comment>
-      <QnABox>
-        <Header>
-          <MoizaLogo width={91} height={20} />
-          <img src={seeMoreButton} alt="더보기" />
-        </Header>
-        <ButtonWrapper>
-          <SubmitButton text="앱 다운로드" blue={true} big={true} handleClick={moveToStore} />
-        </ButtonWrapper>
-        <CommentIconWrapper>
-          <img className="comment" src={CommentIcon} alt="" />
-          <p className="count">0</p>
-        </CommentIconWrapper>
-      </QnABox>
-      <Footer>
-        <img src={moizaBlack} alt="모이자" />
-        <p className="email">sofmoiza@gmail.com</p>
-        <PolicyWrapper>
-          <p className="policy">이용약관</p>
-          <p className="policy">개인정보처리방침 </p>
-        </PolicyWrapper>
-        <p className="copyRight">©2022. Team Connect. All rights reserved</p>
-      </Footer>
-    </Wrapper>
+    <>
+      <SEOMetaTage />
+      <Wrapper>
+        <Moiza>
+          <MoizaLogo width={152} height={31} />
+        </Moiza>
+        <QnABox>
+          <Title>모이자 모바일로 접속하는 법</Title>
+          <QuestionInfo>작성일 22/06/14 17:08 | 조회수 507회</QuestionInfo>
+          <UserInfo>
+            <div className="profile">
+              <img src={profileImage} alt="프로필" />
+            </div>
+            <p className="name">모여바</p>
+            <p className="school">마이스터고</p>
+            <p className="userType">재학생</p>
+          </UserInfo>
+          <Content>
+            소프트웨어 마이스터 고등학교 간의 교류를 활발히 하기위해 학생들이 직접 기획하고 만든
+            모이자.. 정말 가입하고 싶은데 모바일로는 어떻게 들어가죠?? ㅠㅠ
+          </Content>
+          <Heart>
+            <img src={heart} alt="좋아요" />
+            <p className="count">999+</p>
+          </Heart>
+        </QnABox>
+        <Comment>
+          답글<p className="count">1</p>
+        </Comment>
+        <QnABox>
+          <Header>
+            <MoizaLogo width={91} height={20} />
+            <img src={seeMoreButton} alt="더보기" />
+          </Header>
+          <ButtonWrapper>
+            <SubmitButton text="앱 다운로드" blue={true} big={true} handleClick={moveToStore} />
+          </ButtonWrapper>
+          <CommentIconWrapper>
+            <img className="comment" src={CommentIcon} alt="" />
+            <p className="count">0</p>
+          </CommentIconWrapper>
+        </QnABox>
+        <Footer>
+          <img src={moizaBlack} alt="모이자" />
+          <p className="email">sofmoiza@gmail.com</p>
+          <PolicyWrapper>
+            <p className="policy">이용약관</p>
+            <p className="policy">개인정보처리방침 </p>
+          </PolicyWrapper>
+          <p className="copyRight">©2022. Team Connect. All rights reserved</p>
+        </Footer>
+      </Wrapper>
+    </>
   );
 };
 export default IsMobileAccess;

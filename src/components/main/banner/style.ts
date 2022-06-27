@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Banner = styled.div`
-  width: 850px;
-  height: 530px;
+  width: 645px;
+  height: 400px;
   border-radius: 30px;
   background-position: center;
   background-size: cover;
@@ -23,7 +23,7 @@ export const SchoolName = styled.p<{
   width: ${props => props.width};
   height: ${props => props.height};
   font-weight: 700;
-  font-size: ${({ theme }) => theme.fontSize.head_large};
+  font-size: 30px;
 
   font-style: normal;
   margin: ${props => props.margin};
@@ -37,16 +37,15 @@ export const SchoolText = styled.p<{
   width: ${props => props.width};
   height: ${props => props.height};
   margin: ${props => props.margin};
-  font-weight: 500;
-
+  font-weight: 400;
   font-style: normal;
-  font-size: ${({ theme }) => theme.fontSize.body_large};
+  font-size: ${({ theme }) => theme.fontSize.body_small};
 `;
 
 export const Hr = styled.hr<{
   margin: string;
 }>`
-  width: 181px;
+  width: 130px;
   height: 1px;
   margin: ${props => props.margin};
   border: none;
@@ -98,9 +97,9 @@ export const SchoolHomePage = styled.p<{
 }>`
   width: ${props => props.width};
   margin: ${props => props.margin};
+  color: ${({ theme }) => theme.color.gray_color5};
   cursor: pointer;
   text-decoration: underline 1px;
-  font-weight: 600;
-
-  font-size: ${({ theme }) => theme.fontSize.body_medium};
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSize.body_small};
 `;

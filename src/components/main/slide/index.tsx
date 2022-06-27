@@ -23,9 +23,9 @@ const Slide = () => {
   return (
     <div>
       <Slider {...settings}>
-        <Daeduck />
-        <Daegu />
         <Gwangju />
+        <Daegu />
+        <Daeduck />
         <Mirim />
         <Busan />
       </Slider>
