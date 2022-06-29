@@ -70,7 +70,12 @@ const UploadFiles: React.FC<PropsType> = ({ state, setStateFunction }) => {
         {fileListArr.length < 4 ? (
           <S.AddFileButton>
             <img src={addFile} />
-            <input type="file" onChange={UploadImgs} multiple />
+            <input
+              type="file"
+              onChange={UploadImgs}
+              multiple
+              accept=".gif, .jpg, .png, .JPEG, .TIF"
+            />
           </S.AddFileButton>
         ) : (
           ''
