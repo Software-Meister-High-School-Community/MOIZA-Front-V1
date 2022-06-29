@@ -27,6 +27,8 @@ import NotFoundPage from './pages/404';
 import SEOMetaTage from './SEOMetaTage';
 import WriteNotice from './components/admin/writeNotice';
 import CommunityCategoryPage from './pages/category/communityCategoryPage';
+import TempUpdatePage from './pages/post/temprory/TempUpdatePage';
+import EditPage from './pages/post/edit/EditPage';
 
 const Router = () => {
   useEffect(() => {
@@ -73,6 +75,8 @@ const Router = () => {
         <Route path="404" element={<NotFoundPage />} />
         <Route path="/feeds">
           <Route path=":writefield" element={<PostWrite />} />
+          <Route path=":editTemprory" element={<TempUpdatePage />} />
+          <Route path=":editfeed" element={<EditPage />} />/
           <Route path=":templist/:tempfield" element={<TempList />} />
         </Route>
       </Routes>
