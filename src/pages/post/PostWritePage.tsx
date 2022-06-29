@@ -1,5 +1,5 @@
 import React from 'react';
-import PostWrite from '../../components/post/postwrite';
+import PostWrite from '../../components/common/postwrite/index';
 
 const PostWritePage = () => {
   return <PostWrite />;
