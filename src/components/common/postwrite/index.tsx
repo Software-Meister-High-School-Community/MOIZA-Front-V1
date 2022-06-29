@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import * as S from './style';
 import Path from '../../common/path';
-import { postWritePathArr } from '../constant';
+import { postWritePathArr } from './constant';
 import { UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton';
-import { radioTypeArr } from '../constant';
+import { radioTypeArr } from './constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
 import { saveTemporaries } from '../../../utils/api/feeds';
