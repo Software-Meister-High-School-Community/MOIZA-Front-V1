@@ -15,7 +15,6 @@ import FindAuthDataPage from './pages/findId';
 import CategoryPage from './pages/category/CategoryPage';
 import SearchPage from './pages/search/SearchPage';
 import ResultPage from './pages/result/ResultPage';
-import PostList from './components/post/postlist';
 import PostReplyPage from './pages/postReply/PostReplyPage';
 import PostWrite from './pages/post/PostWritePage';
 import Follow from './pages/follow';
