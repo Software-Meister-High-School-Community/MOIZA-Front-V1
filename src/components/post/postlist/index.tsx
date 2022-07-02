@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import * as S from './style';
 import Vector from '../../../assets/img/post/vector.svg';
 import Write from '../../../assets/img/common/writePen.svg';
@@ -9,18 +9,43 @@ import { typeArr } from '../constant';
 import PostForm from '../../common/form/postForm';
 import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
-import { TCategory } from '../../../models/common';
 import { PathType } from '../../../utils/interface/common';
+import { IGetFeedListResponse } from '../../../models/feeds/response';
+import { getFeedList } from '../../../utils/api/feeds';
+import { TCategory, TFeed, TSort } from '../../../models/common';
+import { useUserInfo } from '../../../hooks/user/useUserInfo';
 
 interface IProps {
   categoryType: TCategory;
   categoryName: string;
+  id?: number;
 }
 
-const PostList: React.FC<IProps> = ({ categoryType, categoryName }) => {
-  const [value, setValue] = useState(sortOptions[0].option);
-  const [seleted, setSeleted] = useState('all');
+const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
+  const [sort, setSort] = useState(sortOptions[0].value);
+  const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
   const [pagenation, setPagenation] = useState(1);
+  const [postList, setPostList] = useState<IGetFeedListResponse>();
+  const { userInfo } = useUserInfo();
+
+  const onChangeSort = (sort: string) => {
+    const sortValue = sort as TSort;
+    setSort(sortValue);
+  };
+  const onChangeFeedType = (feed: string) => {
+    const feedValue = feed as TFeed;
+    setSelectedOption(feedValue);
+  };
+
+  const userId = useMemo(() => {
+    if (id === undefined) return userInfo.user_id;
+    return id;
+  }, [id]);
+
+  useEffect(() => {
+    getFeedList(userId, categoryType, selectedOption, sort, pagenation);
+  }, []);
+
   const pathArray: PathType[] = useMemo(() => {
     return [
       {
@@ -33,6 +58,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName }) => {
       },
     ];
   }, [categoryType]);
+
   return (
     <>
       <S.WriteBtn>
@@ -50,15 +76,20 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName }) => {
           <S.SelectDiv>
             <S.RadioBtnDiv>
               <RadioButton
-                selected={seleted}
-                setSelected={setSeleted}
+                selected={selectedOption}
+                setSelected={onChangeFeedType}
                 radioArray={typeArr}
                 name="typecheckbox"
               />
             </S.RadioBtnDiv>
-            <Dropdown value={value} onChangeValue={setValue} options={sortOptions} />
+            <Dropdown value={sort} onChangeValue={onChangeSort} options={sortOptions} />
           </S.SelectDiv>
-          <S.PosFormtDiv>{/*<PostForm />*/}</S.PosFormtDiv>
+          <S.PosFormtDiv>
+            {postList &&
+              postList.feed_list.map((item, index) => {
+                return <PostForm item={item} key={index} />;
+              })}
+          </S.PosFormtDiv>
         </S.PostDiv>
         <nav className="pagenation">
           <PagiNation total={5} limit={1} page={pagenation} setPage={setPagenation} />
