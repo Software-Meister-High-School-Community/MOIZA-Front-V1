@@ -98,21 +98,6 @@ export const postListReplyPathArr: PathType[] = [
   },
 ];
 
-export const postWritePathArr: PathType[] = [
-  {
-    path: '카테고리',
-    link: '/category',
-  },
-  {
-    path: 'Design',
-    link: '/list/Design',
-  },
-  {
-    path: '게시물작성',
-    link: "'/postwrite/Design",
-  },
-];
-
 export const seeMoreOption: SeeMoreOptionInterface[] = [
   {
     option: '수정',
