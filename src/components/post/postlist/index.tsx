@@ -14,6 +14,7 @@ import { IGetFeedListResponse } from '../../../models/feeds/response';
 import { getFeedList } from '../../../utils/api/feeds';
 import { TCategory, TFeed, TSort } from '../../../models/common';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   categoryType: TCategory;
@@ -61,9 +62,11 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
 
   return (
     <>
-      <S.WriteBtn>
-        <img src={Write} alt="" />
-      </S.WriteBtn>
+      <Link to={`/postwrite/${categoryType}`}>
+        <S.WriteBtn>
+          <img src={Write} alt="" />
+        </S.WriteBtn>
+      </Link>
       <S.Wrapper>
         <S.PostHeadDiv>
           <Path pathArray={pathArray} />
