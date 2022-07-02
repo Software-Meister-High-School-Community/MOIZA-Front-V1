@@ -16,7 +16,7 @@ import CategoryPage from './pages/category/CategoryPage';
 import SearchPage from './pages/search/SearchPage';
 import ResultPage from './pages/result/ResultPage';
 import PostReplyPage from './pages/postReply/PostReplyPage';
-import PostWrite from './components/post/postwrite';
+import PostWrite from './pages/post/PostWritePage';
 import Follow from './pages/follow';
 import TempList from './components/post/temporary';
 import EditProfile from './components/editProfile';
