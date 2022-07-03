@@ -1,19 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import * as S from './style';
 import Path from '../../common/path';
-import { postWritePathArr } from './constant';
-import { UploadDataType } from '../../../utils/interface/common';
+import { PathType, UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton';
 import { radioTypeArr } from './constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
-import { saveTemporaries } from '../../../utils/api/feeds';
+import { TCategory } from '../../../models/common';
+
+interface Props {
+  categoryType: TCategory;
+}
 
 const TITLE = 'title';
 const CONTENT = 'content';
 
-const PostWrite: React.FC = () => {
+const PostWrite: React.FC<Props> = ({ categoryType }) => {
   const FD = new FormData();
   const [postContent, setPostContent] = useState<UploadDataType>({
     title: '',
@@ -21,6 +24,23 @@ const PostWrite: React.FC = () => {
     files: [],
   });
   const [seleted, setSeleted] = useState('question');
+
+  const pathArray: PathType[] = useMemo(() => {
+    return [
+      {
+        path: '카테고리',
+        link: '/category',
+      },
+      {
+        path: categoryType,
+        link: '',
+      },
+      {
+        path: '게시물작성',
+        link: `/postwrite/${categoryType}`,
+      },
+    ];
+  }, [categoryType]);
 
   const onChangePostContent = useCallback(
     (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
@@ -37,10 +57,6 @@ const PostWrite: React.FC = () => {
     [postContent, setPostContent],
   );
 
-  const onPatchSavePost = () => {
-    //saveTemporaries(feed_id,body);
-  };
-
   const onSubmitPost = useCallback(() => {
     FD.append('title', postContent.title);
     FD.append('content', postContent.content);
@@ -49,7 +65,7 @@ const PostWrite: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <Path pathArray={postWritePathArr} />
+      <Path pathArray={pathArray} />
       <S.WriteForm>
         <S.Title>
           <p>제목</p>
@@ -79,7 +95,7 @@ const PostWrite: React.FC = () => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onPatchSavePost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onSubmitPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}

@@ -11,6 +11,7 @@ import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
 import { TCategory } from '../../../models/common';
 import { PathType } from '../../../utils/interface/common';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   categoryType: TCategory;
@@ -35,9 +36,11 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName }) => {
   }, [categoryType]);
   return (
     <>
-      <S.WriteBtn>
-        <img src={Write} alt="" />
-      </S.WriteBtn>
+      <Link to={`/feeds/${categoryType}`}>
+        <S.WriteBtn>
+          <img src={Write} alt="" />
+        </S.WriteBtn>
+      </Link>
       <S.Wrapper>
         <S.PostHeadDiv>
           <Path pathArray={pathArray} />
