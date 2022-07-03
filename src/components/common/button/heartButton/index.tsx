@@ -4,15 +4,21 @@ import offHeart from '../../../../assets/img/common/offHeart.svg';
 import styled from 'styled-components';
 import { Like, DeleteLike } from '../../../../utils/api/feeds/index';
 
-export const HeartButton: React.FC = () => {
+interface Props {
+  feedId: number;
+}
+
+export const HeartButton: React.FC<Props> = ({ feedId }) => {
   const [liked, setLiked] = useState<boolean>(false);
 
   const onClickHeart = () => {
     if (liked === false) {
       setLiked(true);
+      Like(feedId);
       console.log('like');
     } else {
       setLiked(false);
+      DeleteLike(feedId);
       console.log('Not like');
     }
   };

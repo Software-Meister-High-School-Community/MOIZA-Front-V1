@@ -111,11 +111,12 @@ const PostReply: React.FC = () => {
   const [postData, setPostData] = useState<IPostReplyDataProps>();
   const [isLoading, setIsLoading] = useState(true);
   const [isMake, setMake] = useState(false);
-  const [isHeart, setIsHeart] = useState(false);
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState<boolean>(false);
 
   const { feedId } = useParams();
-  console.log(feedId);
+
+  const Id = Number(feedId);
+
   useEffect(() => {
     setPostData(exampleData);
     setIsLoading(false);
@@ -171,7 +172,7 @@ const PostReply: React.FC = () => {
                 </S.PostReplyMiddleWrap>
                 <S.PostReplyBottomWrap>
                   <S.PostReplyBottomLikeWrap>
-                    <HeartButton />
+                    <HeartButton feedId={Id} />
                     <p>{postData.likes}</p>
                   </S.PostReplyBottomLikeWrap>
                   <S.PostReplyBottomViewWrap>
