@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import onHeart from '../../../../assets/img/common/onHeart.svg';
 import offHeart from '../../../../assets/img/common/offHeart.svg';
-import * as S from './style';
+import styled from 'styled-components';
+import { Like, DeleteLike } from '../../../../utils/api/feeds/index';
 
 export const HeartButton: React.FC = () => {
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState<boolean>(false);
 
   const onClickHeart = () => {
-    if (!liked) {
+    if (liked === false) {
       setLiked(true);
       console.log('like');
     } else {
@@ -15,7 +16,11 @@ export const HeartButton: React.FC = () => {
       console.log('Not like');
     }
   };
-  return <S.PostHeart src={liked ? onHeart : offHeart} alt="" onClick={onClickHeart} />;
+  return <PostHeart src={liked ? onHeart : offHeart} alt="" onClick={onClickHeart} />;
 };
+
+const PostHeart = styled.img`
+  cursor: pointer;
+`;
 
 export default HeartButton;
