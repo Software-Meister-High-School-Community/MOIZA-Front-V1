@@ -109,7 +109,19 @@ const PostReply: React.FC = () => {
                 {postData?.comments?.length ? (
                   <>
                     {postData?.comments.map((item, idx) => {
-                      return <PostReplyComment commentData={item} key={idx} id={idx} />;
+                      return (
+                        <PostReplyComment
+                          author={item.author}
+                          content={item.content}
+                          created_at={item.created_at}
+                          image_urls={item.image_urls}
+                          is_mine={item.is_mine}
+                          is_pinned={item.is_pinned}
+                          child_comments={item.child_comments}
+                          key={idx}
+                          id={idx}
+                        />
+                      );
                     })}
                   </>
                 ) : (

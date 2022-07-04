@@ -1,4 +1,3 @@
-import { ICommnet } from '../../../../utils/interface/Post';
 import * as S from './style';
 import menuCircle from '../../../../assets/img/common/seeMoreBtnIcon.svg';
 import commentIcon from '../../../../assets/img/common/comment.svg';
@@ -8,13 +7,18 @@ import PostReplyCommentOfComment from '../PostReplyCommentOfComment';
 import { seeMoreOption } from '../../constant';
 import SeeMoreModal from '../../../common/seeMoreModal';
 import FixPin from '../../../../assets/img/post/Pin.svg';
+import { CommentInterface } from '../../../../models/feeds/response';
 
-interface IPostReplyCommentProps {
-  commentData: ICommnet;
-  id: number;
-}
-
-const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
+const PostComment: React.FC<CommentInterface> = ({
+  author,
+  child_comments,
+  content,
+  created_at,
+  id,
+  image_urls,
+  is_mine,
+  is_pinned,
+}) => {
   const [fold, setFold] = useState(true);
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState(false);
   const [fixState, setFixState] = useState(true);
@@ -37,12 +41,12 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
           <S.PostReplyCommentProfileImg />
           <S.PostReplyCommentWriterWrap>
             <span>
-              <strong>{commentData.name}</strong>
+              <strong>{author.author.name}</strong>
             </span>
             <S.PostReplyCommentBreakPoint />
-            <span>{commentData.school}</span>
+            <span>{author.author.school_name}</span>
             <S.PostReplyCommentBreakPoint />
-            <span>{commentData.studentState}</span>
+            <span>{author.author.type}</span>
             {writerState ? (
               <S.WriterProof>
                 <p>작성자</p>
@@ -51,7 +55,7 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
               ''
             )}
           </S.PostReplyCommentWriterWrap>
-          <S.PostReplyCommentDate>{commentData.createDate}</S.PostReplyCommentDate>
+          <S.PostReplyCommentDate>{created_at}</S.PostReplyCommentDate>
           <S.PostReplyCommentMenuButton
             onClick={() => {
               setSeeMoreModalStatus(status => !status);
@@ -64,21 +68,21 @@ const PostComment: React.FC<IPostReplyCommentProps> = ({ commentData, id }) => {
           </S.PostReplyCommentMenuButton>
         </S.PostReplyCommentHeaderWrap>
         <S.PostReplyCommentMiddleWrap>
-          <S.PostReplyCommentContentText withPicture={commentData.picture.length ? true : false}>
-            {commentData.text}
+          <S.PostReplyCommentContentText withPicture={image_urls.length ? true : false}>
+            {content}
           </S.PostReplyCommentContentText>
-          <ImgSplit width={380} imgs={commentData.picture} gap={10} />
+          <ImgSplit width={380} imgs={image_urls} gap={10} />
         </S.PostReplyCommentMiddleWrap>
         <S.PostReplyCommentBottomWrap>
           <S.PostReplyCommentCommentWrap onClick={() => setFold(!fold)}>
             <img src={commentIcon} alt="comment" />
-            {commentData.commentOfComment?.length || '0'}
+            {child_comments?.length || '0'}
           </S.PostReplyCommentCommentWrap>
         </S.PostReplyCommentBottomWrap>
       </S.PostReplyCommentBox>
       {!fold && (
         <>
-          <PostReplyCommentOfComment commentOfComment={commentData.commentOfComment} id={id} />
+          <PostReplyCommentOfComment child_comments={child_comments} id={id} />
           <S.PostReplyCommentLine />
         </>
       )}

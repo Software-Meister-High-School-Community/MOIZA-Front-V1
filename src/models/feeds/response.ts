@@ -22,7 +22,7 @@ export interface IFeedResponse {
   comment_count: number;
 }
 
-interface CommentInterface {
+export interface CommentInterface {
   id: number;
   author: AuthorInterface;
   is_mine: boolean;

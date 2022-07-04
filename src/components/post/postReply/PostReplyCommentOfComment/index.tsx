@@ -1,20 +1,12 @@
 import React, { useEffect } from 'react';
-import { ICommnet } from '../../../../utils/interface/Post';
 import * as S from './style';
 import camera from '../../../../assets/img/post/Camera.svg';
 import x from '../../../../assets/img/common/X.svg';
 import PostReplyCOCForm from './PostReplyCOCForm';
 import useComment from '../../../../hooks/post/comment/useComment';
+import { CommentInterface } from '../../../../models/feeds/response';
 
-interface IPostReplyCommentOfCommentProps {
-  commentOfComment?: ICommnet[];
-  id: number;
-}
-
-const PostReplyCommentOfComment: React.FC<IPostReplyCommentOfCommentProps> = ({
-  commentOfComment,
-  id,
-}) => {
+const PostReplyCommentOfComment: React.FC<CommentInterface> = ({ child_comments }) => {
   const {
     makeCommentData,
     currentShowCOC,
