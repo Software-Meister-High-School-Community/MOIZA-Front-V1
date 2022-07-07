@@ -36,7 +36,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
     feed_list: [
       {
         id: 1,
-        title: '안녕하세요 궁금해서 올렸습니다',
+        title: '이건 어떻게 하는 건가요?',
         type: selectedOption,
         created_at: '22/01/21  8:29',
         author_name: '홍길동',

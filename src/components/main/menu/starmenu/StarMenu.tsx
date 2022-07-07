@@ -3,6 +3,7 @@ import * as S from './style';
 import StarPost from './StarPost';
 import { getPopularFeeds } from '../../../../utils/api/feeds';
 import { IGetIPopularFeedListResponse } from '../../../../models/feeds/response';
+import { Link } from 'react-router-dom';
 import { IGetIPopularFeedListProps } from '../../../../utils/interface/Post';
 
 // 더미데이터 끝나고 바꾸기
@@ -14,7 +15,7 @@ const StarMenu: React.FC = () => {
     feed_list: [
       {
         id: 1,
-        title: '안녕하세요 궁금해서 올렸습니다',
+        title: '이건 어떻게 하는 건가요?',
         type: 'ALL',
         created_at: '01/21  8:29',
         author_name: '홍길동',
@@ -121,7 +122,11 @@ const StarMenu: React.FC = () => {
         <S.HR width="760px" height="3px" background="#99B6FF" />
         <S.PostList>
           {popularFeed &&
-            popularFeed.feed_list.map((item, index) => <StarPost item={item} key={index} />)}
+            popularFeed.feed_list.map((item, index) => (
+              <Link to="/category/Design/1">
+                <StarPost item={item} key={index} />
+              </Link>
+            ))}
         </S.PostList>
       </div>
     </S.Wrapper>
