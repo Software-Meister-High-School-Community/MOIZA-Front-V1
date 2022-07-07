@@ -54,3 +54,19 @@ export interface IMakeCommentPicture {
   id: number;
   name: string;
 }
+
+export interface IFeedProps {
+  id: number;
+  title: string;
+  type: string;
+  created_at: string;
+  author_name: string;
+  is_like: boolean;
+  view_count: number;
+  like_count: number;
+  comment_count: number;
+}
+
+export interface IGetIPopularFeedListProps {
+  feed_list: IFeedProps[];
+}
