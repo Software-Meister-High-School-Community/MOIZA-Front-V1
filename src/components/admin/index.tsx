@@ -54,7 +54,7 @@ const AdminMain: React.FC = () => {
       {posts}
       <Pagenation
         total={pageNationState.totalElement}
-        limit={5}
+        limit={13}
         page={pageNationState.page}
         setPage={onChangePage}
       />

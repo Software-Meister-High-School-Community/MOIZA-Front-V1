@@ -70,7 +70,8 @@ const Router = () => {
         </Route>
         <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/templist/:tempfield" element={<TempList />} />
-        <Route path="404" element={<NotFoundPage />} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
