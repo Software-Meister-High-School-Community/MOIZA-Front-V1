@@ -19,7 +19,7 @@ const PostForm: React.FC<Props> = ({ item }) => {
         <img src={BookRead} alt="BookRed 이미지" />
         <h1>{item.title}</h1>
         <Date>
-          <span>{dateTransform(item.created_at)}</span>
+          <span>{/*dateTransform(item.created_at) 더미데이터 끝나고 고치기 */}22/01/21 8:29</span>
           <Line />
         </Date>
         <Views>
