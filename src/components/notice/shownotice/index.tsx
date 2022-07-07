@@ -27,11 +27,11 @@ const ShowNotice: React.FC = () => {
       <S.PostDiv>
         <S.PostHead>
           <S.PostLogo src={fixed} alt="" />
-          <S.PostName fixed={true}>{/*detailData.title */}</S.PostName>
-          <S.PostTime>{/*detailData.created_at */}</S.PostTime>
+          <S.PostName fixed={true}>안녕하세요{/*detailData.title */}</S.PostName>
+          <S.PostTime>22/01/21 8:29{/*detailData.created_at */}</S.PostTime>
         </S.PostHead>
         <S.PostBody>
-          <S.BodyText>{/*detailData.content */}</S.BodyText>
+          <S.BodyText>안녕하세요 여러분 저희는 모이자입니다.{/*detailData.content */}</S.BodyText>
         </S.PostBody>
       </S.PostDiv>
     </S.Wrapper>
