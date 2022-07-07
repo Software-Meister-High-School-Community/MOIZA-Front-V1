@@ -43,7 +43,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
         is_like: false,
         view_count: 100,
         like_count: 100,
-        comment_count: 5,
+        comment_count: 4,
       },
       {
         id: 1,
@@ -54,7 +54,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
         is_like: false,
         view_count: 100,
         like_count: 100,
-        comment_count: 5,
+        comment_count: 4,
       },
       {
         id: 1,
@@ -65,7 +65,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
         is_like: true,
         view_count: 100,
         like_count: 100,
-        comment_count: 5,
+        comment_count: 4,
       },
     ],
   };
@@ -134,10 +134,11 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
           <S.PosFormtDiv>
             {postList &&
               postList.feed_list.map((item, index) => {
+                // Link 수정하기
                 return (
-                  <>
+                  <Link to="/category/FRONT-END/1">
                     <PostForm item={item} key={index} />
-                  </>
+                  </Link>
                 );
               })}
           </S.PosFormtDiv>
