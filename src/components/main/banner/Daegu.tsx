@@ -25,7 +25,7 @@ const Daegu: React.FC = () => {
         <S.SchoolHomePage
           onClick={() => WindowOpenUtil('http://www.dgsw.hs.kr/index.do')}
           width="140px"
-          margin="0 478px 0 60px"
+          margin="78px 478px 0 60px"
         >
           홈페이지 바로가기
         </S.SchoolHomePage>
