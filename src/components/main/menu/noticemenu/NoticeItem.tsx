@@ -1,8 +1,11 @@
 import React from 'react';
 import * as S from './style';
 import { INoticeResponse } from '../../../../models/notice/response';
+import { INoticeDetailProps } from '../../../../utils/interface/Notice';
 
-const NoticeItem: React.FC<{ item: INoticeResponse }> = ({ item }) => {
+//INoticeResponse로 더미데이터 끝나고 수정하기
+
+const NoticeItem: React.FC<{ item: INoticeDetailProps }> = ({ item }) => {
   return (
     <S.NoticeDiv>
       <S.NoticeTextDiv>

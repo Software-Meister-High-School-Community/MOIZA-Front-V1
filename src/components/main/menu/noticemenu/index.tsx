@@ -4,16 +4,67 @@ import { Link } from 'react-router-dom';
 import NoticeItem from './NoticeItem';
 import { INoticeListResponse } from '../../../../models/notice/response';
 import { getNoticeList } from '../../../../utils/api/notice/index';
+import { INoticeListProps } from '../../../../utils/interface/Notice';
 
 const NoticeMenu: React.FC = () => {
-  const [noticeItem, setNoticeItem] = useState<INoticeListResponse>();
+  const [noticeItem, setNoticeItem] = useState<INoticeListProps>(); //INoticeListResPonse로 <> 바꾸기
+
+  const ExampleData = {
+    totla_count: 1,
+    notice_list: [
+      {
+        title: '안녕하세요 모이자입니다.',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+      {
+        title: '안녕하세요 ',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+      {
+        title: '반가워요 여러분 저희는 모이자입니다',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+      {
+        title: '긴급 영구 정지 관련 공지사항',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+
+      {
+        title: '안녕하세요',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+      {
+        title: '모이자입니다 이번 해커톤의 우승팀은?',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+      {
+        title: '여러분 이번 공지사항은 이것입니다',
+        content: '내용',
+        created_at: '22/01/21  8:29',
+        is_pinned: true,
+      },
+    ],
+  };
 
   useEffect(() => {
-    getNoticeList()
-      .then(res => {
-        //setNoticeItem(res);
-      })
-      .catch();
+    setNoticeItem(ExampleData);
+    // getNoticeList()
+    //   .then(res => {
+    //     //setNoticeItem(res);
+    //   })
+    //   .catch();
   }, []);
 
   return (

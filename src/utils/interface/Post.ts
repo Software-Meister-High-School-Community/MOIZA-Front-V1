@@ -1,3 +1,22 @@
+import { TFeed } from '../../models/common';
+
+export interface IPostListDataProps {
+  total_page: number;
+  feed_list: IPostFeedListProps[];
+}
+
+export interface IPostFeedListProps {
+  id: number;
+  title: string;
+  type: TFeed;
+  created_at: string;
+  author_name: string;
+  is_like: boolean;
+  view_count: number;
+  like_count: number;
+  comment_count: number;
+}
+
 export interface IPostReplyDataProps {
   id: number;
   title: string;
@@ -34,4 +53,20 @@ export interface IMakeComment {
 export interface IMakeCommentPicture {
   id: number;
   name: string;
+}
+
+export interface IFeedProps {
+  id: number;
+  title: string;
+  type: string;
+  created_at: string;
+  author_name: string;
+  is_like: boolean;
+  view_count: number;
+  like_count: number;
+  comment_count: number;
+}
+
+export interface IGetIPopularFeedListProps {
+  feed_list: IFeedProps[];
 }
