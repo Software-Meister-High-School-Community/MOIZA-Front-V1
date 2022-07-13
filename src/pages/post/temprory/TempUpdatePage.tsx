@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import { TCategory } from '../../../models/common';
-import PostWrite from '../../../components/common/postwrite/index';
+import UpdateTemp from '../../../components/post/temporary/updatetemp';
 
 const TempUpdatePage = () => {
   const { editTemprory } = useParams();
   const type = editTemprory as TCategory;
 
-  return <PostWrite categoryType={type} />;
+  return <UpdateTemp categoryType={type} />;
 };
 
 export default TempUpdatePage;
