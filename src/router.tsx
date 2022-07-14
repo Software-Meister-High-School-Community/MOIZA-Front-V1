@@ -74,9 +74,11 @@ const Router = () => {
         <Route path="404" element={<NotFoundPage />} />
         <Route path="/feeds">
           <Route path=":writefield" element={<PostWrite />} />
-          <Route path=":editTemprory" element={<TempUpdatePage />} />
-          <Route path=":editfeed" element={<EditPage />} />/
-          <Route path=":templist/:tempfield" element={<TempList />} />
+          <Route path=":editfeed" element={<EditPage />} />
+        </Route>
+        <Route path="temprory">
+          <Route path=":templist" element={<TempList />} />
+          <Route path=":tempfield/:tempid" element={<TempUpdatePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

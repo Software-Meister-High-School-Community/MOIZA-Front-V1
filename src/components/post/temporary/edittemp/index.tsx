@@ -16,7 +16,7 @@ interface Props {
 const TITLE = 'title';
 const CONTENT = 'content';
 
-const UpdateTemp: React.FC<Props> = ({ categoryType }) => {
+const EditTemp: React.FC<Props> = ({ categoryType }) => {
   const FD = new FormData();
   const [postContent, setPostContent] = useState<UploadDataType>({
     title: '',
@@ -32,11 +32,11 @@ const UpdateTemp: React.FC<Props> = ({ categoryType }) => {
         link: '/category',
       },
       {
-        path: categoryType,
-        link: '',
+        path: '임시저장 게시물 리스트',
+        link: '/temprory/:templist',
       },
       {
-        path: '게시물작성',
+        path: '임시저장 게시물 수정',
         link: `/postwrite/${categoryType}`,
       },
     ];
@@ -113,4 +113,4 @@ const UpdateTemp: React.FC<Props> = ({ categoryType }) => {
   );
 };
 
-export default UpdateTemp;
+export default EditTemp;
