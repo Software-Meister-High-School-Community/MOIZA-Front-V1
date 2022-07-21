@@ -7,7 +7,7 @@ const Pageination: React.FC<IPaginationProps> = ({ total, limit, page, setPage }
   const totalPages = Math.ceil(total / limit);
   return (
     <>
-      <S.Container>
+      <S.Container className="pagenationWrapper">
         <S.MoveButton
           src={LeftArrow}
           onClick={() => setPage(page === 1 ? page : page - 1)}

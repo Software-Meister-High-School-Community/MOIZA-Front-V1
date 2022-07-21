@@ -1,10 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import * as S from './style';
 import OutsideClickHandler from 'react-outside-click-handler';
 import SearchRecord from './searchRecord';
 import useSearch from '../../hooks/search/useSearch';
 import searchIcon from '../../assets/img/common/searchIcon.svg';
-const Search: React.FC = () => {
+import { useParams } from 'react-router';
+import { useSetRecoilState } from 'recoil';
+import { SearchKeywordState } from '../../store/search/keyword';
+
+const Search = () => {
+  const { keyword } = useParams();
+  const setKeyword = useSetRecoilState(SearchKeywordState);
+  useEffect(() => {
+    setKeyword(keyword as string);
+  }, [keyword]);
   const {
     handleDelteSearchRecord,
     onSearch,
@@ -18,6 +27,7 @@ const Search: React.FC = () => {
     setDisabled,
     searchRecords,
   } = useSearch();
+
   return (
     <S.Wrapper>
       <S.Title>검색</S.Title>
@@ -56,7 +66,6 @@ const Search: React.FC = () => {
           <SearchRecord
             onReset={handleResetSearchRecords}
             visible={visible}
-            currentSearch={setCurrentSearch}
             searchRecords={searchRecords}
             onDelete={handleDelteSearchRecord}
           />

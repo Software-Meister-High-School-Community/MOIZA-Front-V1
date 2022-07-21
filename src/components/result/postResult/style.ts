@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wapper = styled.div`
-    width:1200px;
-    margin:0 auto;
-`
+  width: 1200px;
+  margin: 64px auto 0 auto;
+`;
 export const Title = styled.h1`
-    font-size: 20px;
-`
+  font-size: 20px;
+`;
 export const Container = styled.div`
-    width:1200px;
-    margin-top:20px;
-`
+  width: 1200px;
+  margin-top: 20px;
+`;
