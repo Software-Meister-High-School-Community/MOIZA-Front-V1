@@ -38,8 +38,7 @@ export const PostLogo = styled.img`
 export const PostName = styled.p<{
   fixed: boolean;
 }>`
-  margin-right: 435px;
-
+  margin-right: 770px;
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.head_small};

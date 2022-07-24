@@ -9,6 +9,7 @@ import GraduationBox from './graduationBox';
 import { IGraduateListResponse } from '../../models/admin/response';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { adminPageNationState } from '../../store/admin';
+import { checkGraduateDummyData } from '../../dermydata/admin';
 
 interface radioTypeInterface {
   id: TGraduateStatus;
@@ -37,14 +38,14 @@ interface IProps {
 
 const CertifyGraduation: React.FC<IProps> = ({ keyword, onChangeSearchKeyword }) => {
   const [graduateStatus, setGraduateStatus] = useState<TGraduateStatus>('REQUESTED');
-  const [graduateList, setGraduateList] = useState<IGraduateListResponse>();
+  const [graduateList, setGraduateList] = useState<IGraduateListResponse>(checkGraduateDummyData);
   const [adminPageNation, setAdminPageNation] = useRecoilState(adminPageNationState);
-  useEffect(() => {
-    getGraduateList(graduateStatus, keyword, adminPageNation.page - 1).then(res => {
-      setGraduateList(res);
-      setAdminPageNation({ ...adminPageNation, totalElement: res.total_count });
-    });
-  }, [graduateStatus, keyword, adminPageNation]);
+  // useEffect(() => {
+  //   getGraduateList(graduateStatus, keyword, adminPageNation.page - 1).then(res => {
+  //     setGraduateList(res);
+  //     setAdminPageNation({ ...adminPageNation, totalElement: res.total_count });
+  //   });
+  // }, [graduateStatus, keyword, adminPageNation]);
   const onChangeSelectedValue = useCallback(
     (status: string) => {
       const graduateStatus = status as TGraduateStatus;

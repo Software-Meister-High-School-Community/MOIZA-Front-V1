@@ -1,8 +1,8 @@
-import styled,{css} from "styled-components";
+import styled, { css } from 'styled-components';
 
 interface styleProps {
-  disabled?: boolean,
-  current?: boolean,
+  disabled?: boolean;
+  current?: boolean;
 }
 
 export const Container = styled.footer`
@@ -11,15 +11,15 @@ export const Container = styled.footer`
   justify-content: center;
   gap: 30px;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 40px;
 `;
 
 export const MoveButton = styled.img<styleProps>`
   cursor: pointer;
   &[disable] {
-    background-color:red;
-     cursor: default;
-    }
+    background-color: red;
+    cursor: default;
+  }
 `;
 
 export const Button = styled.button<styleProps>`
@@ -28,11 +28,11 @@ export const Button = styled.button<styleProps>`
   font-size: ${props => props.theme.fontSize.body_large};
   font-weight: 400;
 
-  ${(props) =>
-        props.current 
-        ? css`
-          color: ${(props)=> props.theme.color.main_blue_color};
+  ${props =>
+    props.current
+      ? css`
+          color: ${props => props.theme.color.main_blue_color};
           cursor: default;
         `
-        : css``}
-`
+      : css``}
+`;

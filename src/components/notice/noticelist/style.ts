@@ -33,6 +33,7 @@ export const PostDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-top: 50px;
   .pagenation {
     margin-top: 130px;
   }
@@ -45,5 +46,6 @@ export const SelectDiv = styled.div`
 
 export const Post = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
 `;

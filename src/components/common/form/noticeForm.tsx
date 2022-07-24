@@ -8,8 +8,11 @@ import { seeMoreOptionList } from '../../admin/constant';
 import { dateTransform } from '../../../utils/function/dateTransform';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
 import { INoticeResponse } from '../../../models/notice/response';
+import { INoticeDetailProps } from '../../../utils/interface/Notice';
 
-const NoticeForm: React.FC<{ item: INoticeResponse }> = ({ item }) => {
+// 더미데이터 끝나고 Response로 다시 바꾸기
+
+const NoticeForm: React.FC<{ item: INoticeDetailProps }> = ({ item }) => {
   const [seeMoreModal, setSeeMoreModal] = useState(false);
   const { userInfo } = useUserInfo();
   // const is_admin = useMemo(() => {
@@ -24,13 +27,13 @@ const NoticeForm: React.FC<{ item: INoticeResponse }> = ({ item }) => {
     <List fixed={item.is_pinned}>
       <img src={item.is_pinned ? fixed : unFixed} alt="fixed?" />
       <h1>{item.title}</h1>
-      <Date>{date}</Date>
-      {is_admin && (
+      <Date>{/*Idate*/}22/01/21 8:29</Date>
+      {/*is_admin && (
         <SeeMore onClick={() => setSeeMoreModal(true)}>
           <img src={seeMore} alt="더보기" />
           {seeMoreModal && <SeeMoreModal optionList={seeMoreOptionList} closeModal={closeModal} />}
         </SeeMore>
-      )}
+      )*/}
     </List>
   );
 };
@@ -48,6 +51,7 @@ const List = styled.li<{
   margin-top: 13px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   > h1 {
     margin-left: 20px;
 

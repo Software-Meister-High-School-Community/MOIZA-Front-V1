@@ -14,6 +14,11 @@ import {
 import { getCommentReports, getFeedReports, getUserReports } from '../../../utils/api/admin';
 import { useRecoilState } from 'recoil';
 import { adminPageNationState } from '../../../store/admin';
+import {
+  commentReportDummyData,
+  feedCommentDummyData,
+  userReportDummyData,
+} from '../../../dermydata/admin';
 
 export type TReport = 'USERS' | 'FEEDS' | 'COMMENTS';
 
@@ -30,36 +35,41 @@ interface IProps {
 
 const ManageReport: React.FC<IProps> = ({ keyword, onChangeSearchKeyword }) => {
   const [reportType, setReportType] = useState<TReport>('USERS');
-  const [reports, setReports] = useState<IReports>();
+  const [reports, setReports] = useState<IReports>({
+    user: userReportDummyData,
+    comment: commentReportDummyData,
+    feed: feedCommentDummyData,
+  });
   const [pageNationState, setPageNationState] = useRecoilState(adminPageNationState);
-  useEffect(() => {
-    if (reportType === 'USERS') {
-      getUserReports(pageNationState.page - 1, keyword).then(res => {
-        setReports({
-          ...reports,
-          user: res,
-        } as IReports);
-        setPageNationState({ ...pageNationState, totalElement: res.total_count });
-      });
-    } else if (reportType === 'FEEDS') {
-      getFeedReports(pageNationState.page - 1, keyword).then(res => {
-        setReports({
-          ...reports,
-          feed: res,
-        } as IReports);
-        setPageNationState({ ...pageNationState, totalElement: res.total_count });
-      });
-    } else if (reportType === 'COMMENTS') {
-      getCommentReports(pageNationState.page - 1, keyword).then(res => {
-        setReports({
-          ...reports,
-          comment: res,
-        } as IReports);
-        setPageNationState({ ...pageNationState, totalElement: res.total_count });
-      });
-    }
-  }, [reportType, pageNationState, keyword]);
-  const reportList = useCallback(() => {
+  // useEffect(() => {
+  //   if (reportType === 'USERS') {
+  //     getUserReports(pageNationState.page - 1, keyword).then(res => {
+  //       setReports({
+  //         ...reports,
+  //         user: res,
+  //       } as IReports);
+  //       setPageNationState({ ...pageNationState, totalElement: res.total_count });
+  //     });
+  //   } else if (reportType === 'FEEDS') {
+  //     getFeedReports(pageNationState.page - 1, keyword).then(res => {
+  //       setReports({
+  //         ...reports,
+  //         feed: res,
+  //       } as IReports);
+  //       setPageNationState({ ...pageNationState, totalElement: res.total_count });
+  //     });
+  //   } else if (reportType === 'COMMENTS') {
+  //     getCommentReports(pageNationState.page - 1, keyword).then(res => {
+  //       setReports({
+  //         ...reports,
+  //         comment: res,
+  //       } as IReports);
+  //       setPageNationState({ ...pageNationState, totalElement: res.total_count });
+  //     });
+  //   }
+  // }, [reportType, pageNationState, keyword]);
+  const reportList = useMemo(() => {
+    console.log(reports.user);
     if (reportType === 'USERS' && reports?.user)
       return <ReportOfUser item={reports.user.user_list} />;
     else if (reportType === 'FEEDS' && reports?.feed)
