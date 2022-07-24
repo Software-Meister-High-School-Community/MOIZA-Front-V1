@@ -64,7 +64,7 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
     postContent.files.map(eachFile => FD.append('files', eachFile));
   }, [postContent]);
 
-  const onTemproryPost = useCallback(async () => {
+  const onSaveTemproryPost = useCallback(async () => {
     await saveTemporaries({ title: postContent.title, content: postContent.content });
   }, [postContent]);
 
@@ -100,7 +100,7 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onSaveTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}

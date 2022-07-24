@@ -9,7 +9,7 @@ import { radioTypeArr } from './constant';
 import UploadFiles from '../../../common/upload/files/index';
 import Index from '../../../common/button/submitButton';
 import { TCategory } from '../../../../models/common';
-import { saveTemporaries } from '../../../../utils/api/feeds/index';
+import { saveTemporaries, patchTemporaries } from '../../../../utils/api/feeds/index';
 
 interface Props {
   categoryType: TCategory;
@@ -59,14 +59,12 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
     [postContent, setPostContent],
   );
 
-  const onSubmitPost = useCallback(() => {
-    FD.append('title', postContent.title);
-    FD.append('content', postContent.content);
-    postContent.files.map(eachFile => FD.append('files', eachFile));
+  const onSaveTemproryPost = useCallback(async () => {
+    await saveTemporaries({ title: postContent.title, content: postContent.content });
   }, [postContent]);
 
-  const onTemproryPost = useCallback(async () => {
-    await saveTemporaries({ title: postContent.title, content: postContent.content });
+  const onPatchTemproryPost = useCallback(async () => {
+    //await patchTemporaries();
   }, [postContent]);
 
   return (
@@ -103,15 +101,17 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onSaveTemproryPost}
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}
         />
         <Index
           big={true}
-          text="작성완료"
-          handleClick={onSubmitPost}
+          text="수정 완료"
+          handleClick={
+            onPatchTemproryPost
+          } /*feed_id를 받기에는 서버가 열리고 하는게 좋을 것 같아서 보류 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={true}
