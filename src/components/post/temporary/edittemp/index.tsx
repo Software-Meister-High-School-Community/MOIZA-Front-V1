@@ -1,14 +1,15 @@
 import React, { useState, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './style';
-import Path from '../../common/path';
-import { PathType, UploadDataType } from '../../../utils/interface/common';
+import Path from '../../../common/path';
+import { PathType, UploadDataType } from '../../../../utils/interface/common';
 import { ChangeEvent } from 'react';
-import RadioButton from '../../common/select/radioButton';
+import RadioButton from '../../../common/select/radioButton';
 import { radioTypeArr } from './constant';
-import UploadFiles from '../../common/upload/files/index';
-import Index from '../../common/button/submitButton';
-import { TCategory } from '../../../models/common';
-import { saveTemporaries } from '../../../utils/api/feeds/index';
+import UploadFiles from '../../../common/upload/files/index';
+import Index from '../../../common/button/submitButton';
+import { TCategory } from '../../../../models/common';
+import { saveTemporaries, patchTemporaries } from '../../../../utils/api/feeds/index';
 
 interface Props {
   categoryType: TCategory;
@@ -17,7 +18,7 @@ interface Props {
 const TITLE = 'title';
 const CONTENT = 'content';
 
-const PostWrite: React.FC<Props> = ({ categoryType }) => {
+const EditTemp: React.FC<Props> = ({ categoryType }) => {
   const FD = new FormData();
   const [postContent, setPostContent] = useState<UploadDataType>({
     title: '',
@@ -33,11 +34,11 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
         link: '/category',
       },
       {
-        path: categoryType,
-        link: '',
+        path: '임시저장 게시물 리스트',
+        link: `/temprory/${categoryType}`,
       },
       {
-        path: '게시물작성',
+        path: '임시저장 게시물 수정',
         link: `/postwrite/${categoryType}`,
       },
     ];
@@ -58,14 +59,12 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
     [postContent, setPostContent],
   );
 
-  const onSubmitPost = useCallback(() => {
-    FD.append('title', postContent.title);
-    FD.append('content', postContent.content);
-    postContent.files.map(eachFile => FD.append('files', eachFile));
-  }, [postContent]);
-
   const onSaveTemproryPost = useCallback(async () => {
     await saveTemporaries({ title: postContent.title, content: postContent.content });
+  }, [postContent]);
+
+  const onPatchTemproryPost = useCallback(async () => {
+    //await patchTemporaries();
   }, [postContent]);
 
   return (
@@ -86,7 +85,9 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
             radioArray={radioTypeArr}
             name="typecheckbox"
           />
-          <S.TempList>임시저장 게시물&gt;</S.TempList>
+          <Link to={`/temprory/${categoryType}`}>
+            <S.TempList>임시저장 게시물&gt;</S.TempList>
+          </Link>
         </S.RadioDiv>
         <S.PostMainContent
           name={CONTENT}
@@ -100,15 +101,17 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onSaveTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onSaveTemproryPost}
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}
         />
         <Index
           big={true}
-          text="작성완료"
-          handleClick={onSubmitPost}
+          text="수정 완료"
+          handleClick={
+            onPatchTemproryPost
+          } /*feed_id를 받기에는 서버가 열리고 하는게 좋을 것 같아서 보류 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={true}
@@ -118,4 +121,4 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
   );
 };
 
-export default PostWrite;
+export default EditTemp;

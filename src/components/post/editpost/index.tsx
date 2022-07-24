@@ -4,7 +4,7 @@ import Path from '../../common/path';
 import { PathType, UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton';
-import { radioTypeArr } from './constant';
+import { radioTypeArr } from '../constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
 import { TCategory } from '../../../models/common';
@@ -17,7 +17,7 @@ interface Props {
 const TITLE = 'title';
 const CONTENT = 'content';
 
-const PostWrite: React.FC<Props> = ({ categoryType }) => {
+const EditPost: React.FC<Props> = ({ categoryType }) => {
   const FD = new FormData();
   const [postContent, setPostContent] = useState<UploadDataType>({
     title: '',
@@ -100,7 +100,7 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onSaveTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onSaveTemproryPost}
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}
@@ -118,4 +118,4 @@ const PostWrite: React.FC<Props> = ({ categoryType }) => {
   );
 };
 
-export default PostWrite;
+export default EditPost;
