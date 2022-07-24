@@ -11,12 +11,8 @@ import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
 import { PathType } from '../../../utils/interface/common';
 import { Link } from 'react-router-dom';
-import { IGetFeedListResponse } from '../../../models/feeds/response';
-import { getFeedList } from '../../../utils/api/feeds';
 import { TCategory, TFeed, TSort } from '../../../models/common';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
-import { Link } from 'react-router-dom';
-import { IFeedResponse } from '../../../models/feeds/response';
 import { IPostListDataProps } from '../../../utils/interface/Post';
 
 interface IProps {
