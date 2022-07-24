@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './style';
 import Path from '../../../common/path';
 import { PathType, UploadDataType } from '../../../../utils/interface/common';
@@ -8,6 +9,7 @@ import { radioTypeArr } from './constant';
 import UploadFiles from '../../../common/upload/files/index';
 import Index from '../../../common/button/submitButton';
 import { TCategory } from '../../../../models/common';
+import { saveTemporaries } from '../../../../utils/api/feeds/index';
 
 interface Props {
   categoryType: TCategory;
@@ -33,7 +35,7 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
       },
       {
         path: '임시저장 게시물 리스트',
-        link: '/temprory/:templist',
+        link: `/temprory/${categoryType}`,
       },
       {
         path: '임시저장 게시물 수정',
@@ -63,6 +65,10 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
     postContent.files.map(eachFile => FD.append('files', eachFile));
   }, [postContent]);
 
+  const onTemproryPost = useCallback(async () => {
+    await saveTemporaries({ title: postContent.title, content: postContent.content });
+  }, [postContent]);
+
   return (
     <S.Wrapper>
       <Path pathArray={pathArray} />
@@ -81,7 +87,9 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
             radioArray={radioTypeArr}
             name="typecheckbox"
           />
-          <S.TempList>임시저장 게시물&gt;</S.TempList>
+          <Link to={`/temprory/${categoryType}`}>
+            <S.TempList>임시저장 게시물&gt;</S.TempList>
+          </Link>
         </S.RadioDiv>
         <S.PostMainContent
           name={CONTENT}
@@ -95,7 +103,7 @@ const EditTemp: React.FC<Props> = ({ categoryType }) => {
         <Index
           big={true}
           text="임시 저장"
-          handleClick={onSubmitPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
+          handleClick={onTemproryPost} /*임시저장 리스트로 보내는 함수 서버 나오면 만들기 */
           disable={!(postContent.title.length > 0 && postContent.content.length > 0)}
           yellow={false}
           blue={false}
