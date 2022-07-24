@@ -12,7 +12,7 @@ import { sortOptions } from '../../common/select/dropdown/options';
 import { TCategory } from '../../../models/common';
 import { PathType } from '../../../utils/interface/common';
 import { Link } from 'react-router-dom';
-
+//a
 interface IProps {
   categoryType: TCategory;
   categoryName: string;
