@@ -4,16 +4,41 @@ import Path from '../../common/path';
 import { PathType, UploadDataType } from '../../../utils/interface/common';
 import { ChangeEvent } from 'react';
 import RadioButton from '../../common/select/radioButton';
-import { radioTypeArr } from './constant';
 import UploadFiles from '../../common/upload/files/index';
 import Index from '../../common/button/submitButton';
-import { TCategory, TWrite } from '../../../models/common';
-import { saveTemporaries } from '../../../utils/api/feeds/index';
+import { TCategory, TFeed, TWrite } from '../../../models/common';
+import {
+  saveTemporaries,
+  patchTemporaries,
+  patchFeed,
+  postFeed,
+} from '../../../utils/api/feeds/index';
+import { postImages } from '../../../utils/api/default';
 
 interface Props {
   categoryType: TCategory;
   postType: TWrite;
 }
+
+export interface postRadioInterface {
+  id: TFeed;
+  summary: '전체' | '질문' | '일반';
+}
+
+const PostRadioTypeArray: postRadioInterface[] = [
+  {
+    id: 'ALL',
+    summary: '전체',
+  },
+  {
+    id: 'COMMON',
+    summary: '일반',
+  },
+  {
+    id: 'QUESTION',
+    summary: '질문',
+  },
+];
 
 const TITLE = 'title';
 const CONTENT = 'content';
@@ -25,7 +50,7 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
     content: '',
     files: [],
   });
-  const [seleted, setSeleted] = useState('question');
+  const [seleted, setSeleted] = useState<TFeed>('QUESTION');
 
   const pathArray: PathType[] = useMemo(() => {
     return [
@@ -44,6 +69,14 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
     ];
   }, [categoryType]);
 
+  const onChangeSelectedValue = useCallback(
+    (status: string) => {
+      const postStatus = status as TFeed;
+      setSeleted(postStatus);
+    },
+    [seleted, setSeleted],
+  );
+
   const onChangePostContent = useCallback(
     (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
       if (
@@ -59,13 +92,19 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
     [postContent, setPostContent],
   );
 
-  if (postType) {
-  }
+  const onSubmitPost = useCallback(async () => {
+    await postContent.files.forEach(eachFile => FD.append('files', eachFile));
+    const images = await postImages({ images: FD });
 
-  const onSubmitPost = useCallback(() => {
-    FD.append('title', postContent.title);
-    FD.append('content', postContent.content);
-    postContent.files.map(eachFile => FD.append('files', eachFile));
+    if (postType === 'POST') {
+      postFeed({
+        title: postContent.title,
+        content: postContent.content,
+        feed_type: seleted,
+        category: categoryType,
+        images_urls: images.image_urls,
+      });
+    }
   }, [postContent]);
 
   const onSaveTemproryPost = useCallback(async () => {
@@ -86,8 +125,8 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
         <S.RadioDiv>
           <RadioButton
             selected={seleted}
-            setSelected={setSeleted}
-            radioArray={radioTypeArr}
+            setSelected={onChangeSelectedValue}
+            radioArray={PostRadioTypeArray}
             name="typecheckbox"
           />
           <S.TempList>임시저장 게시물&gt;</S.TempList>
