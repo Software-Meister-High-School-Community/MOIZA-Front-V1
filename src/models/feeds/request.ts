@@ -31,7 +31,9 @@ export interface IPostFeedRequest {
   images_urls: string[] | null;
 }
 
-export interface IPatchFeedRequest extends IPatchTemporariesFeedRequest {
+export interface IPatchFeedRequest {
+  title: string;
+  content: string;
   feed_type: TFeed;
   images_urls: string[] | null;
 }

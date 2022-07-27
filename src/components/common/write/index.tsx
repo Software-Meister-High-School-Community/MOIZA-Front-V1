@@ -22,14 +22,10 @@ interface Props {
 
 export interface postRadioInterface {
   id: TFeed;
-  summary: '전체' | '질문' | '일반';
+  summary: '일반' | '질문';
 }
 
 const PostRadioTypeArray: postRadioInterface[] = [
-  {
-    id: 'ALL',
-    summary: '전체',
-  },
   {
     id: 'COMMON',
     summary: '일반',
@@ -104,7 +100,12 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
         category: categoryType,
         images_urls: images.image_urls,
       });
+    } else if (postType === 'EDIT') {
+      //patchFeed({ title: postContent.title, content: postContent.content, feed_type: seleted,  images_urls: images.image_urls, });
+    } else {
+      //patchTemporaries({ title: postContent.title, content: postContent.content });
     }
+    // 게시글 수정과 임시저장 게시글 수정에서 feed_id는 params 공부 후 작성
   }, [postContent]);
 
   const onSaveTemproryPost = useCallback(async () => {
