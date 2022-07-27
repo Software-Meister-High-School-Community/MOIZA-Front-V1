@@ -23,8 +23,12 @@ export interface ISearchFeedRequest extends IMyFeedListRequest {
 
 export interface IFeedListRequest extends IMyFeedListRequest {}
 
-export interface IPostFeedRequest extends IPatchFeedRequest {
+export interface IPostFeedRequest {
+  title: string;
+  content: string;
+  feed_type: TFeed;
   category: TCategory;
+  images_urls: string[] | null;
 }
 
 export interface IPatchFeedRequest extends IPatchTemporariesFeedRequest {

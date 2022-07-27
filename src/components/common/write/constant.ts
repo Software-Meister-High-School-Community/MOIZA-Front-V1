@@ -53,36 +53,6 @@ export const categoryIdList = categoryList.map(item => {
   return item.id;
 });
 
-interface TypeArrType {
-  id: string;
-  summary: string;
-}
-export const typeArr: TypeArrType[] = [
-  {
-    id: 'all',
-    summary: '전체',
-  },
-  {
-    id: 'question',
-    summary: '질문',
-  },
-  {
-    id: 'nomal',
-    summary: '일반',
-  },
-];
-
-export const radioTypeArr: TypeArrType[] = [
-  {
-    id: 'question',
-    summary: '질문',
-  },
-  {
-    id: 'nomal',
-    summary: '일반',
-  },
-];
-
 export const postListReplyPathArr: PathType[] = [
   {
     path: '카테고리',
