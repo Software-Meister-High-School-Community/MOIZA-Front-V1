@@ -1,13 +1,12 @@
 import React from 'react';
-import { useParams } from 'react-router';
-import { TCategory } from '../../../models/common';
-import UpdateTemp from '../../../components/post/temporary/edittemp';
+import { TCategory, TWrite } from '../../../models/common';
+import PostWrite from '../../../components/common/write';
 
 const TempUpdatePage = () => {
-  const { editTemprory } = useParams();
-  const type = editTemprory as TCategory;
+  const type = '임시저장 게시글 수정' as TCategory;
+  const temp = 'TEMP' as TWrite;
 
-  return <UpdateTemp categoryType={type} />;
+  return <PostWrite categoryType={type} postType={temp} />;
 };
 
 export default TempUpdatePage;
