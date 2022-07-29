@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import * as S from './style';
 import Path from '../../common/path';
 import { PathType, UploadDataType } from '../../../utils/interface/common';
@@ -12,6 +12,8 @@ import {
   patchTemporaries,
   patchFeed,
   postFeed,
+  getFeedDetail,
+  getTemproryDetail,
 } from '../../../utils/api/feeds/index';
 import { postImages } from '../../../utils/api/default';
 
@@ -64,6 +66,14 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
       },
     ];
   }, [categoryType]);
+
+  useEffect(() => {
+    if (postType === 'EDIT') {
+      //getFeedDetail().then(res => setPostContent(res.data));
+    } else if (postType === 'TEMP') {
+      //getTemproryDetail().then(res => setPostContent(res.data));
+    }
+  }, []);
 
   const onChangeSelectedValue = useCallback(
     (status: string) => {
@@ -119,7 +129,7 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
         <S.Title>
           <p>제목</p>
           <label>
-            <input name={TITLE} onChange={onChangePostContent} value={postContent.title} />
+            <input name={TITLE} onChange={onChangePostContent} defaultValue={postContent.title} />
             <S.TextCount>{postContent.title.length}/30</S.TextCount>
           </label>
         </S.Title>
@@ -135,7 +145,7 @@ const PostWrite: React.FC<Props> = ({ categoryType, postType }) => {
         <S.PostMainContent
           name={CONTENT}
           onChange={onChangePostContent}
-          value={postContent.content}
+          defaultValue={postContent.content}
         />
         <S.TextCount marginTop="15px">{postContent.content.length}/500</S.TextCount>
       </S.WriteForm>
