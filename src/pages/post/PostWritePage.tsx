@@ -1,8 +1,14 @@
 import React from 'react';
-import PostWrite from '../../components/post/postwrite';
+import { useParams } from 'react-router';
+import { TCategory, TWrite } from '../../models/common';
+import PostWrite from '../../components/common/write';
 
 const PostWritePage = () => {
-  return <PostWrite />;
+  const { writefield } = useParams();
+  const type = writefield as TCategory;
+  const post = 'POST' as TWrite;
+
+  return <PostWrite categoryType={type} postType={post} />;
 };
 
 export default PostWritePage;

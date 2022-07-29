@@ -2,6 +2,8 @@ export type TUser = 'STUDENT' | 'USER' | 'GRADUATE' | 'ADMIN';
 export type TSchool = 'DSM' | 'GSM' | 'DGSW' | 'BSSM' | 'NCMM';
 export type TSex = 'MALE' | 'FEMALE';
 export type TFeed = 'ALL' | 'QUESTION' | 'COMMON';
+export type TWrite = 'POST' | 'EDIT' | 'TEMP';
+
 export type TCategory =
   | 'FRONT-END'
   | 'BACK-END'
@@ -12,7 +14,9 @@ export type TCategory =
   | 'SECURITY'
   | 'EMBEDDED'
   | 'AI'
-  | 'ALL';
+  | 'ALL'
+  | '임시저장 게시글 수정';
+
 export type TSort = 'LATEST' | 'OLDEST' | 'VIEW_COUNT' | 'LIKE_COUNT';
 export type TBackGroundColor =
   | '#932C16'
