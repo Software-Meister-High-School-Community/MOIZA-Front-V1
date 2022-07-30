@@ -42,7 +42,7 @@ const Introduce: FC = () => {
                   <h6>{item.id}</h6>
                   <p>{item.title}</p>
                 </S.QuestionTitle>
-                <hr />
+                <S.HR />
                 <p>{item.content}</p>
               </S.QuestionDiv>
             </>
