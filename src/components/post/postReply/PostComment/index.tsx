@@ -82,7 +82,16 @@ const PostComment: React.FC<CommentInterface> = ({
       </S.PostReplyCommentBox>
       {!fold && (
         <>
-          <PostReplyCommentOfComment child_comments={child_comments} id={id} />
+          <PostReplyCommentOfComment
+            child_comments={child_comments}
+            id={id}
+            author={author}
+            content={content}
+            created_at={created_at}
+            image_urls={image_urls}
+            is_mine={is_mine}
+            is_pinned={is_pinned}
+          />
           <S.PostReplyCommentLine />
         </>
       )}

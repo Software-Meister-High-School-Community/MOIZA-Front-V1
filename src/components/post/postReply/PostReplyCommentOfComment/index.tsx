@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as S from './style';
 import camera from '../../../../assets/img/post/Camera.svg';
 import x from '../../../../assets/img/common/X.svg';
@@ -6,7 +6,16 @@ import PostReplyCOCForm from './PostReplyCOCForm';
 import useComment from '../../../../hooks/post/comment/useComment';
 import { CommentInterface } from '../../../../models/feeds/response';
 
-const PostReplyCommentOfComment: React.FC<CommentInterface> = ({ child_comments }) => {
+const PostReplyCommentOfComment: React.FC<CommentInterface> = ({
+  child_comments,
+  id,
+  author,
+  content,
+  created_at,
+  image_urls,
+  is_mine,
+  is_pinned,
+}) => {
   const {
     makeCommentData,
     currentShowCOC,
@@ -16,12 +25,6 @@ const PostReplyCommentOfComment: React.FC<CommentInterface> = ({ child_comments 
     onRemoveFile,
     onSubmitNestedReply,
   } = useComment();
-
-  useEffect(() => {
-    if (commentOfComment) {
-      setCurrentShowCOC(commentOfComment);
-    }
-  }, [setCurrentShowCOC, commentOfComment]);
 
   return (
     <>
