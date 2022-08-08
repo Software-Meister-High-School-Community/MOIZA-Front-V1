@@ -3,16 +3,114 @@ import * as S from './style';
 import StarPost from './StarPost';
 import { getPopularFeeds } from '../../../../utils/api/feeds';
 import { IGetIPopularFeedListResponse } from '../../../../models/feeds/response';
+import { Link } from 'react-router-dom';
+import { IGetIPopularFeedListProps } from '../../../../utils/interface/Post';
+
+// 더미데이터 끝나고 바꾸기
 
 const StarMenu: React.FC = () => {
-  const [popularFeed, setPopularFeed] = useState<IGetIPopularFeedListResponse>();
+  const [popularFeed, setPopularFeed] = useState<IGetIPopularFeedListProps>();
+
+  const exampleData = {
+    feed_list: [
+      {
+        id: 1,
+        title: '이건 어떻게 하는 건가요?',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '홍길동',
+        is_like: false,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '하이 헬로',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '김철수',
+        is_like: false,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: 'ALL',
+        created_at: '01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+    ],
+  };
 
   useEffect(() => {
-    getPopularFeeds()
-      .then(res => {
-        //setPopularFeed(res);
-      })
-      .catch();
+    setPopularFeed(exampleData);
+    // getPopularFeeds()
+    //   .then(res => {
+    //     //setPopularFeed(res);
+    //   })
+    //   .catch();
   }, []);
 
   return (
@@ -24,7 +122,11 @@ const StarMenu: React.FC = () => {
         <S.HR width="760px" height="3px" background="#99B6FF" />
         <S.PostList>
           {popularFeed &&
-            popularFeed.feed_list.map((item, index) => <StarPost item={item} key={index} />)}
+            popularFeed.feed_list.map((item, index) => (
+              <Link to="/category/Design/1">
+                <StarPost item={item} key={index} />
+              </Link>
+            ))}
         </S.PostList>
       </div>
     </S.Wrapper>

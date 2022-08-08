@@ -26,6 +26,8 @@ import NotFoundPage from './pages/404';
 import SEOMetaTage from './SEOMetaTage';
 import WriteNotice from './components/admin/writeNotice';
 import CommunityCategoryPage from './pages/category/communityCategoryPage';
+import TempUpdatePage from './pages/post/temprory/TempUpdatePage';
+import EditPage from './pages/post/edit/EditPage';
 
 const Router = () => {
   useEffect(() => {
@@ -41,35 +43,45 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/intro" element={<IntroducePage />} />
-        <Route path="/notice" element={<NoticeList />} />
-        <Route path="/shownotice" element={<ShowNotice />} />
         <Route path="/admin">
           <Route index element={<Admin />} />
           <Route path=":managementType" element={<Admin />} />
         </Route>
-        <Route path="/writeNotice" element={<WriteNotice />} />
+        <Route path="notice">
+          <Route path=":noticelist" element={<NoticeList />} />
+          <Route path=":writeNotice" element={<WriteNotice />} />
+          <Route path=":shownotice/:noticeId" element={<ShowNotice />} />
+        </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signupsuccess" element={<SignupSuccess />} />
         <Route path="/graduatecheck" element={<GraduateCheckPage />} />
         <Route path="/graduatechecksuccess" element={<GraduateCheckSuccess />} />
         <Route path="/findauthdata" element={<FindAuthDataPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/result/:title" element={<ResultPage />} />
+        <Route path="/search">
+          <Route index element={<SearchPage />} />
+          <Route path=":keyword" element={<ResultPage />} />
+        </Route>
         <Route path="/category">
           <Route index element={<CategoryPage />} />
           <Route path=":categoryType" element={<CommunityCategoryPage />} />
           <Route path=":categoryType/:feedId" element={<PostReplyPage />} />
         </Route>
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/postwrite/:writefield" element={<PostWrite />} />
         <Route path="/profile">
           <Route path=":userId" element={<ProfilePage />} />
           <Route path=":userId/:followType" element={<Follow />} />
         </Route>
         <Route path="/editProfile" element={<EditProfile />} />
-        <Route path="/templist/:tempfield" element={<TempList />} />
         <Route path="404" element={<NotFoundPage />} />
+        <Route path="/feeds">
+          <Route path=":writefield" element={<PostWrite />} />
+          <Route path=":editfeed" element={<EditPage />} />
+        </Route>
+        <Route path="temprory">
+          <Route path=":templist" element={<TempList />} />
+          <Route path=":tempfield/:tempid" element={<TempUpdatePage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

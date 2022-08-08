@@ -10,11 +10,10 @@ import PostForm from '../../common/form/postForm';
 import PagiNation from '../../common/pagenation';
 import { sortOptions } from '../../common/select/dropdown/options';
 import { PathType } from '../../../utils/interface/common';
-import { IGetFeedListResponse } from '../../../models/feeds/response';
-import { getFeedList } from '../../../utils/api/feeds';
+import { Link } from 'react-router-dom';
 import { TCategory, TFeed, TSort } from '../../../models/common';
 import { useUserInfo } from '../../../hooks/user/useUserInfo';
-import { Link } from 'react-router-dom';
+import { IPostListDataProps } from '../../../utils/interface/Post';
 
 interface IProps {
   categoryType: TCategory;
@@ -26,8 +25,47 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
   const [sort, setSort] = useState(sortOptions[0].value);
   const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
   const [pagenation, setPagenation] = useState(1);
-  const [postList, setPostList] = useState<IGetFeedListResponse>();
+  const [postList, setPostList] = useState<IPostListDataProps>(); //IGetFeedListResponse 더미데이터 처리 후 나중에 다시 고치기
   const { userInfo } = useUserInfo();
+
+  const exampleData = {
+    total_page: 1,
+    feed_list: [
+      {
+        id: 1,
+        title: '이건 어떻게 하는 건가요?',
+        type: selectedOption,
+        created_at: '22/01/21  8:29',
+        author_name: '홍길동',
+        is_like: false,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '하이 헬로',
+        type: selectedOption,
+        created_at: '22/01/21  8:29',
+        author_name: '김철수',
+        is_like: false,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+      {
+        id: 1,
+        title: '안녕하세요',
+        type: selectedOption,
+        created_at: '22/01/21  8:29',
+        author_name: '이용진',
+        is_like: true,
+        view_count: 100,
+        like_count: 100,
+        comment_count: 4,
+      },
+    ],
+  };
 
   const onChangeSort = (sort: string) => {
     const sortValue = sort as TSort;
@@ -44,7 +82,10 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
   }, [id]);
 
   useEffect(() => {
-    getFeedList(userId, categoryType, selectedOption, sort, pagenation);
+    setPostList(exampleData);
+    // getFeedList(userId, categoryType, selectedOption, sort, pagenation).then(res =>
+    //   setPostList(exampleData), 더미 데이터 끝나고 수정하기
+    // );
   }, []);
 
   const pathArray: PathType[] = useMemo(() => {
@@ -62,7 +103,7 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
 
   return (
     <>
-      <Link to={`/postwrite/${categoryType}`}>
+      <Link to={`/feeds/${categoryType}`}>
         <S.WriteBtn>
           <img src={Write} alt="" />
         </S.WriteBtn>
@@ -90,7 +131,12 @@ const PostList: React.FC<IProps> = ({ categoryType, categoryName, id }) => {
           <S.PosFormtDiv>
             {postList &&
               postList.feed_list.map((item, index) => {
-                return <PostForm item={item} key={index} />;
+                // Link 수정하기
+                return (
+                  <Link to="/category/FRONT-END/1">
+                    <PostForm item={item} key={index} />
+                  </Link>
+                );
               })}
           </S.PosFormtDiv>
         </S.PostDiv>

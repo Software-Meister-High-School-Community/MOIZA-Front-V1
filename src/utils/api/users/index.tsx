@@ -1,7 +1,6 @@
 import instance from '../../axios';
 import {
   IPatchUserRequest,
-  ISearchUserRequest,
   ISignUpRequest,
   IVerifyGraduateRequest,
 } from '../../../models/users/request';
@@ -56,10 +55,7 @@ export const getUserSearchHistory = async (): Promise<IGetUserSearchHistory> => 
   }
 };
 
-export const searchUser = async ({
-  name,
-  page,
-}: ISearchUserRequest): Promise<IUserSearchResponse> => {
+export const searchUser = async (name: string, page: number): Promise<IUserSearchResponse> => {
   try {
     return await instance.get(`/users/searching/name=${name}&page=${page}`);
   } catch (err) {

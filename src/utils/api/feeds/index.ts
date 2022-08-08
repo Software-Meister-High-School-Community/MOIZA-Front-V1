@@ -11,6 +11,7 @@ import {
   IGetMyFeedListResponse,
   IGetSearchFeedResponse,
   IGetSuggestionFeedListResponse,
+  IGetTemporariesDetailResponse,
   IGetTemporariesFeedListResponse,
 } from '../../../models/feeds/response';
 import instance from '../../axios';
@@ -167,6 +168,16 @@ export const getFeedDetail = async (feed_id: number): Promise<IGetFeedDetailResp
 export const postFeed = async (body: IPostFeedRequest) => {
   await instance.post('/feeds', body);
   try {
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getTemproryDetail = async (
+  feed_id: number,
+): Promise<IGetTemporariesDetailResponse> => {
+  try {
+    return await instance.get(`/temporaries/${feed_id}`);
   } catch (err) {
     throw err;
   }

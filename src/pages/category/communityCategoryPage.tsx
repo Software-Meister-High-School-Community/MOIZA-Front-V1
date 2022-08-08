@@ -1,3 +1,4 @@
+import React from 'react';
 import PostList from '../../components/post/postlist';
 import { useParams } from 'react-router';
 import { useEffect, useMemo } from 'react';

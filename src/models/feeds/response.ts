@@ -92,3 +92,10 @@ export interface IGetFeedDetailResponse {
   view_count: number;
   comments: CommentInterface[];
 }
+
+export interface IGetTemporariesDetailResponse {
+  title: string;
+  content: string;
+  feed_type: TFeed;
+  category: TCategory;
+}

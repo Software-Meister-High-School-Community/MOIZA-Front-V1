@@ -40,7 +40,7 @@ export const Name = styled.p`
 `;
 export const School = styled(Name)`
   font-weight: 400;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   color: #555555;
 `;

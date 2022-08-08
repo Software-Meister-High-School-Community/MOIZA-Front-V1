@@ -52,10 +52,6 @@ export const SecondTitle = styled.div`
 `;
 
 export const QuestionDiv = styled.div`
-  > hr {
-    margin-top: 34px;
-    background-color: ${({ theme }) => theme.color.gray_color3};
-  }
   > p {
     display: flex;
     justify-content: center;
@@ -67,6 +63,12 @@ export const QuestionDiv = styled.div`
     font-size: ${({ theme }) => theme.fontSize.button_large};
     font-weight: 500;
   }
+`;
+
+export const HR = styled.hr`
+  height: 1px;
+  margin-top: 34px;
+  background-color: ${({ theme }) => theme.color.gray_color3};
 `;
 
 export const QuestionTitle = styled.div`
@@ -95,7 +97,6 @@ export const arrowDiv = styled.div`
 export const puzzleImg = styled.img`
   width: 100%;
   height: 100%;
-  margin-top: 190px;
 `;
 
 export const FooterDiv = styled.div`

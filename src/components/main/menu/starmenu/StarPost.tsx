@@ -5,8 +5,9 @@ import OFFHeartBtn from '../../../../assets/img/common/offHeart.svg';
 import BookRead from '../../../../assets/img/common/normalPostIcon.svg';
 import Question from '../../../../assets/img/common/questionPostIcon.svg';
 import { IFeedResponse } from '../../../../models/feeds/response';
+import { IFeedProps } from '../../../../utils/interface/Post';
 
-const StarPost: React.FC<{ item: IFeedResponse }> = ({ item }) => {
+const StarPost: React.FC<{ item: IFeedProps }> = ({ item }) => {
   return (
     <>
       <S.StarPost>
@@ -15,9 +16,9 @@ const StarPost: React.FC<{ item: IFeedResponse }> = ({ item }) => {
             <S.PostIcon src={Question} alt="" />
             <S.PostUser>{item.author_name}님의 게시물</S.PostUser>
           </S.UserDiv>
-          <S.PostField>{/* 백엔드가 추가 할 때까지 기다리기 */}</S.PostField>
+          <S.PostField>Design</S.PostField>
         </S.PostHead>
-        <S.PostText>{/*백엔드가 추가 할 때까지 기다리기 */}</S.PostText>
+        <S.PostText>오늘의 할 일 멋지게 자기 내일의 할 일 모이자 들어가기</S.PostText>
         <S.PostFooter>
           <S.HeartDiv>
             <img src={OFFHeartBtn} alt="Heart" />

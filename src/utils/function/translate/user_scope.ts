@@ -1,14 +1,16 @@
-import {TUser} from "../../../models/common";
+import { TUser } from '../../../models/common';
 
-export const translateUserScope = (user_scope : TUser) => {
-    switch (user_scope) {
-        case "STUDENT":
-            return "재학생"
-        case "GRADUATE":
-            return "졸업생"
-        case "ADMIN":
-            return "관리자"
-        default:
-            return ""
-    }
-}
+export const translateUserScope = (user_scope: TUser) => {
+  switch (user_scope) {
+    case 'STUDENT':
+      return '재학생';
+    case 'GRADUATE':
+      return '졸업생';
+    case 'ADMIN':
+      return '관리자';
+    case 'USER':
+      return '일반인';
+    default:
+      return '';
+  }
+};

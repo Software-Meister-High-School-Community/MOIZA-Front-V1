@@ -57,13 +57,11 @@ export const UserType = styled(Name)`
 `;
 export const Details = styled.div`
   margin-left: auto;
+  width: 268px;
 `;
 export const Top = styled.div`
   display: flex;
   > p {
-    width: 90px;
-    margin-right: 57px;
-
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -81,14 +79,11 @@ export const Bottom = styled.div`
   > div {
     display: flex;
     align-items: center;
-    width: 90px;
-    margin-right: 57px;
-
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 21px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
     > p {
       font-size: 18px;
@@ -105,6 +100,7 @@ export const Bottom = styled.div`
 export const Button = styled.button`
   width: 110px;
   height: 40px;
+  margin-left: auto;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 10px 12px;

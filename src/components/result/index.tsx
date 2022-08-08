@@ -6,39 +6,53 @@ import UserResult from './userResult';
 import useResult from '../../hooks/result/useResult';
 import RadioButton from '../common/select/radioButton';
 import { departmentOptions, sortOptions } from '../common/select/dropdown/options';
-const Result: React.FC = () => {
+import { IUserSearchResponse } from '../../models/users/response';
+import { IGetSearchFeedResponse } from '../../models/feeds/response';
+import Pageination from '../common/pagenation';
+
+const Result = () => {
   const {
     selectedRadio,
-    setSelectedRadio,
-    departmentOption,
-    setdepartmentOption,
+    onChangeRadioValue,
+    categoryOption,
     sortOption,
-    setSortOption,
     radios,
+    onChangeCategoryOption,
+    onChangeSortOption,
+    userResults,
+    feedResults,
+    page,
+    onChangePage,
+    searchKeyword,
   } = useResult();
   return (
     <>
       <S.Container>
-        <S.RadioBtnBox>
+        <S.SearchResult>
+          <p className="keyword">{searchKeyword}</p>에 대한 검색결과는 총&nbsp;
+          <p className="totalCount">{feedResults.total_page + userResults.user_list.length}</p>건
+          입니다.
+        </S.SearchResult>
+        <UserResult userResult={userResults as IUserSearchResponse} />
+        <S.Options>
           <RadioButton
             radioArray={radios}
             name="result"
             selected={selectedRadio}
-            setSelected={setSelectedRadio}
+            setSelected={onChangeRadioValue}
           />
-        </S.RadioBtnBox>
-
-        <S.DropdownBox>
-          <Dropdown
-            options={departmentOptions}
-            value={departmentOption}
-            onChangeValue={setdepartmentOption}
-          />
-          <Dropdown options={sortOptions} value={sortOption} onChangeValue={setSortOption} />
-        </S.DropdownBox>
+          <S.DropdownBox>
+            <Dropdown
+              options={departmentOptions}
+              value={categoryOption}
+              onChangeValue={onChangeCategoryOption}
+            />
+            <Dropdown options={sortOptions} value={sortOption} onChangeValue={onChangeSortOption} />
+          </S.DropdownBox>
+        </S.Options>
+        <PostResult feedResults={feedResults as IGetSearchFeedResponse} />
+        <Pageination total={10} limit={5} page={page} setPage={onChangePage} />
       </S.Container>
-      <UserResult />
-      <PostResult />
     </>
   );
 };
