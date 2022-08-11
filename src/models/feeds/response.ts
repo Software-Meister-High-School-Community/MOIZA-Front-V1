@@ -41,6 +41,28 @@ export interface CommentInterface {
   }>;
 }
 
+export interface ChildCommentsInterface {
+  child_comments: Array<{
+    id: number;
+    parent_comment_id: number;
+    author: AuthorInterface;
+    is_mine: boolean;
+    image_urls: string[];
+    created_at: string;
+    content: string;
+  }>;
+}
+
+export interface ChildCommentsFormInterface {
+  id: number;
+  parent_comment_id: number;
+  author: AuthorInterface;
+  is_mine: boolean;
+  image_urls: string[];
+  created_at: string;
+  content: string;
+}
+
 export interface IGetSuggestionFeedListResponse {
   feed_list: Array<{
     id: number;
