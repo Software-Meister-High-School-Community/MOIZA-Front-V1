@@ -1,13 +1,11 @@
 import { TCategory, TFeed, TSchool, TUser } from '../common';
 
 interface AuthorInterface {
-  author: {
-    id: number;
-    profile_image_url: string;
-    name: string;
-    school_name: TSchool;
-    type: TUser;
-  };
+  id: number;
+  profile_image_url: string;
+  name: string;
+  school_name: TSchool;
+  type: TUser;
 }
 
 export interface IFeedResponse {

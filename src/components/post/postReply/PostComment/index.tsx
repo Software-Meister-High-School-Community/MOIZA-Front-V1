@@ -41,12 +41,12 @@ const PostComment: React.FC<CommentInterface> = ({
           <S.PostReplyCommentProfileImg />
           <S.PostReplyCommentWriterWrap>
             <span>
-              <strong>{author.author.name}</strong>
+              <strong>{author.name}</strong>
             </span>
             <S.PostReplyCommentBreakPoint />
-            <span>{author.author.school_name}</span>
+            <span>{author.school_name}</span>
             <S.PostReplyCommentBreakPoint />
-            <span>{author.author.type}</span>
+            <span>{author.type}</span>
             {writerState ? (
               <S.WriterProof>
                 <p>작성자</p>

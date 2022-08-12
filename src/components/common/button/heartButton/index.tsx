@@ -15,11 +15,9 @@ export const HeartButton: React.FC<Props> = ({ feedId }) => {
     if (liked === false) {
       setLiked(true);
       Like(feedId);
-      console.log('like');
     } else {
       setLiked(false);
       DeleteLike(feedId);
-      console.log('Not like');
     }
   };
   return <PostHeart src={liked ? onHeart : offHeart} alt="" onClick={onClickHeart} />;

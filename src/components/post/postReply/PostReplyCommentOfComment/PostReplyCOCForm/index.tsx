@@ -24,12 +24,12 @@ const PostReplyCOCForm: React.FC<ChildCommentsFormInterface> = ({
       <S.PostReplyCOCFormHeaderWrap>
         <S.PostReplyCOCFormHeaderText>
           <span>
-            <strong>{author.author.name}</strong>
+            <strong>{author.name}</strong>
           </span>
           <S.PostReplyCOCFormBreakPoint />
-          <span>{author.author.school_name}</span>
+          <span>{author.school_name}</span>
           <S.PostReplyCOCFormBreakPoint />
-          <span>{author.author.type}</span>
+          <span>{author.type}</span>
         </S.PostReplyCOCFormHeaderText>
         <S.miniWrap>
           <S.PostReplyCOCFormHeaderDate>{created_at}</S.PostReplyCOCFormHeaderDate>

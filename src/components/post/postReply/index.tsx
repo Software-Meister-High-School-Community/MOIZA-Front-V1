@@ -54,15 +54,15 @@ const PostReply: React.FC = () => {
                       <S.PostReplyProfileCircle />
                       <S.PostReplyWriterInfoTextWrap>
                         <S.PostReplyWriterInfoText>
-                          <strong>{postData.author.author.name}</strong>
+                          <strong>{postData.author.name}</strong>
                         </S.PostReplyWriterInfoText>
                         <S.PostReplyWriterBreakPoint />
                         <S.PostReplyWriterInfoText>
-                          {postData.author.author.school_name}
+                          {postData.author.school_name}
                         </S.PostReplyWriterInfoText>
                         <S.PostReplyWriterBreakPoint />
                         <S.PostReplyWriterInfoText>
-                          {postData.author.author.type}
+                          {postData.author.type}
                         </S.PostReplyWriterInfoText>
                       </S.PostReplyWriterInfoTextWrap>
                       <S.PostReplyDateInfoWrap>
