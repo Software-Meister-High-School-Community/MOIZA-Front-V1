@@ -117,7 +117,7 @@ export const getFeedList = async (
   }
 };
 
-export const Like = async (feed_id: number) => {
+export const like = async (feed_id: number) => {
   try {
     await instance.post(`/feeds/${feed_id}/like`);
   } catch (err) {
@@ -125,7 +125,7 @@ export const Like = async (feed_id: number) => {
   }
 };
 
-export const DeleteLike = async (feed_id: number) => {
+export const deleteLike = async (feed_id: number) => {
   try {
     await instance.delete(`/feeds/${feed_id}/like`);
   } catch (err) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import onHeart from '../../../../assets/img/common/onHeart.svg';
 import offHeart from '../../../../assets/img/common/offHeart.svg';
 import styled from 'styled-components';
-import { Like, DeleteLike } from '../../../../utils/api/feeds/index';
+import { like, deleteLike } from '../../../../utils/api/feeds/index';
 
 interface Props {
   feedId: number;
@@ -14,10 +14,10 @@ export const HeartButton: React.FC<Props> = ({ feedId }) => {
   const onClickHeart = () => {
     if (liked === false) {
       setLiked(true);
-      Like(feedId);
+      like(feedId);
     } else {
       setLiked(false);
-      DeleteLike(feedId);
+      deleteLike(feedId);
     }
   };
   return <PostHeart src={liked ? onHeart : offHeart} alt="" onClick={onClickHeart} />;
