@@ -11,6 +11,7 @@ const CommunityCategoryPage = () => {
   const { categoryType } = useParams();
   const { moveTo404Page } = useException();
   const type = categoryType as TCategory;
+
   useEffect(() => {
     if (!categoryIdList.includes(type)) moveTo404Page();
   }, [categoryType, type]);

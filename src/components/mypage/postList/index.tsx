@@ -5,7 +5,7 @@ import { mypageOptionArray } from '../constant';
 import Dropdown from '../../common/select/dropdown/index';
 import { departmentOptions, sortOptions } from '../../common/select/dropdown/options';
 import { IGetFeedListResponse } from '../../../models/feeds/response';
-import { getFeedList } from '../../../utils/api/feeds';
+import { getMyFeedList } from '../../../utils/api/feeds';
 import PostForm from '../../common/form/postForm';
 import { TCategory, TFeed, TSort } from '../../../models/common';
 
@@ -15,11 +15,12 @@ interface PropsType {
   name?: string;
 }
 
-const PostList: React.FC<PropsType> = ({ page, userId, name }) => {
+const PostList: React.FC<PropsType> = ({ page, name }) => {
   const [selectedOption, setSelectedOption] = useState<TFeed>('ALL');
   const [field, setField] = useState(departmentOptions[0].value);
   const [sort, setSort] = useState(sortOptions[0].value);
   const [feedList, setFeedList] = useState<IGetFeedListResponse>();
+
   const onChangeFeedType = (feed: string) => {
     const feedValue = feed as TFeed;
     setSelectedOption(feedValue);
@@ -32,9 +33,11 @@ const PostList: React.FC<PropsType> = ({ page, userId, name }) => {
     const sortValue = sort as TSort;
     setSort(sortValue);
   };
+
   useEffect(() => {
-    getFeedList(userId, field, selectedOption, sort, page).then(res => setFeedList(res));
+    getMyFeedList(field, selectedOption, sort, page).then(res => setFeedList(res));
   }, [field, selectedOption, sort, page]);
+
   const profileTitle = useMemo(() => {
     if (name === undefined) return '나';
     return (

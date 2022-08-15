@@ -1,4 +1,4 @@
-import useNestedComment from '../../../../hooks/post/comment/useComment';
+import useNestedComment from '../../../../hooks/post/useComment';
 import Index from '../../../common/button/submitButton';
 import * as S from './style';
 import x from '../../../../assets/img/common/X.svg';

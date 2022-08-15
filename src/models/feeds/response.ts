@@ -1,13 +1,11 @@
 import { TCategory, TFeed, TSchool, TUser } from '../common';
 
 interface AuthorInterface {
-  author: {
-    id: number;
-    profile_image_url: string;
-    name: string;
-    school_name: TSchool;
-    type: TUser;
-  };
+  id: number;
+  profile_image_url: string;
+  name: string;
+  school_name: TSchool;
+  type: TUser;
 }
 
 export interface IFeedResponse {
@@ -22,7 +20,7 @@ export interface IFeedResponse {
   comment_count: number;
 }
 
-interface CommentInterface {
+export interface CommentInterface {
   id: number;
   author: AuthorInterface;
   is_mine: boolean;
@@ -39,6 +37,28 @@ interface CommentInterface {
     created_at: string;
     content: string;
   }>;
+}
+
+export interface ChildCommentsInterface {
+  child_comments: Array<{
+    id: number;
+    parent_comment_id: number;
+    author: AuthorInterface;
+    is_mine: boolean;
+    image_urls: string[];
+    created_at: string;
+    content: string;
+  }>;
+}
+
+export interface ChildCommentsFormInterface {
+  id: number;
+  parent_comment_id: number;
+  author: AuthorInterface;
+  is_mine: boolean;
+  image_urls: string[];
+  created_at: string;
+  content: string;
 }
 
 export interface IGetSuggestionFeedListResponse {

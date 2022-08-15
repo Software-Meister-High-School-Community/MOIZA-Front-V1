@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   .pagenation {
     margin-top: 130px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -67,8 +68,10 @@ export const WriteBtn = styled.div`
   position: fixed;
   width: 65px;
   height: 65px;
+  margin-right: 10px;
   border-radius: 35px;
   background-color: ${({ theme }) => theme.color.main_yellow_color};
   right: 10px;
   top: 50%;
+  cursor: pointer;
 `;
