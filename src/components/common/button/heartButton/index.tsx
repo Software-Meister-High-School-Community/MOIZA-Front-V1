@@ -12,7 +12,7 @@ export const HeartButton: React.FC<Props> = ({ feedId }) => {
   const [liked, setLiked] = useState<boolean>(false);
 
   const onClickHeart = () => {
-    if (liked === false) {
+    if (!liked) {
       setLiked(true);
       like(feedId);
     } else {

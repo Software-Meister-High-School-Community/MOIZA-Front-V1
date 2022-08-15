@@ -67,17 +67,6 @@ const useComment = () => {
 
   const onSubmitNestedReply = (reply: ICommnet) => {
     setCurrentShowCOC(prev => [...prev, reply]);
-
-    setMakeCommentData({
-      id: 0,
-      name: '멩쓴쥬',
-      studentState: '재학생',
-      profileImg: 'asdas',
-      school: '미림마이스터고',
-      createDate: '2202 02 28',
-      text: '',
-      picture: [],
-    });
   };
 
   return {

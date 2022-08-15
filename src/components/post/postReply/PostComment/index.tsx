@@ -82,7 +82,7 @@ const PostComment: React.FC<CommentInterface> = ({
       </S.PostReplyCommentBox>
       {!fold && (
         <>
-          return <PostReplyCommentOfComment child_comments={child_comments} />;
+          <PostReplyCommentOfComment child_comments={child_comments} />;
           <S.PostReplyCommentLine />
         </>
       )}
