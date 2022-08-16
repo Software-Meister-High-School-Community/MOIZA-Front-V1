@@ -15,21 +15,84 @@ import SeeMoreModal from '../../common/seeMoreModal';
 import HeartButton from '../../common/button/heartButton/index';
 import { IGetFeedDetailResponse } from '../../../models/feeds/response';
 import { getFeedDetail } from '../../../utils/api/feeds';
+import { TFeed, TCategory, TSchool, TUser } from '../../../models/common';
 
 const PostReply: React.FC = () => {
   const [postData, setPostData] = useState<IGetFeedDetailResponse>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isMake, setMake] = useState(false);
   const [seeMoreModalStatus, setSeeMoreModalStatus] = useState<boolean>(false);
+
+  // exampledata를 위한 useState
+  const [school, setSchool] = useState<TSchool>('DSM');
+  const [user, setUser] = useState<TUser>('STUDENT');
+  const [category, setCategory] = useState<TCategory>('FRONT-END');
+  const [feed, setFeed] = useState<TFeed>('ALL');
 
   const { feedId } = useParams();
   const Id = Number(feedId);
 
+  const exampleData = {
+    author: {
+      id: 1,
+      profile_image_url: 'asdasd',
+      name: '이정윤',
+      school_name: school,
+      type: user,
+    },
+    title: '이거 이렇게 하는게 맞나요?',
+    content: '가르쳐주세요 ㅠㅠ',
+    image_urls: ['a'],
+    created_at: '22/08/15 8:30',
+    feed_type: feed,
+    category: category,
+    is_mine: true,
+    is_updated: false,
+    like_count: 70,
+    view_count: 10,
+    comments: [
+      {
+        id: 1,
+        author: {
+          id: 1,
+          profile_image_url: 'ads',
+          name: '강석현',
+          school_name: school,
+          type: user,
+        },
+        is_mine: false,
+        is_pinned: true,
+        created_at: '22/08/17 8:00',
+        content: '그것은 이렇게 하는거에요...',
+        image_urls: ['a'],
+        child_comments: [
+          {
+            id: 1,
+            parent_comment_id: 1,
+            author: {
+              id: 3,
+              profile_image_url: 'aaa',
+              name: '이준서',
+              school_name: school,
+              type: user,
+            },
+            is_mine: false,
+            image_urls: ['s'],
+            created_at: '22/08/17 8:10',
+            content: '그거 그렇게 하는거 아닌데...',
+          },
+        ],
+      },
+    ],
+  };
+
   useEffect(() => {
+    setPostData(exampleData);
+    /*
     getFeedDetail(Id)
       .then(res => setPostData(res))
       .catch();
-    setIsLoading(false);
+    setIsLoading(false);*/
   }, [setPostData, setIsLoading, feedId]);
 
   const closeModal = () => {
